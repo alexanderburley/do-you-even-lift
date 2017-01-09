@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CE42B8D1E23FBA200708591 /* UsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE42B8C1E23FBA200708591 /* UsersTableViewController.m */; };
 		5CFA20C71E21569100B296C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFA20C61E21569100B296C6 /* main.m */; };
 		5CFA20CA1E21569100B296C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFA20C91E21569100B296C6 /* AppDelegate.m */; };
 		5CFA20CD1E21569100B296C6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFA20CC1E21569100B296C6 /* ViewController.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5CE42B8B1E23FBA200708591 /* UsersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersTableViewController.h; sourceTree = "<group>"; };
+		5CE42B8C1E23FBA200708591 /* UsersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersTableViewController.m; sourceTree = "<group>"; };
 		5CFA20C21E21569100B296C6 /* do-you-even-lift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "do-you-even-lift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CFA20C61E21569100B296C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5CFA20C81E21569100B296C6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				5CFA20C81E21569100B296C6 /* AppDelegate.h */,
 				5CFA20C91E21569100B296C6 /* AppDelegate.m */,
 				5CFA20CB1E21569100B296C6 /* ViewController.h */,
+				5CE42B8B1E23FBA200708591 /* UsersTableViewController.h */,
+				5CE42B8C1E23FBA200708591 /* UsersTableViewController.m */,
 				5CFA20CC1E21569100B296C6 /* ViewController.m */,
 				5CFA20CE1E21569200B296C6 /* Main.storyboard */,
 				5CFA20D41E21569200B296C6 /* Assets.xcassets */,
@@ -298,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CFA20CD1E21569100B296C6 /* ViewController.m in Sources */,
+				5CE42B8D1E23FBA200708591 /* UsersTableViewController.m in Sources */,
 				5CFA20CA1E21569100B296C6 /* AppDelegate.m in Sources */,
 				5CFA20C71E21569100B296C6 /* main.m in Sources */,
 				5CFA20D31E21569200B296C6 /* do_you_even_lift.xcdatamodeld in Sources */,
@@ -526,6 +532,7 @@
 				5CFA20F41E21569300B296C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5CFA20F51E21569300B296C6 /* Build configuration list for PBXNativeTarget "do-you-even-liftTests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +541,7 @@
 				5CFA20F71E21569300B296C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5CFA20F81E21569300B296C6 /* Build configuration list for PBXNativeTarget "do-you-even-liftUITests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +550,7 @@
 				5CFA20FA1E21569300B296C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

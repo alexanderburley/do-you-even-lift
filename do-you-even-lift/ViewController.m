@@ -8,10 +8,11 @@
 
 #import "ViewController.h"
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 //Test Commit
 
-@interface ViewController ()
+@interface ViewController () <FBSDKLoginButtonDelegate>
 
 @end
 
@@ -22,13 +23,40 @@
     
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.center = self.view.center;
+    loginButton.readPermissions = @[@"public_profile"];
+    [loginButton setDelegate:self];
     [self.view addSubview:loginButton];
+    
+    usersButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    usersButton.backgroundColor = [UIColor redColor];
+    [usersButton addTarget:self action:NSSelectorFromString(@"usersButtonPressed") forControlEvents:UIControlEventTouchUpInside];
+    [usersButton setTitle:@"Users" forState:UIControlStateNormal];
+    usersButton.frame = CGRectMake(self.view.frame.size.width*0.4, self.view.frame.size.height*0.2, self.view.frame.size.width*0.20, self.view.frame.size.height*0.10);
+   
+    
+    if ([FBSDKAccessToken currentAccessToken]){
+        [self.view addSubview:usersButton];
+    }
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
+    [usersButton removeFromSuperview];
+}
+
+-(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error{
+    [self.view addSubview:usersButton];
+}
+
+-(void)usersButtonPressed{
+    [self performSegueWithIdentifier:@"showUsers" sender:self];
+    
 }
 
 @end
