@@ -6,7 +6,11 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="user_id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="WorkoutPlan" syncable="YES">
+        <attribute name="plan_name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="User" positionX="-54" positionY="-9" width="128" height="105"/>
+        <element name="WorkoutPlan" positionX="-36" positionY="45" width="128" height="60"/>
     </elements>
 </model>
