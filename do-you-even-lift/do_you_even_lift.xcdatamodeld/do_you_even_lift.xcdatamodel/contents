@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1021" minimumToolsVersion="Automatic">
+    <entity name="CompletedWorkouts" syncable="YES">
+        <attribute name="date_completed" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="steps" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="time_taken" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="Exercise" syncable="YES">
+        <attribute name="exercise_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="muscle_group" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pb" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersonalBest" syncable="YES"/>
+        <relationship name="workout_exercise" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WorkoutPlanExercise" inverseName="exercise" inverseEntity="WorkoutPlanExercise" syncable="YES"/>
+    </entity>
+    <entity name="PersonalBest" syncable="YES">
+        <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="User" syncable="YES">
         <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="last_login" optional="YES" attributeType="Date" syncable="YES"/>
@@ -8,9 +22,21 @@
     </entity>
     <entity name="WorkoutPlan" syncable="YES">
         <attribute name="plan_name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="completed_workouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CompletedWorkouts" syncable="YES"/>
+        <relationship name="workout_exercise" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WorkoutPlanExercise" inverseName="workout_plan" inverseEntity="WorkoutPlanExercise" syncable="YES"/>
+    </entity>
+    <entity name="WorkoutPlanExercise" syncable="YES">
+        <attribute name="reps" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sets" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="workout_exercise" inverseEntity="Exercise" syncable="YES"/>
+        <relationship name="workout_plan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkoutPlan" inverseName="workout_exercise" inverseEntity="WorkoutPlan" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="-54" positionY="-9" width="128" height="105"/>
-        <element name="WorkoutPlan" positionX="-36" positionY="45" width="128" height="60"/>
+        <element name="Exercise" positionX="-137" positionY="234" width="128" height="103"/>
+        <element name="User" positionX="-38" positionY="75" width="128" height="105"/>
+        <element name="WorkoutPlan" positionX="331" positionY="189" width="128" height="88"/>
+        <element name="WorkoutPlanExercise" positionX="106" positionY="329" width="128" height="103"/>
+        <element name="CompletedWorkouts" positionX="144" positionY="47" width="128" height="88"/>
+        <element name="PersonalBest" positionX="-117" positionY="441" width="128" height="58"/>
     </elements>
 </model>
