@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-@interface WorkoutPlansViewController : UITableViewController
+
+@interface WorkoutPlansViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addWorkoutPlan;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 - (IBAction)addWorkoutPlan:(id)sender;
 
