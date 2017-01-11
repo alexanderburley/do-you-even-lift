@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-@interface StartWorkoutViewController : UIViewController <UITableViewDataSource,UITableViewDelegate> {
+@interface StartWorkoutViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate> {
     
     UIButton *startButton;
     UILabel *label;
@@ -18,4 +19,5 @@
 
 @property (nonatomic, assign)BOOL isStart;
 
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @end
