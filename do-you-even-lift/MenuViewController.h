@@ -13,6 +13,7 @@
     UIButton *usersButton;
     UIButton *startWorkoutButton;
     UIButton *workoutsButton;
+    UIButton *workoutPlansButton;
 }
 
 

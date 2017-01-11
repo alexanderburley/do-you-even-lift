@@ -6,13 +6,17 @@
 //  Copyright © 2017 Alex Burley. All rights reserved.
 //
 
-#import "WorkoutsViewController.h"
+#import "WorkoutPlansViewController.h"
+#import "AppDelegate.h"
 
-@interface WorkoutsViewController ()
+@interface WorkoutPlansViewController ()
 
 @end
 
-@implementation WorkoutsViewController
+@implementation WorkoutPlansViewController {
+    
+    NSArray *_workouts;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +26,22 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.title = @"Workout Plans";
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    
+    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = app.managedObjectContext;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"WorkoutPlan" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    _workouts= [context executeFetchRequest:fetchRequest error:&error];
+    if (_workouts == nil){
+        NSLog(@"Error retrieving entity, %@", [error localizedDescription]);
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,27 +49,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)addWorkoutPlan:(id)sender {
+    
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [_workouts count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
+    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    id workout = _workouts[indexPath.row];
+    cell.textLabel.text = [workout valueForKey:@"name"];
     // Configure the cell...
     
     return cell;
 }
-*/
+
+
+
 
 /*
 // Override to support conditional editing of the table view.

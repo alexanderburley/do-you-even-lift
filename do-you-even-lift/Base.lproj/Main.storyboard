@@ -22,17 +22,17 @@
                     <connections>
                         <segue destination="ngu-aX-pPv" kind="show" identifier="showUsers" id="aIr-mu-x2z"/>
                         <segue destination="afT-B3-oGK" kind="show" identifier="startWorkout" id="A9l-Ue-FfZ"/>
-                        <segue destination="K7F-wW-QlV" kind="show" identifier="workouts" id="H4a-0x-wvq"/>
+                        <segue destination="K7F-wW-QlV" kind="show" identifier="workoutPlans" id="H4a-0x-wvq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="735" y="423.75"/>
         </scene>
-        <!--Workouts View Controller-->
+        <!--Workout Plans-->
         <scene sceneID="ycc-fw-gjF">
             <objects>
-                <tableViewController id="K7F-wW-QlV" customClass="WorkoutsViewController" sceneMemberID="viewController">
+                <tableViewController id="K7F-wW-QlV" customClass="WorkoutPlansViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qxd-Xs-cob">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,11 +45,21 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="K7F-wW-QlV" id="kcv-6W-QJN"/>
+                            <outlet property="dataSource" destination="K7F-wW-QlV" id="qz1-nB-dHK"/>
                             <outlet property="delegate" destination="K7F-wW-QlV" id="ueY-4K-N2t"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Workout Plans" id="BgZ-r1-IGt">
+                        <barButtonItem key="rightBarButtonItem" title="New Plan" id="B4u-CR-7JX">
+                            <connections>
+                                <action selector="addWorkoutPlan:" destination="K7F-wW-QlV" id="uID-HT-1B0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addWorkoutPlan" destination="B4u-CR-7JX" id="Zim-wJ-g2e"/>
                         <segue destination="M2a-iX-05t" kind="presentation" id="RUM-3t-kbE"/>
                     </connections>
                 </tableViewController>

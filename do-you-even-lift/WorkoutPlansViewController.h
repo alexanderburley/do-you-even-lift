@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WorkoutsViewController : UITableViewController
+@interface WorkoutPlansViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addWorkoutPlan;
+
+- (IBAction)addWorkoutPlan:(id)sender;
 
 @end

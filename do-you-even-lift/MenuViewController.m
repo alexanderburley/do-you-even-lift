@@ -56,11 +56,11 @@
     startWorkoutButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.2, self.view.frame.size.width*0.6, self.view.frame.size.height*0.10);
     [self.view addSubview:startWorkoutButton];
     
-    workoutsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [workoutsButton addTarget:self action:NSSelectorFromString(@"workoutsButtonPressed") forControlEvents:UIControlEventTouchUpInside];
-    [workoutsButton setTitle:@"Workout Plans" forState:UIControlStateNormal];
-    workoutsButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.3, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
-    [self.view addSubview:workoutsButton];
+    workoutPlansButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [workoutPlansButton addTarget:self action:NSSelectorFromString(@"workoutPlansButtonPressed") forControlEvents:UIControlEventTouchUpInside];
+    [workoutPlansButton setTitle:@"Workout Plans" forState:UIControlStateNormal];
+    workoutPlansButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.3, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
+    [self.view addSubview:workoutPlansButton];
     
     
     
@@ -105,6 +105,10 @@
 
 -(void)workoutsButtonPressed{
     [self performSegueWithIdentifier:@"workouts" sender:self];
+}
+
+-(void)workoutPlansButtonPressed{
+    [self performSegueWithIdentifier:@"workoutPlans" sender:self];
 }
 
 -(void)finishLogin{
