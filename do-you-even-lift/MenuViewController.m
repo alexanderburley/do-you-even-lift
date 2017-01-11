@@ -54,13 +54,13 @@
     [startWorkoutButton addTarget:self action:NSSelectorFromString(@"startWorkoutButtonPressed") forControlEvents:UIControlEventTouchUpInside];
     [startWorkoutButton setTitle:@"Start Workout" forState:UIControlStateNormal];
     startWorkoutButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.2, self.view.frame.size.width*0.6, self.view.frame.size.height*0.10);
-    [self.view addSubview:startWorkoutButton];
+    //[self.view addSubview:startWorkoutButton];
     
     workoutPlansButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [workoutPlansButton addTarget:self action:NSSelectorFromString(@"workoutPlansButtonPressed") forControlEvents:UIControlEventTouchUpInside];
     [workoutPlansButton setTitle:@"Workout Plans" forState:UIControlStateNormal];
     workoutPlansButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.3, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
-    [self.view addSubview:workoutPlansButton];
+    //[self.view addSubview:workoutPlansButton];
     
     
     
@@ -82,6 +82,8 @@
 
 -(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
     [usersButton removeFromSuperview];
+    [startWorkoutButton removeFromSuperview];
+    [workoutPlansButton removeFromSuperview];
     _userID = nil;
     _userName = nil;
 }
@@ -115,6 +117,8 @@
     
     //If a user is logged in we want to give them access to the view users
     [self.view addSubview:usersButton];
+    [self.view addSubview:startWorkoutButton];
+    [self.view addSubview:workoutPlansButton];
     
     //Access the user identification number and set the instance variable
     NSLog(@"User ID: %@", [FBSDKAccessToken currentAccessToken].userID);
