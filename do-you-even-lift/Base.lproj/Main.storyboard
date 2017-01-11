@@ -23,11 +23,12 @@
                         <segue destination="ngu-aX-pPv" kind="show" identifier="showUsers" id="aIr-mu-x2z"/>
                         <segue destination="afT-B3-oGK" kind="show" identifier="startWorkout" id="A9l-Ue-FfZ"/>
                         <segue destination="K7F-wW-QlV" kind="show" identifier="workoutPlans" id="H4a-0x-wvq"/>
+                        <segue destination="M9u-bc-Hlm" kind="show" identifier="exercises" id="ESN-Ey-3H6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="735" y="423.75"/>
+            <point key="canvasLocation" x="735" y="417"/>
         </scene>
         <!--Workout Plans-->
         <scene sceneID="ycc-fw-gjF">
@@ -104,7 +105,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bo-5S-2kC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1627" y="423.75"/>
+            <point key="canvasLocation" x="1947" y="363"/>
+        </scene>
+        <!--Exercises-->
+        <scene sceneID="ZT9-AE-0Ra">
+            <objects>
+                <tableViewController id="M9u-bc-Hlm" customClass="ExercisesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pfu-yY-gTJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ght-gd-VNr">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ght-gd-VNr" id="Nc0-Ea-vqn">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="M9u-bc-Hlm" id="h5O-I3-uBh"/>
+                            <outlet property="delegate" destination="M9u-bc-Hlm" id="p4Y-DB-CQa"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Exercises" id="qkM-ba-Fre">
+                        <barButtonItem key="rightBarButtonItem" title="New Exercise" id="dEw-1N-jHH">
+                            <connections>
+                                <action selector="addExercise:" destination="M9u-bc-Hlm" id="K9I-vq-XKn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vvG-n6-IiC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1361" y="-590"/>
         </scene>
         <!--Users Table View Controller-->
         <scene sceneID="guI-7g-lA1">
@@ -132,7 +168,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIT-U0-s2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1456" y="-335.25"/>
+            <point key="canvasLocation" x="1960" y="-504"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DGZ-IY-Viz">

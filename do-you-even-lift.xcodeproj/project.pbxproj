@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C1559861E26D4D3005790C4 /* ExercisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1559851E26D4D3005790C4 /* ExercisesTableViewController.m */; };
 		5C3FADCF1E269A7E0088D5C4 /* WorkoutPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3FADCE1E269A7E0088D5C4 /* WorkoutPlansViewController.m */; };
 		5C3FADD21E269A9E0088D5C4 /* StartWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3FADD11E269A9E0088D5C4 /* StartWorkoutViewController.m */; };
 		5CE42B8D1E23FBA200708591 /* UsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE42B8C1E23FBA200708591 /* UsersTableViewController.m */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C1559841E26D4D3005790C4 /* ExercisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisesTableViewController.h; sourceTree = "<group>"; };
+		5C1559851E26D4D3005790C4 /* ExercisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisesTableViewController.m; sourceTree = "<group>"; };
 		5C3FADCD1E269A7E0088D5C4 /* WorkoutPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutPlansViewController.h; sourceTree = "<group>"; };
 		5C3FADCE1E269A7E0088D5C4 /* WorkoutPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutPlansViewController.m; sourceTree = "<group>"; };
 		5C3FADD01E269A9E0088D5C4 /* StartWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartWorkoutViewController.h; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 			children = (
 				5CFA20C81E21569100B296C6 /* AppDelegate.h */,
 				5CFA20C91E21569100B296C6 /* AppDelegate.m */,
+				5C1559841E26D4D3005790C4 /* ExercisesTableViewController.h */,
+				5C1559851E26D4D3005790C4 /* ExercisesTableViewController.m */,
 				5CFA20CB1E21569100B296C6 /* MenuViewController.h */,
 				5CFA20CC1E21569100B296C6 /* MenuViewController.m */,
 				5C3FADCD1E269A7E0088D5C4 /* WorkoutPlansViewController.h */,
@@ -315,6 +320,7 @@
 				5CFA20CD1E21569100B296C6 /* MenuViewController.m in Sources */,
 				5CE42B8D1E23FBA200708591 /* UsersTableViewController.m in Sources */,
 				5C3FADCF1E269A7E0088D5C4 /* WorkoutPlansViewController.m in Sources */,
+				5C1559861E26D4D3005790C4 /* ExercisesTableViewController.m in Sources */,
 				5C3FADD21E269A9E0088D5C4 /* StartWorkoutViewController.m in Sources */,
 				5CFA20CA1E21569100B296C6 /* AppDelegate.m in Sources */,
 				5CFA20C71E21569100B296C6 /* main.m in Sources */,

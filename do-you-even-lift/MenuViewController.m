@@ -36,19 +36,10 @@
     [super viewDidLoad];
     
     //Facebook login button
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.center = self.view.center;
-    loginButton.readPermissions = @[@"public_profile"];
-    [loginButton setDelegate:self];
-    [self.view addSubview:loginButton];
+    
     
     //Set up custom users button for testing purposes
     //MEMORY ALLOCATION?
-    usersButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    usersButton.backgroundColor = [UIColor redColor];
-    [usersButton addTarget:self action:NSSelectorFromString(@"usersButtonPressed") forControlEvents:UIControlEventTouchUpInside];
-    [usersButton setTitle:@"Users" forState:UIControlStateNormal];
-    usersButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.1, self.view.frame.size.width*0.6, self.view.frame.size.height*0.10);
     
     startWorkoutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [startWorkoutButton addTarget:self action:NSSelectorFromString(@"startWorkoutButtonPressed") forControlEvents:UIControlEventTouchUpInside];
@@ -56,13 +47,22 @@
     startWorkoutButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.2, self.view.frame.size.width*0.6, self.view.frame.size.height*0.10);
     //[self.view addSubview:startWorkoutButton];
     
+    exercisesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [exercisesButton addTarget:self action:NSSelectorFromString(@"exercisesButtonPressed") forControlEvents:UIControlEventTouchUpInside];
+    [exercisesButton setTitle:@"Exercises" forState:UIControlStateNormal];
+    exercisesButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.3, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
+    
     workoutPlansButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [workoutPlansButton addTarget:self action:NSSelectorFromString(@"workoutPlansButtonPressed") forControlEvents:UIControlEventTouchUpInside];
     [workoutPlansButton setTitle:@"Workout Plans" forState:UIControlStateNormal];
-    workoutPlansButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.3, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
+    workoutPlansButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.4, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
     //[self.view addSubview:workoutPlansButton];
     
-    
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    loginButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.5, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
+    loginButton.readPermissions = @[@"public_profile"];
+    [loginButton setDelegate:self];
+    [self.view addSubview:loginButton];
     
     
     
@@ -81,7 +81,7 @@
 }
 
 -(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
-    [usersButton removeFromSuperview];
+    [exercisesButton removeFromSuperview];
     [startWorkoutButton removeFromSuperview];
     [workoutPlansButton removeFromSuperview];
     _userID = nil;
@@ -113,12 +113,16 @@
     [self performSegueWithIdentifier:@"workoutPlans" sender:self];
 }
 
+-(void)exercisesButtonPressed{
+    [self performSegueWithIdentifier:@"exercises" sender:self];
+}
+
 -(void)finishLogin{
     
     //If a user is logged in we want to give them access to the view users
-    [self.view addSubview:usersButton];
     [self.view addSubview:startWorkoutButton];
     [self.view addSubview:workoutPlansButton];
+    [self.view addSubview:exercisesButton];
     
     //Access the user identification number and set the instance variable
     NSLog(@"User ID: %@", [FBSDKAccessToken currentAccessToken].userID);
