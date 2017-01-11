@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController  {
+@interface MenuViewController : UIViewController  {
     
-     UIButton *usersButton;
+    UIButton *usersButton;
+    UIButton *startWorkoutButton;
+    UIButton *workoutsButton;
 }
 
 

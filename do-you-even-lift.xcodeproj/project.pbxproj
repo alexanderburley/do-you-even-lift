@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C3FADCF1E269A7E0088D5C4 /* WorkoutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3FADCE1E269A7E0088D5C4 /* WorkoutsViewController.m */; };
+		5C3FADD21E269A9E0088D5C4 /* StartWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3FADD11E269A9E0088D5C4 /* StartWorkoutViewController.m */; };
 		5CE42B8D1E23FBA200708591 /* UsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE42B8C1E23FBA200708591 /* UsersTableViewController.m */; };
 		5CFA20C71E21569100B296C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFA20C61E21569100B296C6 /* main.m */; };
 		5CFA20CA1E21569100B296C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFA20C91E21569100B296C6 /* AppDelegate.m */; };
-		5CFA20CD1E21569100B296C6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFA20CC1E21569100B296C6 /* ViewController.m */; };
+		5CFA20CD1E21569100B296C6 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFA20CC1E21569100B296C6 /* MenuViewController.m */; };
 		5CFA20D01E21569200B296C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFA20CE1E21569200B296C6 /* Main.storyboard */; };
 		5CFA20D31E21569200B296C6 /* do_you_even_lift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5CFA20D11E21569200B296C6 /* do_you_even_lift.xcdatamodeld */; };
 		5CFA20D51E21569200B296C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFA20D41E21569200B296C6 /* Assets.xcassets */; };
@@ -41,14 +43,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C3FADCD1E269A7E0088D5C4 /* WorkoutsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutsViewController.h; sourceTree = "<group>"; };
+		5C3FADCE1E269A7E0088D5C4 /* WorkoutsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutsViewController.m; sourceTree = "<group>"; };
+		5C3FADD01E269A9E0088D5C4 /* StartWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartWorkoutViewController.h; sourceTree = "<group>"; };
+		5C3FADD11E269A9E0088D5C4 /* StartWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartWorkoutViewController.m; sourceTree = "<group>"; };
 		5CE42B8B1E23FBA200708591 /* UsersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersTableViewController.h; sourceTree = "<group>"; };
 		5CE42B8C1E23FBA200708591 /* UsersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersTableViewController.m; sourceTree = "<group>"; };
 		5CFA20C21E21569100B296C6 /* do-you-even-lift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "do-you-even-lift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CFA20C61E21569100B296C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5CFA20C81E21569100B296C6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5CFA20C91E21569100B296C6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5CFA20CB1E21569100B296C6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5CFA20CC1E21569100B296C6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5CFA20CB1E21569100B296C6 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		5CFA20CC1E21569100B296C6 /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		5CFA20CF1E21569200B296C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CFA20D21E21569200B296C6 /* do_you_even_lift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = do_you_even_lift.xcdatamodel; sourceTree = "<group>"; };
 		5CFA20D41E21569200B296C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,15 +127,19 @@
 			children = (
 				5CFA20C81E21569100B296C6 /* AppDelegate.h */,
 				5CFA20C91E21569100B296C6 /* AppDelegate.m */,
-				5CFA20CB1E21569100B296C6 /* ViewController.h */,
+				5CFA20CB1E21569100B296C6 /* MenuViewController.h */,
+				5CFA20CC1E21569100B296C6 /* MenuViewController.m */,
 				5CE42B8B1E23FBA200708591 /* UsersTableViewController.h */,
 				5CE42B8C1E23FBA200708591 /* UsersTableViewController.m */,
-				5CFA20CC1E21569100B296C6 /* ViewController.m */,
 				5CFA20CE1E21569200B296C6 /* Main.storyboard */,
 				5CFA20D41E21569200B296C6 /* Assets.xcassets */,
 				5CFA20D61E21569200B296C6 /* LaunchScreen.storyboard */,
 				5CFA20D91E21569200B296C6 /* Info.plist */,
 				5CFA20D11E21569200B296C6 /* do_you_even_lift.xcdatamodeld */,
+				5C3FADCD1E269A7E0088D5C4 /* WorkoutsViewController.h */,
+				5C3FADCE1E269A7E0088D5C4 /* WorkoutsViewController.m */,
+				5C3FADD01E269A9E0088D5C4 /* StartWorkoutViewController.h */,
+				5C3FADD11E269A9E0088D5C4 /* StartWorkoutViewController.m */,
 				5CFA20C51E21569100B296C6 /* Supporting Files */,
 			);
 			path = "do-you-even-lift";
@@ -302,8 +312,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CFA20CD1E21569100B296C6 /* ViewController.m in Sources */,
+				5CFA20CD1E21569100B296C6 /* MenuViewController.m in Sources */,
 				5CE42B8D1E23FBA200708591 /* UsersTableViewController.m in Sources */,
+				5C3FADCF1E269A7E0088D5C4 /* WorkoutsViewController.m in Sources */,
+				5C3FADD21E269A9E0088D5C4 /* StartWorkoutViewController.m in Sources */,
 				5CFA20CA1E21569100B296C6 /* AppDelegate.m in Sources */,
 				5CFA20C71E21569100B296C6 /* main.m in Sources */,
 				5CFA20D31E21569200B296C6 /* do_you_even_lift.xcdatamodeld in Sources */,

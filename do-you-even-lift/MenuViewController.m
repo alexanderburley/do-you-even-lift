@@ -6,7 +6,7 @@
 //  Copyright © 2017 Alex Burley. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MenuViewController.h"
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <CoreData/CoreData.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -19,13 +19,13 @@
 
 //Test Commit
 
-@interface ViewController () <FBSDKLoginButtonDelegate>
+@interface MenuViewController () <FBSDKLoginButtonDelegate>
 
 
 
 @end
 
-@implementation ViewController{
+@implementation MenuViewController{
     
     // FB User ID and full name
     NSString *_userID;
@@ -43,11 +43,29 @@
     [self.view addSubview:loginButton];
     
     //Set up custom users button for testing purposes
+    //MEMORY ALLOCATION?
     usersButton = [UIButton buttonWithType:UIButtonTypeCustom];
     usersButton.backgroundColor = [UIColor redColor];
     [usersButton addTarget:self action:NSSelectorFromString(@"usersButtonPressed") forControlEvents:UIControlEventTouchUpInside];
     [usersButton setTitle:@"Users" forState:UIControlStateNormal];
-    usersButton.frame = CGRectMake(self.view.frame.size.width*0.4, self.view.frame.size.height*0.2, self.view.frame.size.width*0.20, self.view.frame.size.height*0.10);
+    usersButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.1, self.view.frame.size.width*0.6, self.view.frame.size.height*0.10);
+    
+    startWorkoutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [startWorkoutButton addTarget:self action:NSSelectorFromString(@"startWorkoutButtonPressed") forControlEvents:UIControlEventTouchUpInside];
+    [startWorkoutButton setTitle:@"Start Workout" forState:UIControlStateNormal];
+    startWorkoutButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.2, self.view.frame.size.width*0.6, self.view.frame.size.height*0.10);
+    [self.view addSubview:startWorkoutButton];
+    
+    workoutsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [workoutsButton addTarget:self action:NSSelectorFromString(@"workoutsButtonPressed") forControlEvents:UIControlEventTouchUpInside];
+    [workoutsButton setTitle:@"Workout Plans" forState:UIControlStateNormal];
+    workoutsButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.3, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
+    [self.view addSubview:workoutsButton];
+    
+    
+    
+    
+    
    
     //If a user already has access we can process that and add the necessary view
     if ([FBSDKAccessToken currentAccessToken]){
@@ -77,6 +95,16 @@
 -(void)usersButtonPressed{
     [self performSegueWithIdentifier:@"showUsers" sender:self];
     
+}
+
+-(void)startWorkoutButtonPressed {
+    
+    [self performSegueWithIdentifier:@"startWorkout" sender:self];
+    
+}
+
+-(void)workoutsButtonPressed{
+    [self performSegueWithIdentifier:@"workouts" sender:self];
 }
 
 -(void)finishLogin{
