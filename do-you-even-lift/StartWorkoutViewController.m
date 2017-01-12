@@ -52,7 +52,7 @@ int min = 0;
     
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-    [tableView reloadData];
+    //[tableView reloadData];
     [self.view addSubview:tableView];
     
     

@@ -158,7 +158,6 @@
              if (objs.count > 0){
                  //Update the last login date
                  [[objs objectAtIndex:0] setValue:[NSDate date] forKey:@"last_login"];
-                 NSLog(@"objs count: %i", objs.count);
              }
              else {
                  //Create a new object

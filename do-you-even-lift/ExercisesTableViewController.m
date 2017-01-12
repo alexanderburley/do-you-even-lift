@@ -129,8 +129,8 @@
 
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-    id workoutPlan = [_fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [workoutPlan valueForKey:@"exercise_name"];
+    id exercise = [_fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [exercise valueForKey:@"exercise_name"];
     
 }
 -(void)controllerWillChangeContent:(NSFetchedResultsController *)controller{

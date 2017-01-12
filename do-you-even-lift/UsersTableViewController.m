@@ -68,7 +68,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"count=%i",[_users count]);
     return [_users count];
 }
 

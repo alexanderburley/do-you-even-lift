@@ -7,6 +7,7 @@
 //
 
 #import "WorkoutPlansViewController.h"
+#import "NewWorkoutPlanViewController.h"
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
 
@@ -49,7 +50,7 @@
 }
 
 -(IBAction)addWorkoutPlan:(id)sender {
-    
+    /**
     UIAlertController* addWorkoutPlan = [UIAlertController alertControllerWithTitle:@"New Plan" message:@"Create a new workout plan" preferredStyle:UIAlertControllerStyleAlert];
     
     [addWorkoutPlan addTextFieldWithConfigurationHandler:^(UITextField* textField){
@@ -81,8 +82,11 @@
     [addWorkoutPlan addAction:defaultAction];
     [addWorkoutPlan addAction:cancelAction];
     [self presentViewController:addWorkoutPlan animated:YES completion:nil];
+    */
     
-    
+    NewWorkoutPlanViewController* newWorkout = [[NewWorkoutPlanViewController alloc] init];
+    newWorkout.title = @"New Workout Plan";
+    [self presentViewController:newWorkout animated:YES completion:nil];
     
 }
 
