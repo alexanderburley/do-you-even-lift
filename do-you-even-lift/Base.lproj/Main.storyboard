@@ -22,8 +22,8 @@
                     <connections>
                         <segue destination="ngu-aX-pPv" kind="show" identifier="showUsers" id="aIr-mu-x2z"/>
                         <segue destination="afT-B3-oGK" kind="show" identifier="startWorkout" id="A9l-Ue-FfZ"/>
-                        <segue destination="K7F-wW-QlV" kind="show" identifier="workoutPlans" id="H4a-0x-wvq"/>
                         <segue destination="M9u-bc-Hlm" kind="show" identifier="exercises" id="ESN-Ey-3H6"/>
+                        <segue destination="K7F-wW-QlV" kind="show" identifier="workoutPlans" id="uOj-Nf-x97"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -33,7 +33,7 @@
         <!--Workout Plans-->
         <scene sceneID="ycc-fw-gjF">
             <objects>
-                <tableViewController id="K7F-wW-QlV" customClass="WorkoutPlansViewController" sceneMemberID="viewController">
+                <tableViewController id="K7F-wW-QlV" customClass="WorkoutPlansTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qxd-Xs-cob">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,13 +57,13 @@
                     <navigationItem key="navigationItem" title="Workout Plans" id="BgZ-r1-IGt">
                         <barButtonItem key="rightBarButtonItem" title="New Plan" id="B4u-CR-7JX">
                             <connections>
-                                <action selector="addWorkoutPlan:" destination="K7F-wW-QlV" id="uID-HT-1B0"/>
+                                <action selector="addWorkoutPlan:" destination="K7F-wW-QlV" id="QZg-tb-jL8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addWorkoutPlan" destination="B4u-CR-7JX" id="Zim-wJ-g2e"/>
+                        <outlet property="addEditPlanButton" destination="B4u-CR-7JX" id="ctr-vp-nEL"/>
                         <segue destination="M2a-iX-05t" kind="presentation" id="RUM-3t-kbE"/>
                     </connections>
                 </tableViewController>

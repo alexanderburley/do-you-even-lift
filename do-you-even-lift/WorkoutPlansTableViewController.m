@@ -6,16 +6,16 @@
 //  Copyright © 2017 Alex Burley. All rights reserved.
 //
 
-#import "WorkoutPlansViewController.h"
-#import "NewWorkoutPlanViewController.h"
+#import "WorkoutPlansTableViewController.h"
+#import "WorkoutPlanViewController.h"
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
 
-@interface WorkoutPlansViewController () <NSFetchedResultsControllerDelegate>
+@interface WorkoutPlansTableViewController () <NSFetchedResultsControllerDelegate>
 
 @end
 
-@implementation WorkoutPlansViewController {
+@implementation WorkoutPlansTableViewController {
     
     //NSMutableArray *_workouts;
     
@@ -37,7 +37,7 @@
 
     
     NSError *error;
-    NSLog(@"%@", [self fetchedResultsController]);
+    //NSLog(@"%@", [self fetchedResultsController]);
     //_workouts= [context executeFetchRequest:fetchRequest error:&error];
     if (![[self fetchedResultsController] performFetch:&error]){
         NSLog(@"unresolved error %@, %@", error, [error userInfo]);
@@ -50,45 +50,13 @@
 }
 
 -(IBAction)addWorkoutPlan:(id)sender {
-    /**
-    UIAlertController* addWorkoutPlan = [UIAlertController alertControllerWithTitle:@"New Plan" message:@"Create a new workout plan" preferredStyle:UIAlertControllerStyleAlert];
-    
-    [addWorkoutPlan addTextFieldWithConfigurationHandler:^(UITextField* textField){
-        textField.placeholder = @"Body Pump";
-        textField.textColor = [UIColor blueColor];
-        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        textField.borderStyle = UITextBorderStyleRoundedRect;
-    }];
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Create Plan" style:UIAlertActionStyleDefault handler:^(UIAlertAction* action) {
-        AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *context = app.managedObjectContext;
-        
-        NSString *name = [addWorkoutPlan.textFields objectAtIndex:0].text;
-        NSManagedObject *newPlan = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
-        [newPlan setValue:name forKey:@"plan_name"];
-        
-        NSError *saveError = nil;
-        if(![context save:&saveError]){
-            NSLog(@"Unable to save plan %@, %@", saveError, [saveError localizedDescription]);
-        }
-        
-   
-        }];
-    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction* action){
-    }];
-    
-    //[self.tableView reloadData];
-    
-    [addWorkoutPlan addAction:defaultAction];
-    [addWorkoutPlan addAction:cancelAction];
-    [self presentViewController:addWorkoutPlan animated:YES completion:nil];
-    */
-    
-    NewWorkoutPlanViewController* newWorkout = [[NewWorkoutPlanViewController alloc] init];
+
+    WorkoutPlanViewController* newWorkout = [[WorkoutPlanViewController alloc] init];
     newWorkout.title = @"New Workout Plan";
     [self presentViewController:newWorkout animated:YES completion:nil];
     
 }
+
 
 -(NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController != nil){
@@ -139,6 +107,13 @@
     id workoutPlan = [_fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [workoutPlan valueForKey:@"plan_name"];
     
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    WorkoutPlanViewController* workout = [[WorkoutPlanViewController alloc] init];
+    workout.action = @"view";
+    workout.title = [[_fetchedResultsController objectAtIndexPath:indexPath] valueForKey:@"plan_name"];
+    [self showViewController:workout sender:self];
 }
 -(void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
     [self.tableView beginUpdates];

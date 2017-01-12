@@ -59,7 +59,7 @@ int min = 0;
     // Do any additional setup after loading the view.
    
     NSError *error;
-    NSLog(@"%@", [self fetchedResultsController]);
+    //NSLog(@"%@", [self fetchedResultsController]);
     //_workouts= [context executeFetchRequest:fetchRequest error:&error];
     if (![[self fetchedResultsController] performFetch:&error]){
         NSLog(@"unresolved error %@, %@", error, [error userInfo]);

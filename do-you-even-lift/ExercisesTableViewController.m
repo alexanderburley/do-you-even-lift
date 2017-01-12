@@ -34,7 +34,7 @@
     
     
     NSError *error;
-    NSLog(@"%@", [self fetchedResultsController]);
+    //NSLog(@"%@", [self fetchedResultsController]);
     if (![[self fetchedResultsController] performFetch:&error]){
         NSLog(@"unresolved error %@, %@", error, [error userInfo]);
     }

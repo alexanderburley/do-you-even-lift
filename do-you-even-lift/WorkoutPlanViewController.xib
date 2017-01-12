@@ -6,9 +6,12 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewWorkoutPlanViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkoutPlanViewController">
             <connections>
+                <outlet property="cancelButton" destination="H7r-fm-oLu" id="t4f-K5-9rn"/>
+                <outlet property="nameLabel" destination="z1P-5b-f8z" id="1Dd-w1-qqV"/>
                 <outlet property="planNameTextField" destination="Fda-rf-Nim" id="s35-kK-RBc"/>
+                <outlet property="saveButton" destination="Hqj-oS-T23" id="2yR-9c-IEe"/>
                 <outlet property="tableView" destination="zcz-B3-ljf" id="HSC-oh-709"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,12 +30,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1P-5b-f8z">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqj-oS-T23">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <constraints>
@@ -66,6 +63,12 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1P-5b-f8z">
+                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -74,7 +77,9 @@
                 <constraint firstItem="Fda-rf-Nim" firstAttribute="top" secondItem="z1P-5b-f8z" secondAttribute="bottom" constant="8" symbolic="YES" id="LLE-9T-jAZ"/>
                 <constraint firstItem="zcz-B3-ljf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="N8Q-97-fsu"/>
                 <constraint firstItem="zcz-B3-ljf" firstAttribute="trailing" secondItem="H7r-fm-oLu" secondAttribute="trailing" id="U79-jL-VtG"/>
-                <constraint firstItem="SME-jo-g70" firstAttribute="top" secondItem="Fda-rf-Nim" secondAttribute="bottom" constant="38" id="XUz-1r-G2J"/>
+                <constraint firstItem="SME-jo-g70" firstAttribute="top" secondItem="Fda-rf-Nim" secondAttribute="bottom" constant="38" id="XUz-1r-G2J">
+                    <variation key="widthClass=compact" constant="8"/>
+                </constraint>
                 <constraint firstItem="H7r-fm-oLu" firstAttribute="leading" secondItem="Hqj-oS-T23" secondAttribute="trailing" constant="3" id="aeK-ND-GAR"/>
                 <constraint firstItem="z1P-5b-f8z" firstAttribute="centerX" secondItem="Fda-rf-Nim" secondAttribute="centerX" id="b6A-ez-oSY"/>
                 <constraint firstItem="zcz-B3-ljf" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="bck-oh-zi4"/>
@@ -86,16 +91,18 @@
                 <constraint firstItem="Hqj-oS-T23" firstAttribute="top" secondItem="zcz-B3-ljf" secondAttribute="bottom" constant="31" id="uVz-2F-UmQ">
                     <variation key="widthClass=compact" constant="8"/>
                 </constraint>
-                <constraint firstItem="z1P-5b-f8z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="55" id="ygi-J0-uaY"/>
+                <constraint firstItem="z1P-5b-f8z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="55" id="ygi-J0-uaY">
+                    <variation key="widthClass=compact" constant="85"/>
+                </constraint>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="zcz-B3-ljf"/>
                     <exclude reference="Fda-rf-Nim"/>
-                    <exclude reference="z1P-5b-f8z"/>
                     <exclude reference="Hqj-oS-T23"/>
                     <exclude reference="H7r-fm-oLu"/>
                     <exclude reference="SME-jo-g70"/>
+                    <exclude reference="z1P-5b-f8z"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="LLE-9T-jAZ"/>
@@ -120,10 +127,10 @@
                 <mask key="subviews">
                     <include reference="zcz-B3-ljf"/>
                     <include reference="Fda-rf-Nim"/>
-                    <include reference="z1P-5b-f8z"/>
                     <include reference="Hqj-oS-T23"/>
                     <include reference="H7r-fm-oLu"/>
                     <include reference="SME-jo-g70"/>
+                    <include reference="z1P-5b-f8z"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="LLE-9T-jAZ"/>
