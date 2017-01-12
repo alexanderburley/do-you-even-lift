@@ -12,8 +12,7 @@
 @interface StartWorkoutViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate> {
     
     UIButton *startButton;
-    UILabel *label;
-    NSTimer *timer;
+   
     UITableView *tableView;
 }
 

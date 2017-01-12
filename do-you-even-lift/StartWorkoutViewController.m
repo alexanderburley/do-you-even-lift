@@ -7,6 +7,7 @@
 //
 
 #import "StartWorkoutViewController.h"
+#import "WorkoutDetailViewController.h"
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
 
@@ -18,8 +19,7 @@
     NSFetchedResultsController *_fetchedResultsController;
 }
 
-int sec = 0;
-int min = 0;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,13 +33,7 @@ int min = 0;
     startButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.1, self.view.frame.size.width*0.2, self.view.frame.size.height*0.1);
     [self.view addSubview:startButton];
     
-    
-    label = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.3, 60, 30)];
-    
-    [label setTextColor:[UIColor whiteColor]];
-    [label setBackgroundColor:[UIColor blackColor]];
-    [self.view addSubview:label];
-    label.text = [NSString stringWithFormat:@"00:00"];
+
     
     UISwitch *onoff = [[UISwitch alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0.3, self.view.frame.size.height*0.4,40,50)];
     [onoff addTarget:self action:@selector(flip:) forControlEvents:UIControlEventValueChanged];
@@ -81,21 +75,7 @@ int min = 0;
 }
 
 
--(void)timerTick{
-    
-    sec++;
-    if (sec == 60)
-    {
-        sec = 0;
-        min++;
-    }
-    //Format the string 00:00
-    NSString* timeNow = [NSString stringWithFormat:@"%02d:%02d", min, sec];
-    //Display on your label
-    //[timeLabel setStringValue:timeNow];
-    label.text= timeNow;
-    
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -104,20 +84,22 @@ int min = 0;
 
 
 -(void)startButtonPressed{
-    self.isStart = !self.isStart;
-    
-    if (self.isStart){
-        sec = 0;
-        min = 0;
-        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerTick) userInfo:nil repeats:TRUE];
-        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-        [startButton setTitle:@"STOP" forState:UIControlStateNormal];
-    }else{
-        [startButton setTitle:@"START" forState:UIControlStateNormal];
-        [timer invalidate];
-        label.text = [NSString stringWithFormat:@"00:00"];
-    }
-
+//    self.isStart = !self.isStart;
+//    
+//    if (self.isStart){
+//        sec = 0;
+//        min = 0;
+//        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerTick) userInfo:nil repeats:TRUE];
+//        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+//        [startButton setTitle:@"STOP" forState:UIControlStateNormal];
+//    }else{
+//        [startButton setTitle:@"START" forState:UIControlStateNormal];
+//        [timer invalidate];
+//        label.text = [NSString stringWithFormat:@"00:00"];
+//    }
+//
+    WorkoutDetailViewController* newWorkout = [[WorkoutDetailViewController alloc] init];
+    [self showViewController:newWorkout sender:self];
     
     
 }
@@ -225,7 +207,12 @@ int min = 0;
 }
 
 
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"WorkoutDetail"]){
+        WorkoutDetailViewController *controller = (WorkoutDetailViewController *)segue.destinationViewController;
+        [controller startTimer:nil];
+    }
+}
 
 /*
 #pragma mark - Navigation
