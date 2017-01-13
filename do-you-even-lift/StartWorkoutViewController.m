@@ -17,6 +17,8 @@
 
 @implementation StartWorkoutViewController   {
     NSFetchedResultsController *_fetchedResultsController;
+    UIButton *startButton;
+    UITableView *tableView;
 }
 
 
@@ -24,18 +26,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Start Workout";
+    
     startButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [startButton addTarget:self action:NSSelectorFromString(@"startButtonPressed") forControlEvents:UIControlEventTouchUpInside];
-    [startButton setTitle:@"START" forState:UIControlStateNormal];
-    startButton.backgroundColor = [UIColor blueColor];
-    startButton.layer.cornerRadius = 50;
+    [startButton setTitle:@"Start" forState:UIControlStateNormal];
+    startButton.backgroundColor = [UIColor greenColor];
     startButton.clipsToBounds = YES;
-    startButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.1, self.view.frame.size.width*0.2, self.view.frame.size.height*0.1);
+    startButton.frame = CGRectMake(self.view.frame.size.width*0.25, self.view.frame.size.height*0.2, self.view.frame.size.width*0.5, self.view.frame.size.height*0.05);
+    startButton.enabled = NO;
     [self.view addSubview:startButton];
-    
 
     
-    UISwitch *onoff = [[UISwitch alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0.3, self.view.frame.size.height*0.4,40,50)];
+    UISwitch *onoff = [[UISwitch alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0.425, self.view.frame.size.height*0.3,self.view.frame.size.width*0.1,self.view.frame.size.height*0.05)];
     [onoff addTarget:self action:@selector(flip:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:onoff];
     
@@ -46,6 +49,7 @@
     
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    tableView.allowsMultipleSelection = NO;
     //[tableView reloadData];
     [self.view addSubview:tableView];
     
@@ -61,20 +65,6 @@
 
 
 }
-  // NSArray *array = [[NSArray alloc]initWithObjects:@"daniel", nil];
-
--(IBAction)flip:(id)sender{
-    UISwitch *onoff = (UISwitch * )sender;
-    if(onoff.on){
-        startButton.enabled = NO;
-        startButton.alpha = 0.5;
-    }else{
-        startButton.enabled = YES;
-        startButton.alpha = 1.0;
-    }
-}
-
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -83,32 +73,52 @@
 }
 
 
--(void)startButtonPressed{
-//    self.isStart = !self.isStart;
-//    
-//    if (self.isStart){
-//        sec = 0;
-//        min = 0;
-//        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerTick) userInfo:nil repeats:TRUE];
-//        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-//        [startButton setTitle:@"STOP" forState:UIControlStateNormal];
-//    }else{
-//        [startButton setTitle:@"START" forState:UIControlStateNormal];
-//        [timer invalidate];
-//        label.text = [NSString stringWithFormat:@"00:00"];
-//    }
-//
-    WorkoutDetailViewController* newWorkout = [[WorkoutDetailViewController alloc] init];
-    [self showViewController:newWorkout sender:self];
-    
-    
-}
-
 -(void)viewWillDisapper:(BOOL)animated{
     [super viewWillDisappear:animated];
 }
 
+-(IBAction)flip:(id)sender{
+    UISwitch *onoff = (UISwitch * )sender;
+    [startButton setTitle:@"Start New Plan" forState:UIControlStateNormal];
+    
+    NSIndexPath *path = [tableView indexPathForSelectedRow];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:path];
+    if (cell.isSelected){
+        [tableView deselectRowAtIndexPath:path animated:NO];
+    }
+    
+    if(onoff.on){
+        startButton.enabled = YES;
+        //startButton.alpha = 0.5;
+        tableView.allowsSelection = NO;
+    }else{
+        startButton.enabled = NO;
+        //startButton.alpha = 1.0;
+        tableView.allowsSelection = YES;
+    }
+}
 
+-(void)startButtonPressed{
+    //    self.isStart = !self.isStart;
+    //
+    //    if (self.isStart){
+    //        sec = 0;
+    //        min = 0;
+    //        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerTick) userInfo:nil repeats:TRUE];
+    //        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    //        [startButton setTitle:@"STOP" forState:UIControlStateNormal];
+    //    }else{
+    //        [startButton setTitle:@"START" forState:UIControlStateNormal];
+    //        [timer invalidate];
+    //        label.text = [NSString stringWithFormat:@"00:00"];
+    //    }
+    //
+    WorkoutDetailViewController* newWorkout = [[WorkoutDetailViewController alloc] init];
+    [self showViewController:newWorkout sender:self];
+    
+}
+
+#pragma mark - Table Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -130,12 +140,36 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //[tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAce;
+    NSString *selectedPlanName = [[_fetchedResultsController objectAtIndexPath:indexPath] valueForKey:@"plan_name"];
+    [startButton setTitle:[NSString stringWithFormat:@"Start %@", selectedPlanName] forState:UIControlStateNormal];
+    startButton.enabled = YES;
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //[tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+    //startButton.titleLabel.text = @"Start";
+    startButton.enabled = NO;
+}
+
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     id workoutPlan = [_fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [workoutPlan valueForKey:@"plan_name"];
 }
 
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"WorkoutDetail"]){
+        WorkoutDetailViewController *controller = (WorkoutDetailViewController *)segue.destinationViewController;
+        [controller startTimer:nil];
+    }
+}
+
+
+#pragma mark - Core Data Interaction
 
 -(NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController != nil){
@@ -207,12 +241,7 @@
 }
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"WorkoutDetail"]){
-        WorkoutDetailViewController *controller = (WorkoutDetailViewController *)segue.destinationViewController;
-        [controller startTimer:nil];
-    }
-}
+
 
 /*
 #pragma mark - Navigation

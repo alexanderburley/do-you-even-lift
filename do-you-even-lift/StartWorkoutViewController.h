@@ -11,12 +11,9 @@
 
 @interface StartWorkoutViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate> {
     
-    UIButton *startButton;
-   
-    UITableView *tableView;
 }
 
 @property (nonatomic, assign)BOOL isStart;
-
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
 @end
