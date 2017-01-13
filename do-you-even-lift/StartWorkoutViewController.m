@@ -39,7 +39,7 @@
 
     
     UISwitch *onoff = [[UISwitch alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0.425, self.view.frame.size.height*0.3,self.view.frame.size.width*0.1,self.view.frame.size.height*0.05)];
-    [onoff addTarget:self action:@selector(flip:) forControlEvents:UIControlEventValueChanged];
+    [onoff addTarget:self action:@selector(switchPressed:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:onoff];
     
     tableView=[[UITableView alloc]init];
@@ -77,7 +77,7 @@
     [super viewWillDisappear:animated];
 }
 
--(IBAction)flip:(id)sender{
+-(IBAction)switchPressed:(id)sender{
     UISwitch *onoff = (UISwitch * )sender;
     [startButton setTitle:@"Start New Plan" forState:UIControlStateNormal];
     
@@ -137,12 +137,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Configure the cell...
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
     [self configureCell:cell atIndexPath:indexPath];
-    // Configure the cell...
-    
     return cell;
 }
 
@@ -161,8 +157,8 @@
 
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-    id workoutPlan = [_fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [workoutPlan valueForKey:@"plan_name"];
+    WorkoutPlan *workoutPlan = [_fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = workoutPlan.plan_name;
 }
 
 #pragma mark - Navigation

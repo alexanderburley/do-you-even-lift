@@ -49,26 +49,6 @@
         self.planNameTextField.hidden = YES;
         self.nameLabel.hidden = YES;
         
-        /*
-        AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *context = app.managedObjectContext;
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"WorkoutPlan" inManagedObjectContext:context];
-        [fetchRequest setEntity:entity];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"plan_name==%@", self.title];
-        [fetchRequest setPredicate:predicate];
-         */
-        
-        
-        //NSError *error;
-        //id fetchedWorkoutPlan = [context executeFetchRequest:fetchRequest error:&error];
-        //if (fetchedWorkoutPlan == nil){
-            //NSLog(@"Error retrieving entity, %@", [error localizedDescription]);
-        //}
-        //f ([fetchedWorkoutPlan count] > 0){
-            //_workoutPlan = fetchedWorkoutPlan[0];
-        //}
-        
         _fetchedExercises = [self.viewedPlan getExercises];
     }
     
@@ -112,12 +92,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Configure the cell...
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
     [self configureCell:cell atIndexPath:indexPath];
-    // Configure the cell...
-    
     return cell;
 }
 

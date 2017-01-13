@@ -8,6 +8,7 @@
 
 #import "ExercisesTableViewController.h"
 #import "ExerciseViewController.h"
+#import "Exercise.h"
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
 
@@ -55,7 +56,6 @@
     [self presentViewController:exerciseViewController animated:YES completion:nil];
     
     
-    
 }
 
 -(NSFetchedResultsController *)fetchedResultsController {
@@ -93,19 +93,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Configure the cell...
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
     [self configureCell:cell atIndexPath:indexPath];
-    // Configure the cell...
-    
     return cell;
 }
 
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-    id exercise = [_fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [exercise valueForKey:@"exercise_name"];
+    Exercise *exercise = [_fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = exercise.exercise_name;
     
 }
 -(void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
