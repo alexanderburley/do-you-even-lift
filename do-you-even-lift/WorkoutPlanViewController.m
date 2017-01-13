@@ -125,13 +125,13 @@
     Exercise *exercise;
     
     if ([self.action isEqualToString:@"read"]){
-        exercise = _fetchedExercises[indexPath.row];
+        exercise = [_fetchedExercises objectAtIndex:indexPath.row];
     }
     else {
         exercise = [_fetchedResultsController objectAtIndexPath:indexPath];
     }
     
-    cell.textLabel.text = [exercise getName];
+    cell.textLabel.text = exercise.exercise_name;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

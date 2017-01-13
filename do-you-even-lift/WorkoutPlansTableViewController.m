@@ -102,7 +102,7 @@
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     WorkoutPlan *workoutPlan = [_fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [workoutPlan getName];
+    cell.textLabel.text = workoutPlan.plan_name;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

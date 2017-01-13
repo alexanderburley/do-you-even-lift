@@ -10,13 +10,13 @@
 
 @implementation WorkoutPlan
 
--(NSString*)getName {
-    return [self valueForKey:@"plan_name"];
-}
+// Insert code here to add functionality to your managed object subclass
 
 -(NSArray*)getExercises {
-    NSArray *exercises = [[[self valueForKey:@"workout_plan_exercise"] valueForKey:@"exercise"] allObjects];
-    return [exercises[0] allObjects];
+    NSArray *exercises = [[self.workout_plan_exercise valueForKey:@"exercise"] allObjects];
+
+    return exercises;
 }
+
 
 @end

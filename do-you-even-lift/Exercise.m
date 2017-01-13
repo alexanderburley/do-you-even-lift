@@ -7,12 +7,10 @@
 //
 
 #import "Exercise.h"
+#import "PersonalBest.h"
 
 @implementation Exercise
 
--(NSString*)getName {
-    return [self valueForKey:@"exercise_name"];
-}
-
+// Insert code here to add functionality to your managed object subclass
 
 @end

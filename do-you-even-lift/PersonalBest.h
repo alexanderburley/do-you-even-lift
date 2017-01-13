@@ -1,5 +1,5 @@
 //
-//  User.h
+//  PersonalBest.h
 //  do-you-even-lift
 //
 //  Created by aca13ab on 13/01/2017.
@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Exercise;
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface User : NSManagedObject
+@interface PersonalBest : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -19,4 +21,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "User+CoreDataProperties.h"
+#import "PersonalBest+CoreDataProperties.h"

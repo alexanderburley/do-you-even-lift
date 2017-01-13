@@ -14,11 +14,16 @@
 		5C3FADD21E269A9E0088D5C4 /* StartWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3FADD11E269A9E0088D5C4 /* StartWorkoutViewController.m */; };
 		5C8970A81E27957900635F5F /* WorkoutPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8970A61E27957900635F5F /* WorkoutPlanViewController.m */; };
 		5C8970A91E27957900635F5F /* WorkoutPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C8970A71E27957900635F5F /* WorkoutPlanViewController.xib */; };
-		5CBCD2A01E290E78008FDE08 /* WorkoutPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD29F1E290E78008FDE08 /* WorkoutPlan.m */; };
-		5CBCD2A31E290E8A008FDE08 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2A21E290E8A008FDE08 /* User.m */; };
-		5CBCD2A61E290E98008FDE08 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2A51E290E98008FDE08 /* Exercise.m */; };
 		5CBCD2AD1E2918DA008FDE08 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2AB1E2918DA008FDE08 /* ExerciseViewController.m */; };
 		5CBCD2AE1E2918DA008FDE08 /* ExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CBCD2AC1E2918DA008FDE08 /* ExerciseViewController.xib */; };
+		5CBCD2B61E292FB1008FDE08 /* Exercise+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2B31E292FB1008FDE08 /* Exercise+CoreDataProperties.m */; };
+		5CBCD2B71E292FB1008FDE08 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2B51E292FB1008FDE08 /* Exercise.m */; };
+		5CBCD2BC1E292FCB008FDE08 /* WorkoutPlan+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2B91E292FCB008FDE08 /* WorkoutPlan+CoreDataProperties.m */; };
+		5CBCD2BD1E292FCB008FDE08 /* WorkoutPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2BB1E292FCB008FDE08 /* WorkoutPlan.m */; };
+		5CBCD2C81E29318A008FDE08 /* PersonalBest+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2C51E29318A008FDE08 /* PersonalBest+CoreDataProperties.m */; };
+		5CBCD2C91E29318A008FDE08 /* PersonalBest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2C71E29318A008FDE08 /* PersonalBest.m */; };
+		5CBCD2CF1E2932A5008FDE08 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2CC1E2932A5008FDE08 /* User+CoreDataProperties.m */; };
+		5CBCD2D01E2932A5008FDE08 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2CE1E2932A5008FDE08 /* User.m */; };
 		5CE42B8D1E23FBA200708591 /* UsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE42B8C1E23FBA200708591 /* UsersTableViewController.m */; };
 		5CFA20C71E21569100B296C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFA20C61E21569100B296C6 /* main.m */; };
 		5CFA20CA1E21569100B296C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CFA20C91E21569100B296C6 /* AppDelegate.m */; };
@@ -65,15 +70,25 @@
 		5C8970A51E27957900635F5F /* WorkoutPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutPlanViewController.h; sourceTree = "<group>"; };
 		5C8970A61E27957900635F5F /* WorkoutPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutPlanViewController.m; sourceTree = "<group>"; };
 		5C8970A71E27957900635F5F /* WorkoutPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutPlanViewController.xib; sourceTree = "<group>"; };
-		5CBCD29E1E290E78008FDE08 /* WorkoutPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutPlan.h; sourceTree = "<group>"; };
-		5CBCD29F1E290E78008FDE08 /* WorkoutPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutPlan.m; sourceTree = "<group>"; };
-		5CBCD2A11E290E8A008FDE08 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		5CBCD2A21E290E8A008FDE08 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		5CBCD2A41E290E98008FDE08 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
-		5CBCD2A51E290E98008FDE08 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
 		5CBCD2AA1E2918DA008FDE08 /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
 		5CBCD2AB1E2918DA008FDE08 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
 		5CBCD2AC1E2918DA008FDE08 /* ExerciseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseViewController.xib; sourceTree = "<group>"; };
+		5CBCD2B21E292FB1008FDE08 /* Exercise+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Exercise+CoreDataProperties.h"; sourceTree = "<group>"; };
+		5CBCD2B31E292FB1008FDE08 /* Exercise+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Exercise+CoreDataProperties.m"; sourceTree = "<group>"; };
+		5CBCD2B41E292FB1008FDE08 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
+		5CBCD2B51E292FB1008FDE08 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
+		5CBCD2B81E292FCB008FDE08 /* WorkoutPlan+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WorkoutPlan+CoreDataProperties.h"; sourceTree = "<group>"; };
+		5CBCD2B91E292FCB008FDE08 /* WorkoutPlan+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WorkoutPlan+CoreDataProperties.m"; sourceTree = "<group>"; };
+		5CBCD2BA1E292FCB008FDE08 /* WorkoutPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutPlan.h; sourceTree = "<group>"; };
+		5CBCD2BB1E292FCB008FDE08 /* WorkoutPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutPlan.m; sourceTree = "<group>"; };
+		5CBCD2C41E29318A008FDE08 /* PersonalBest+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PersonalBest+CoreDataProperties.h"; sourceTree = "<group>"; };
+		5CBCD2C51E29318A008FDE08 /* PersonalBest+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PersonalBest+CoreDataProperties.m"; sourceTree = "<group>"; };
+		5CBCD2C61E29318A008FDE08 /* PersonalBest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalBest.h; sourceTree = "<group>"; };
+		5CBCD2C71E29318A008FDE08 /* PersonalBest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalBest.m; sourceTree = "<group>"; };
+		5CBCD2CB1E2932A5008FDE08 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		5CBCD2CC1E2932A5008FDE08 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		5CBCD2CD1E2932A5008FDE08 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		5CBCD2CE1E2932A5008FDE08 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		5CE42B8B1E23FBA200708591 /* UsersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersTableViewController.h; sourceTree = "<group>"; };
 		5CE42B8C1E23FBA200708591 /* UsersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersTableViewController.m; sourceTree = "<group>"; };
 		5CFA20C21E21569100B296C6 /* do-you-even-lift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "do-you-even-lift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,12 +146,10 @@
 		5CBCD2A71E290EAE008FDE08 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5CBCD29E1E290E78008FDE08 /* WorkoutPlan.h */,
-				5CBCD29F1E290E78008FDE08 /* WorkoutPlan.m */,
-				5CBCD2A11E290E8A008FDE08 /* User.h */,
-				5CBCD2A21E290E8A008FDE08 /* User.m */,
-				5CBCD2A41E290E98008FDE08 /* Exercise.h */,
-				5CBCD2A51E290E98008FDE08 /* Exercise.m */,
+				5CBCD2D11E2932B1008FDE08 /* User */,
+				5CBCD2CA1E293192008FDE08 /* PersonalBest */,
+				5CBCD2C21E2930BA008FDE08 /* WorkoutPlan */,
+				5CBCD2C31E2930C1008FDE08 /* Exercise */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -144,22 +157,12 @@
 		5CBCD2A81E290EC9008FDE08 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5C1559841E26D4D3005790C4 /* ExercisesTableViewController.h */,
-				5C1559851E26D4D3005790C4 /* ExercisesTableViewController.m */,
-				5CBCD2AA1E2918DA008FDE08 /* ExerciseViewController.h */,
-				5CBCD2AB1E2918DA008FDE08 /* ExerciseViewController.m */,
-				5C8970A51E27957900635F5F /* WorkoutPlanViewController.h */,
-				5C8970A61E27957900635F5F /* WorkoutPlanViewController.m */,
-				5C3FADCD1E269A7E0088D5C4 /* WorkoutPlansTableViewController.h */,
-				5C3FADCE1E269A7E0088D5C4 /* WorkoutPlansTableViewController.m */,
+				5CBCD2C11E29309D008FDE08 /* Workouts */,
+				5CBCD2C01E29308A008FDE08 /* Users */,
+				5CBCD2BE1E293078008FDE08 /* Exercises */,
+				5CBCD2BF1E29307F008FDE08 /* Workout Plans */,
 				5CFA20CB1E21569100B296C6 /* MenuViewController.h */,
 				5CFA20CC1E21569100B296C6 /* MenuViewController.m */,
-				1A5821D51E27E30F001D9EBA /* WorkoutDetailViewController.h */,
-				1A5821D61E27E30F001D9EBA /* WorkoutDetailViewController.m */,
-				5C3FADD01E269A9E0088D5C4 /* StartWorkoutViewController.h */,
-				5C3FADD11E269A9E0088D5C4 /* StartWorkoutViewController.m */,
-				5CE42B8B1E23FBA200708591 /* UsersTableViewController.h */,
-				5CE42B8C1E23FBA200708591 /* UsersTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -174,6 +177,92 @@
 				1A5821D71E27E30F001D9EBA /* WorkoutDetailViewController.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		5CBCD2BE1E293078008FDE08 /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				5C1559841E26D4D3005790C4 /* ExercisesTableViewController.h */,
+				5C1559851E26D4D3005790C4 /* ExercisesTableViewController.m */,
+				5CBCD2AA1E2918DA008FDE08 /* ExerciseViewController.h */,
+				5CBCD2AB1E2918DA008FDE08 /* ExerciseViewController.m */,
+			);
+			name = Exercises;
+			sourceTree = "<group>";
+		};
+		5CBCD2BF1E29307F008FDE08 /* Workout Plans */ = {
+			isa = PBXGroup;
+			children = (
+				5C8970A51E27957900635F5F /* WorkoutPlanViewController.h */,
+				5C8970A61E27957900635F5F /* WorkoutPlanViewController.m */,
+				5C3FADCD1E269A7E0088D5C4 /* WorkoutPlansTableViewController.h */,
+				5C3FADCE1E269A7E0088D5C4 /* WorkoutPlansTableViewController.m */,
+			);
+			name = "Workout Plans";
+			sourceTree = "<group>";
+		};
+		5CBCD2C01E29308A008FDE08 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				5CE42B8B1E23FBA200708591 /* UsersTableViewController.h */,
+				5CE42B8C1E23FBA200708591 /* UsersTableViewController.m */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		5CBCD2C11E29309D008FDE08 /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				1A5821D51E27E30F001D9EBA /* WorkoutDetailViewController.h */,
+				1A5821D61E27E30F001D9EBA /* WorkoutDetailViewController.m */,
+				5C3FADD01E269A9E0088D5C4 /* StartWorkoutViewController.h */,
+				5C3FADD11E269A9E0088D5C4 /* StartWorkoutViewController.m */,
+			);
+			name = Workouts;
+			sourceTree = "<group>";
+		};
+		5CBCD2C21E2930BA008FDE08 /* WorkoutPlan */ = {
+			isa = PBXGroup;
+			children = (
+				5CBCD2B81E292FCB008FDE08 /* WorkoutPlan+CoreDataProperties.h */,
+				5CBCD2B91E292FCB008FDE08 /* WorkoutPlan+CoreDataProperties.m */,
+				5CBCD2BA1E292FCB008FDE08 /* WorkoutPlan.h */,
+				5CBCD2BB1E292FCB008FDE08 /* WorkoutPlan.m */,
+			);
+			name = WorkoutPlan;
+			sourceTree = "<group>";
+		};
+		5CBCD2C31E2930C1008FDE08 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				5CBCD2B21E292FB1008FDE08 /* Exercise+CoreDataProperties.h */,
+				5CBCD2B31E292FB1008FDE08 /* Exercise+CoreDataProperties.m */,
+				5CBCD2B41E292FB1008FDE08 /* Exercise.h */,
+				5CBCD2B51E292FB1008FDE08 /* Exercise.m */,
+			);
+			name = Exercise;
+			sourceTree = "<group>";
+		};
+		5CBCD2CA1E293192008FDE08 /* PersonalBest */ = {
+			isa = PBXGroup;
+			children = (
+				5CBCD2C41E29318A008FDE08 /* PersonalBest+CoreDataProperties.h */,
+				5CBCD2C51E29318A008FDE08 /* PersonalBest+CoreDataProperties.m */,
+				5CBCD2C61E29318A008FDE08 /* PersonalBest.h */,
+				5CBCD2C71E29318A008FDE08 /* PersonalBest.m */,
+			);
+			name = PersonalBest;
+			sourceTree = "<group>";
+		};
+		5CBCD2D11E2932B1008FDE08 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				5CBCD2CB1E2932A5008FDE08 /* User+CoreDataProperties.h */,
+				5CBCD2CC1E2932A5008FDE08 /* User+CoreDataProperties.m */,
+				5CBCD2CD1E2932A5008FDE08 /* User.h */,
+				5CBCD2CE1E2932A5008FDE08 /* User.m */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		5CFA20B91E21569100B296C6 = {
@@ -205,9 +294,9 @@
 				5CFA20D11E21569200B296C6 /* do_you_even_lift.xcdatamodeld */,
 				5CFA20D41E21569200B296C6 /* Assets.xcassets */,
 				5CFA20D91E21569200B296C6 /* Info.plist */,
+				5CBCD2A81E290EC9008FDE08 /* Controllers */,
 				5CBCD2A71E290EAE008FDE08 /* Models */,
 				5CBCD2A91E290EE0008FDE08 /* Views */,
-				5CBCD2A81E290EC9008FDE08 /* Controllers */,
 				5CFA20C51E21569100B296C6 /* Supporting Files */,
 			);
 			path = "do-you-even-lift";
@@ -383,20 +472,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CBCD2BC1E292FCB008FDE08 /* WorkoutPlan+CoreDataProperties.m in Sources */,
 				5CFA20CD1E21569100B296C6 /* MenuViewController.m in Sources */,
+				5CBCD2BD1E292FCB008FDE08 /* WorkoutPlan.m in Sources */,
 				5CE42B8D1E23FBA200708591 /* UsersTableViewController.m in Sources */,
 				5C3FADCF1E269A7E0088D5C4 /* WorkoutPlansTableViewController.m in Sources */,
 				5C1559861E26D4D3005790C4 /* ExercisesTableViewController.m in Sources */,
-				5CBCD2A61E290E98008FDE08 /* Exercise.m in Sources */,
+				5CBCD2B71E292FB1008FDE08 /* Exercise.m in Sources */,
 				5C3FADD21E269A9E0088D5C4 /* StartWorkoutViewController.m in Sources */,
+				5CBCD2C91E29318A008FDE08 /* PersonalBest.m in Sources */,
 				5CBCD2AD1E2918DA008FDE08 /* ExerciseViewController.m in Sources */,
 				5CFA20CA1E21569100B296C6 /* AppDelegate.m in Sources */,
-				5CBCD2A01E290E78008FDE08 /* WorkoutPlan.m in Sources */,
 				5C8970A81E27957900635F5F /* WorkoutPlanViewController.m in Sources */,
-				5CBCD2A31E290E8A008FDE08 /* User.m in Sources */,
+				5CBCD2CF1E2932A5008FDE08 /* User+CoreDataProperties.m in Sources */,
+				5CBCD2C81E29318A008FDE08 /* PersonalBest+CoreDataProperties.m in Sources */,
 				5CFA20C71E21569100B296C6 /* main.m in Sources */,
+				5CBCD2D01E2932A5008FDE08 /* User.m in Sources */,
 				5CFA20D31E21569200B296C6 /* do_you_even_lift.xcdatamodeld in Sources */,
 				1A5821D81E27E30F001D9EBA /* WorkoutDetailViewController.m in Sources */,
+				5CBCD2B61E292FB1008FDE08 /* Exercise+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
