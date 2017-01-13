@@ -7,6 +7,7 @@
 //
 
 #import "ExercisesTableViewController.h"
+#import "ExerciseViewController.h"
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
 
@@ -47,37 +48,11 @@
 
 -(IBAction)addExercise:(id)sender {
     
-    UIAlertController* addExercise = [UIAlertController alertControllerWithTitle:@"New Exercise" message:@"Create a exercise" preferredStyle:UIAlertControllerStyleAlert];
+    ExerciseViewController *exerciseViewController = [[ExerciseViewController alloc] init];
+    exerciseViewController.action = @"create";
+    exerciseViewController.title = @"New Exercise";
     
-    [addExercise addTextFieldWithConfigurationHandler:^(UITextField* textField){
-        textField.placeholder = @"Bent Over Row";
-        textField.textColor = [UIColor blueColor];
-        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        textField.borderStyle = UITextBorderStyleRoundedRect;
-    }];
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Create Exercise" style:UIAlertActionStyleDefault handler:^(UIAlertAction* action) {
-        AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *context = app.managedObjectContext;
-        
-        NSString *name = [addExercise.textFields objectAtIndex:0].text;
-        NSManagedObject *newPlan = [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
-        [newPlan setValue:name forKey:@"exercise_name"];
-        
-        NSError *saveError = nil;
-        if(![context save:&saveError]){
-            NSLog(@"Unable to save exercise %@, %@", saveError, [saveError localizedDescription]);
-        }
-        
-        
-    }];
-    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction* action){
-    }];
-    
-    //[self.tableView reloadData];
-    
-    [addExercise addAction:defaultAction];
-    [addExercise addAction:cancelAction];
-    [self presentViewController:addExercise animated:YES completion:nil];
+    [self presentViewController:exerciseViewController animated:YES completion:nil];
     
     
     

@@ -113,8 +113,14 @@
     //        label.text = [NSString stringWithFormat:@"00:00"];
     //    }
     //
-    WorkoutDetailViewController* newWorkout = [[WorkoutDetailViewController alloc] init];
-    [self showViewController:newWorkout sender:self];
+    WorkoutDetailViewController* newWorkoutViewController = [[WorkoutDetailViewController alloc] init];
+    NSIndexPath *path = [tableView indexPathForSelectedRow];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:path];
+    if (cell.isSelected){
+        newWorkoutViewController.workoutPlan = [_fetchedResultsController objectAtIndexPath:path];
+    }
+    
+    [self showViewController:newWorkoutViewController sender:self];
     
 }
 

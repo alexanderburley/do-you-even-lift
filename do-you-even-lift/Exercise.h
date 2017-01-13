@@ -10,4 +10,9 @@
 
 @interface Exercise : NSManagedObject
 
+-(NSString *)getName;
+-(NSString *)getMuscleGroup;
+-(NSInteger *)getSets;
+-(NSInteger *)getReps;
+
 @end

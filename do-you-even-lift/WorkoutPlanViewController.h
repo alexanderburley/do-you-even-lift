@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WorkoutPlan.h"
 #import <CoreData/CoreData.h>
 
 @interface WorkoutPlanViewController : UIViewController <NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -16,6 +17,7 @@
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) NSString *action;
+@property (weak, nonatomic) WorkoutPlan *viewedPlan;
 - (IBAction)saveButtonPressed:(id)sender;
 - (IBAction)cancelButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;

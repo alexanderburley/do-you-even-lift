@@ -10,4 +10,9 @@
 
 @implementation Exercise
 
+-(NSString*)getName {
+    return [self valueForKey:@"exercise_name"];
+}
+
+
 @end

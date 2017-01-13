@@ -8,6 +8,8 @@
 
 #import "WorkoutPlanViewController.h"
 #import "AppDelegate.h"
+#import "WorkoutPlan.h"
+#import "Exercise.h"
 #import <CoreData/CoreData.h>
 
 @interface WorkoutPlanViewController ()
@@ -27,6 +29,9 @@
 }
 
 - (void)viewDidLoad {
+    
+    self.title = @"Workout Plan";
+    
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -34,7 +39,7 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
     
-    if ([self.action  isEqualToString:@"view"]){
+    if ([self.action  isEqualToString:@"read"]){
         self.tableView.allowsMultipleSelection = NO;
         self.cancelButton.enabled = NO;
         self.cancelButton.hidden = YES;
@@ -44,6 +49,7 @@
         self.planNameTextField.hidden = YES;
         self.nameLabel.hidden = YES;
         
+        /*
         AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         NSManagedObjectContext *context = app.managedObjectContext;
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -51,25 +57,19 @@
         [fetchRequest setEntity:entity];
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"plan_name==%@", self.title];
         [fetchRequest setPredicate:predicate];
+         */
         
         
-        NSError *error;
-        id fetchedWorkoutPlan = [context executeFetchRequest:fetchRequest error:&error];
-        if (fetchedWorkoutPlan == nil){
-            NSLog(@"Error retrieving entity, %@", [error localizedDescription]);
-        }
+        //NSError *error;
+        //id fetchedWorkoutPlan = [context executeFetchRequest:fetchRequest error:&error];
+        //if (fetchedWorkoutPlan == nil){
+            //NSLog(@"Error retrieving entity, %@", [error localizedDescription]);
+        //}
+        //f ([fetchedWorkoutPlan count] > 0){
+            //_workoutPlan = fetchedWorkoutPlan[0];
+        //}
         
-        _fetchedExercises = [[[fetchedWorkoutPlan valueForKey:@"workout_plan_exercise"] valueForKey:@"exercise"] allObjects];
-        _fetchedExercises = [_fetchedExercises[0] allObjects];
-
-        for (id i in _fetchedExercises){
-            NSLog(@"%@", [i valueForKey:@"exercise_name"]);
-        }
-        //NSLog(@"%@", _fetchedExercises);
-        //_fetchedExercises = [[fetchedWorkoutPlan setVal:@"workout_plan_exercise"] allObjects];
-        
-        
-
+        _fetchedExercises = [self.viewedPlan getExercises];
     }
     
     NSError *error;
@@ -101,7 +101,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if ([self.action  isEqualToString:@"view"]){
+    if ([self.action  isEqualToString:@"read"]){
         return [_fetchedExercises count];
     }
     else {
@@ -122,15 +122,16 @@
 }
 
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    if ([self.action isEqualToString:@"view"]){
-        id exercise = _fetchedExercises[indexPath.row];
-        cell.textLabel.text = [exercise valueForKey:@"exercise_name"];
+    Exercise *exercise;
+    
+    if ([self.action isEqualToString:@"read"]){
+        exercise = _fetchedExercises[indexPath.row];
     }
     else {
-        id exercise = [_fetchedResultsController objectAtIndexPath:indexPath];
-        cell.textLabel.text = [exercise valueForKey:@"exercise_name"];
+        exercise = [_fetchedResultsController objectAtIndexPath:indexPath];
     }
     
+    cell.textLabel.text = [exercise getName];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -176,7 +177,6 @@
         NSManagedObject *newWorkoutPlanExercise = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlanExercise" inManagedObjectContext:context];
         [newWorkoutPlanExercise setValue:[_fetchedResultsController objectAtIndexPath:cell] forKey:@"exercise"];
         [newWorkoutPlanExercise setValue:newPlan forKey:@"workout_plan"];
-        NSLog(@"value set");
     }
     
     NSError *saveError = nil;

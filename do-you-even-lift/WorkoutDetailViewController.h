@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WorkoutPlan.h"
 
 @interface WorkoutDetailViewController : UIViewController{
     
@@ -15,6 +16,7 @@
     
 }
 
+@property(strong,nonatomic) WorkoutPlan *workoutPlan;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (nonatomic, strong) NSTimer *timer;
 -(void)timerFired:(NSTimer *)timer;

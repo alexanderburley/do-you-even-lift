@@ -10,4 +10,7 @@
 
 @interface WorkoutPlan : NSManagedObject
 
+-(NSString*)getName;
+-(NSArray*)getExercises;
+
 @end

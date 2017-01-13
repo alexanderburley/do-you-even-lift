@@ -34,7 +34,7 @@
     </entity>
     <elements>
         <element name="CompletedWorkouts" positionX="144" positionY="47" width="128" height="88"/>
-        <element name="Exercise" positionX="-137" positionY="234" width="128" height="103"/>
+        <element name="Exercise" positionX="-137" positionY="234" width="128" height="105"/>
         <element name="PersonalBest" positionX="-117" positionY="441" width="128" height="73"/>
         <element name="User" positionX="-38" positionY="75" width="128" height="105"/>
         <element name="WorkoutPlan" positionX="331" positionY="189" width="128" height="88"/>

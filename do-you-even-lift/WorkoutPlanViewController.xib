@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -108,19 +109,19 @@
                     <exclude reference="LLE-9T-jAZ"/>
                     <exclude reference="hYv-lW-ivE"/>
                     <exclude reference="nVz-dH-133"/>
+                    <exclude reference="aeK-ND-GAR"/>
+                    <exclude reference="gKF-Ch-abF"/>
+                    <exclude reference="oUi-Hn-hcL"/>
+                    <exclude reference="uVz-2F-UmQ"/>
+                    <exclude reference="75u-jY-NF8"/>
+                    <exclude reference="XUz-1r-G2J"/>
+                    <exclude reference="b6A-ez-oSY"/>
+                    <exclude reference="ygi-J0-uaY"/>
                     <exclude reference="3TR-4U-BFF"/>
                     <exclude reference="N8Q-97-fsu"/>
                     <exclude reference="U79-jL-VtG"/>
                     <exclude reference="bck-oh-zi4"/>
                     <exclude reference="tt4-W0-eop"/>
-                    <exclude reference="b6A-ez-oSY"/>
-                    <exclude reference="ygi-J0-uaY"/>
-                    <exclude reference="75u-jY-NF8"/>
-                    <exclude reference="XUz-1r-G2J"/>
-                    <exclude reference="gKF-Ch-abF"/>
-                    <exclude reference="oUi-Hn-hcL"/>
-                    <exclude reference="uVz-2F-UmQ"/>
-                    <exclude reference="aeK-ND-GAR"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -136,19 +137,19 @@
                     <include reference="LLE-9T-jAZ"/>
                     <include reference="hYv-lW-ivE"/>
                     <include reference="nVz-dH-133"/>
+                    <include reference="aeK-ND-GAR"/>
+                    <include reference="gKF-Ch-abF"/>
+                    <include reference="oUi-Hn-hcL"/>
+                    <include reference="uVz-2F-UmQ"/>
+                    <include reference="75u-jY-NF8"/>
+                    <include reference="XUz-1r-G2J"/>
+                    <include reference="b6A-ez-oSY"/>
+                    <include reference="ygi-J0-uaY"/>
                     <include reference="3TR-4U-BFF"/>
                     <include reference="N8Q-97-fsu"/>
                     <include reference="U79-jL-VtG"/>
                     <include reference="bck-oh-zi4"/>
                     <include reference="tt4-W0-eop"/>
-                    <include reference="b6A-ez-oSY"/>
-                    <include reference="ygi-J0-uaY"/>
-                    <include reference="75u-jY-NF8"/>
-                    <include reference="XUz-1r-G2J"/>
-                    <include reference="gKF-Ch-abF"/>
-                    <include reference="oUi-Hn-hcL"/>
-                    <include reference="uVz-2F-UmQ"/>
-                    <include reference="aeK-ND-GAR"/>
                 </mask>
             </variation>
         </view>

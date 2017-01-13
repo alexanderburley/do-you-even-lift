@@ -10,4 +10,13 @@
 
 @implementation WorkoutPlan
 
+-(NSString*)getName {
+    return [self valueForKey:@"plan_name"];
+}
+
+-(NSArray*)getExercises {
+    NSArray *exercises = [[[self valueForKey:@"workout_plan_exercise"] valueForKey:@"exercise"] allObjects];
+    return [exercises[0] allObjects];
+}
+
 @end

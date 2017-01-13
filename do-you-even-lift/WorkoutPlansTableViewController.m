@@ -9,6 +9,7 @@
 #import "WorkoutPlansTableViewController.h"
 #import "WorkoutPlanViewController.h"
 #import "AppDelegate.h"
+#import "WorkoutPlan.h"
 #import <CoreData/CoreData.h>
 
 @interface WorkoutPlansTableViewController () <NSFetchedResultsControllerDelegate>
@@ -93,27 +94,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // Configure the cell...
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
     [self configureCell:cell atIndexPath:indexPath];
-    // Configure the cell...
-    
     return cell;
 }
 
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-    id workoutPlan = [_fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [workoutPlan valueForKey:@"plan_name"];
-    
+    WorkoutPlan *workoutPlan = [_fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [workoutPlan getName];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    WorkoutPlanViewController* workout = [[WorkoutPlanViewController alloc] init];
-    workout.action = @"view";
-    workout.title = [[_fetchedResultsController objectAtIndexPath:indexPath] valueForKey:@"plan_name"];
-    [self showViewController:workout sender:self];
+    
+    WorkoutPlanViewController* workoutPlanViewController = [[WorkoutPlanViewController alloc] init];
+    WorkoutPlan *chosenWorkout = [_fetchedResultsController objectAtIndexPath:indexPath];
+    workoutPlanViewController.action = @"read";
+    workoutPlanViewController.viewedPlan = chosenWorkout;
+    [self showViewController:workoutPlanViewController sender:self];
 }
 -(void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
     [self.tableView beginUpdates];
