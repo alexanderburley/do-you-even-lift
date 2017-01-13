@@ -26,7 +26,7 @@
         <relationship name="completed_workouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CompletedWorkouts" syncable="YES"/>
         <relationship name="workout_plan_exercise" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WorkoutPlanExercise" inverseName="workout_plan" inverseEntity="WorkoutPlanExercise" syncable="YES"/>
     </entity>
-    <entity name="WorkoutPlanExercise" syncable="YES">
+    <entity name="WorkoutPlanExercise" representedClassName="WorkoutPlanExercise" syncable="YES">
         <attribute name="reps" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="sets" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="workout_plan_exercise" inverseEntity="Exercise" syncable="YES"/>

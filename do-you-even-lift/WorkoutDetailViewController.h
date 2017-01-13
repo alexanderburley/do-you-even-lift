@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "WorkoutPlan.h"
+#import <CoreData/CoreData.h>
 
-@interface WorkoutDetailViewController : UIViewController{
+@interface WorkoutDetailViewController : UIViewController <NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate>
+
+{
     
     UILabel *label;
     
@@ -19,8 +22,10 @@
 @property(strong,nonatomic) WorkoutPlan *workoutPlan;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 -(void)timerFired:(NSTimer *)timer;
 -(IBAction)startTimer:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 

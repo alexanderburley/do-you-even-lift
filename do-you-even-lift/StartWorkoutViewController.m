@@ -116,8 +116,10 @@
     WorkoutDetailViewController* newWorkoutViewController = [[WorkoutDetailViewController alloc] init];
     NSIndexPath *path = [tableView indexPathForSelectedRow];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:path];
+    WorkoutPlan *workoutPlan = [_fetchedResultsController objectAtIndexPath:path];
     if (cell.isSelected){
-        newWorkoutViewController.workoutPlan = [_fetchedResultsController objectAtIndexPath:path];
+        newWorkoutViewController.workoutPlan = workoutPlan;
+        NSLog(@"%@", [workoutPlan.workout_plan_exercise valueForKey:@"exercise"]);
     }
     
     [self showViewController:newWorkoutViewController sender:self];
