@@ -37,10 +37,25 @@ int min = 0;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
-    //[self startTimer:nil];
+    
+    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.view.frame.size.width*0.30, self.view.frame.size.height*0.2, 110, 110)] CGPath]];
+    // Add it do your label's layer hierarchy
+    [circleLayer setFillColor:[[UIColor orangeColor] CGColor]];
+    [[self.view layer] addSublayer:circleLayer];
+
+    
+    
+  
+    label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.4, self.view.frame.size.height*0.2, 110, 110)];
+    label.textColor = [UIColor whiteColor];
+
+   
+    [self.view addSubview:label];
     
     _exercises = [self.workoutPlan getExercises];
     NSLog(@"%@",_exercises);
+    [self startTimer:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,7 +81,7 @@ int min = 0;
     //Format the string 00:00
     NSString* timeNow = [NSString stringWithFormat:@"%02d:%02d", min, sec];
     //Display on your label
-    
+    NSLog(@"%@",timeNow);
     label.text= timeNow;
     
 }

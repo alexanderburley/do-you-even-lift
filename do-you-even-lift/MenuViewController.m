@@ -43,28 +43,35 @@
     
     startWorkoutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [startWorkoutButton addTarget:self action:NSSelectorFromString(@"startWorkoutButtonPressed") forControlEvents:UIControlEventTouchUpInside];
+    [startWorkoutButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    
     [startWorkoutButton setTitle:@"Start Workout" forState:UIControlStateNormal];
     startWorkoutButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.2, self.view.frame.size.width*0.6, self.view.frame.size.height*0.10);
     //[self.view addSubview:startWorkoutButton];
     
     exercisesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [exercisesButton addTarget:self action:NSSelectorFromString(@"exercisesButtonPressed") forControlEvents:UIControlEventTouchUpInside];
+    [exercisesButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [exercisesButton setTitle:@"Exercises" forState:UIControlStateNormal];
     exercisesButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.3, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
     
     workoutPlansButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [workoutPlansButton addTarget:self action:NSSelectorFromString(@"workoutPlansButtonPressed") forControlEvents:UIControlEventTouchUpInside];
+    [workoutPlansButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [workoutPlansButton setTitle:@"Workout Plans" forState:UIControlStateNormal];
     workoutPlansButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.4, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
     //[self.view addSubview:workoutPlansButton];
     
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.5, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
+    loginButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.7, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
     loginButton.readPermissions = @[@"public_profile"];
     [loginButton setDelegate:self];
     [self.view addSubview:loginButton];
     
-    
+    self.view.backgroundColor = [UIColor orangeColor];
+//    UIImageView *barbell =[[UIImageView alloc] initWithFrame:CGRectMake(150,150,120,120)];
+//    barbell.image=[UIImage imageNamed:@"Barbell.png"];
+//    [self.view addSubview:barbell];
     
    
     //If a user already has access we can process that and add the necessary view
@@ -81,6 +88,7 @@
 }
 
 -(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
+    
     [exercisesButton removeFromSuperview];
     [startWorkoutButton removeFromSuperview];
     [workoutPlansButton removeFromSuperview];
@@ -123,7 +131,7 @@
     [self.view addSubview:startWorkoutButton];
     [self.view addSubview:workoutPlansButton];
     [self.view addSubview:exercisesButton];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     //Access the user identification number and set the instance variable
     NSLog(@"User ID: %@", [FBSDKAccessToken currentAccessToken].userID);
     _userID = [FBSDKAccessToken currentAccessToken].userID;

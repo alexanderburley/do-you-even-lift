@@ -32,6 +32,7 @@
     
     self.title = @"Exercises";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    [self.tableView setSeparatorColor:[UIColor orangeColor]];
     self.tableView.delegate = self;
     
     

@@ -10,6 +10,7 @@
 #import "WorkoutDetailViewController.h"
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
+ #import <QuartzCore/QuartzCore.h>
 
 @interface StartWorkoutViewController () <NSFetchedResultsControllerDelegate>
 
@@ -31,19 +32,26 @@
     startButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [startButton addTarget:self action:NSSelectorFromString(@"startButtonPressed") forControlEvents:UIControlEventTouchUpInside];
     [startButton setTitle:@"Start" forState:UIControlStateNormal];
-    startButton.backgroundColor = [UIColor greenColor];
+    [startButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    startButton.backgroundColor = [UIColor orangeColor];
+    
+    
     startButton.clipsToBounds = YES;
-    startButton.frame = CGRectMake(self.view.frame.size.width*0.25, self.view.frame.size.height*0.2, self.view.frame.size.width*0.5, self.view.frame.size.height*0.05);
+    startButton.layer.cornerRadius = 55;
+    
+    startButton.frame = CGRectMake(self.view.frame.size.width*0.30, self.view.frame.size.height*0.2, 110, 110);
+    
     startButton.enabled = NO;
     [self.view addSubview:startButton];
 
     
-    UISwitch *onoff = [[UISwitch alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0.425, self.view.frame.size.height*0.3,self.view.frame.size.width*0.1,self.view.frame.size.height*0.05)];
+    UISwitch *onoff = [[UISwitch alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0.8, self.view.frame.size.height*0.12,self.view.frame.size.width*0.1,self.view.frame.size.height*0.05)];
     [onoff addTarget:self action:@selector(switchPressed:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:onoff];
     
     tableView=[[UITableView alloc]init];
     tableView.frame = CGRectMake(self.view.frame.size.width*0, self.view.frame.size.height*0.5,self.view.frame.size.width,self.view.frame.size.height*0.5);
+    [tableView setSeparatorColor:[UIColor orangeColor]];
     tableView.dataSource=self;
     tableView.delegate=self;
     
@@ -79,6 +87,7 @@
 
 -(IBAction)switchPressed:(id)sender{
     UISwitch *onoff = (UISwitch * )sender;
+    [onoff setOnTintColor:[UIColor orangeColor]];
     [startButton setTitle:@"Start New Plan" forState:UIControlStateNormal];
     
     NSIndexPath *path = [tableView indexPathForSelectedRow];
@@ -92,6 +101,7 @@
         //startButton.alpha = 0.5;
         tableView.allowsSelection = NO;
     }else{
+        
         startButton.enabled = NO;
         //startButton.alpha = 1.0;
         tableView.allowsSelection = YES;
@@ -168,7 +178,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"WorkoutDetail"]){
         WorkoutDetailViewController *controller = (WorkoutDetailViewController *)segue.destinationViewController;
-        [controller startTimer:nil];
+        
     }
 }
 
