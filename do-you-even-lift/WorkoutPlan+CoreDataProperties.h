@@ -16,17 +16,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WorkoutPlan (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *plan_name;
-@property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *completed_workouts;
+@property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *completed_workout;
 @property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *workout_plan_exercise;
 
 @end
 
 @interface WorkoutPlan (CoreDataGeneratedAccessors)
 
-- (void)addCompleted_workoutsObject:(NSManagedObject *)value;
-- (void)removeCompleted_workoutsObject:(NSManagedObject *)value;
-- (void)addCompleted_workouts:(NSSet<NSManagedObject *> *)values;
-- (void)removeCompleted_workouts:(NSSet<NSManagedObject *> *)values;
+- (void)addCompleted_workoutObject:(NSManagedObject *)value;
+- (void)removeCompleted_workoutObject:(NSManagedObject *)value;
+- (void)addCompleted_workout:(NSSet<NSManagedObject *> *)values;
+- (void)removeCompleted_workout:(NSSet<NSManagedObject *> *)values;
 
 - (void)addWorkout_plan_exerciseObject:(NSManagedObject *)value;
 - (void)removeWorkout_plan_exerciseObject:(NSManagedObject *)value;

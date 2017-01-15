@@ -58,7 +58,7 @@
     }
     //[self.tableView reloadData];
     
-    NSLog(@"%lu",[_fetchedResultsController.fetchedObjects count]);
+    NSLog(@"%u",[_fetchedResultsController.fetchedObjects count]);
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -147,7 +147,7 @@
     NSString *name = self.planNameTextField.text;
     NSManagedObject *newPlan = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
     [newPlan setValue:name forKey:@"plan_name"];
-
+    
     NSArray *selectedExercises = [self.tableView indexPathsForSelectedRows];
     for (id cell in selectedExercises){
         NSManagedObject *newWorkoutPlanExercise = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlanExercise" inManagedObjectContext:context];
@@ -159,7 +159,10 @@
     if(![context save:&saveError]){
         NSLog(@"Unable to save plan %@, %@", saveError, [saveError localizedDescription]);
     }
-        [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 - (IBAction)cancelButtonPressed:(id)sender {

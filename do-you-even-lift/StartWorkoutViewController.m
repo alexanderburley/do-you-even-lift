@@ -136,6 +136,10 @@
     
 }
 
+-(void)returnToWorkoutScreen:(WorkoutDetailViewController*)newWorkoutViewController {
+    
+}
+
 #pragma mark - Table Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

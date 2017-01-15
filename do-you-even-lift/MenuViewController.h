@@ -15,6 +15,7 @@
     UIButton *workoutsButton;
     UIButton *workoutPlansButton;
     UIButton *exercisesButton;
+    
 }
 
 

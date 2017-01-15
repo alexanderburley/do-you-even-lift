@@ -8,24 +8,38 @@
 
 #import <UIKit/UIKit.h>
 #import "WorkoutPlan.h"
+#import "CompletedWorkout.h"
 #import <CoreData/CoreData.h>
 
 @interface WorkoutDetailViewController : UIViewController <NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate>
 
 {
-    
     UILabel *label;
-    
-    
 }
 
-@property(strong,nonatomic) WorkoutPlan *workoutPlan;
+@property (strong,nonatomic) WorkoutPlan *workoutPlan;
+@property (strong,nonatomic) NSTimer *timer;
+//@property (strong,nonatomic) NSInteger *steps;
+
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
-@property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
--(void)timerFired:(NSTimer *)timer;
--(IBAction)startTimer:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
+
+
+-(void)timerFired:(NSTimer *)timer;
+-(void)cancelFinish;
+-(void)finishWorkout;
+
+-(IBAction)startTimer:(id)sender;
+- (IBAction)finishWorkoutButtonPressed:(id)sender;
+
+
+
+
+
+
 
 
 

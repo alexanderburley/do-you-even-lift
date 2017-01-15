@@ -8,7 +8,9 @@
 
 #import "WorkoutDetailViewController.h"
 #import "StartWorkoutViewController.h"
+#import "FinishedWorkoutViewController.h"
 #import "Exercise.h"
+#import "CompletedWorkout.h"
 #import "WorkoutPlan.h"
 #import "AppDelegate.h"
 
@@ -25,6 +27,8 @@
     NSFetchedResultsController *_fetchedResultsController;
 }
 
+
+
 int sec = 0;
 int min = 0;
 
@@ -35,7 +39,16 @@ int min = 0;
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.backItem.title = @"Back";
     
+    if(self.workoutPlan){
+        [self startTimer:nil];
+    }
+    else {
+        
+    }
+    
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    self.tableView.allowsMultipleSelection = true;
     
     
     CAShapeLayer *circleLayer = [CAShapeLayer layer];
@@ -52,10 +65,14 @@ int min = 0;
 
    
     [self.view addSubview:label];
-    
     _exercises = [self.workoutPlan getExercises];
     NSLog(@"%@",_exercises);
     [self startTimer:nil];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self pauseTimer:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +85,15 @@ int min = 0;
 -(IBAction)startTimer:(id)sender{
     if (!self.timer){
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo: nil repeats:YES];
+    }
+    else {
+        [self.timer fire];
+    }
+}
+
+-(IBAction)pauseTimer:(id)sender{
+    if(self.timer){
+        [self.timer invalidate];
     }
 }
 
@@ -234,4 +260,27 @@ int min = 0;
  */
 
 
+//CREATE PROTOCOL!!
+-(void)finishWorkout{
+    self.timer = nil;
+    self.workoutPlan = nil;
+}
+
+-(void)cancelFinish{
+    [self startTimer:nil];
+}
+
+
+- (IBAction)finishWorkoutButtonPressed:(id)sender {
+    
+    FinishedWorkoutViewController *finishWorkoutViewController = [[FinishedWorkoutViewController alloc] init];
+    finishWorkoutViewController.navigationItem.hidesBackButton = YES;
+    //finishWorkoutViewController.stepsCompleted = self.steps;
+    finishWorkoutViewController.timeTaken = [NSNumber numberWithInt:sec+(min*60)];
+    finishWorkoutViewController.workoutPlan = self.workoutPlan;
+    finishWorkoutViewController.delegate = self;
+    [self showViewController:finishWorkoutViewController sender:self];
+    
+    
+}
 @end
