@@ -16,6 +16,7 @@
 @property (strong,nonatomic) NSNumber *timeTaken;
 @property (weak,nonatomic) WorkoutPlan *workoutPlan;
 @property (weak,nonatomic) WorkoutDetailViewController *delegate;
+
 - (IBAction)saveWorkoutButtonPressed:(id)sender;
 - (IBAction)cancelButtonPressed:(id)sender;
 

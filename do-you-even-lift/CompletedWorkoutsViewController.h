@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 
 @interface CompletedWorkoutsViewController : UIViewController <NSFetchedResultsControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 

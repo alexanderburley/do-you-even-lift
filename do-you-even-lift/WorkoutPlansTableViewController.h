@@ -13,8 +13,9 @@
 @interface WorkoutPlansTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addEditPlanButton;
 
 - (IBAction)addWorkoutPlan:(id)sender;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *addEditPlanButton;
+
 
 @end

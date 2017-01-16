@@ -7,15 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WorkoutPlan.h"
-#import "CompletedWorkout.h"
 #import <CoreData/CoreData.h>
 
-@interface WorkoutDetailViewController : UIViewController <NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate>
+#import "WorkoutPlan.h"
+#import "CompletedWorkout.h"
 
-{
-    UILabel *label;
-}
+
+@interface WorkoutDetailViewController : UIViewController <NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @property (strong,nonatomic) WorkoutPlan *workoutPlan;
 @property (strong,nonatomic) NSTimer *timer;
@@ -33,7 +31,7 @@
 -(void)finishWorkout;
 
 -(IBAction)startTimer:(id)sender;
-- (IBAction)finishWorkoutButtonPressed:(id)sender;
+-(IBAction)finishWorkoutButtonPressed:(id)sender;
 
 
 

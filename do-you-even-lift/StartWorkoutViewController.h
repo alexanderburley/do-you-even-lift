@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface StartWorkoutViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate> {
-    
-};
--(IBAction)switchPressed:(id)sender;
-@property (nonatomic, assign)BOOL isStart;
+@interface StartWorkoutViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,NSFetchedResultsControllerDelegate>
+
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
+-(IBAction)switchPressed:(id)sender;
+
+
 
 @end

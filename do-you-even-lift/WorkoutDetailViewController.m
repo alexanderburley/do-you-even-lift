@@ -9,64 +9,43 @@
 #import "WorkoutDetailViewController.h"
 #import "StartWorkoutViewController.h"
 #import "FinishedWorkoutViewController.h"
+#import "AppDelegate.h"
 #import "Exercise.h"
 #import "CompletedWorkout.h"
 #import "WorkoutPlan.h"
-#import "AppDelegate.h"
 
 
-@interface WorkoutDetailViewController () {
-    
-}
-
-
+@interface WorkoutDetailViewController ()
 @end
 
 @implementation WorkoutDetailViewController {
     NSArray *_exercises;
     NSFetchedResultsController *_fetchedResultsController;
+    UILabel *label;
+    int sec;
+    int min;
 }
-
-
-
-int sec = 0;
-int min = 0;
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.navigationController.navigationBar.backItem.title = @"Back";
     
-    if(self.workoutPlan){
-        [self startTimer:nil];
-    }
-    else {
-        
-    }
-    
+    sec = 0;
+    min = 0;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     self.tableView.allowsMultipleSelection = true;
     
-    
     CAShapeLayer *circleLayer = [CAShapeLayer layer];
     [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.view.frame.size.width*0.30, self.view.frame.size.height*0.2, 110, 110)] CGPath]];
-    // Add it do your label's layer hierarchy
     [circleLayer setFillColor:[[UIColor orangeColor] CGColor]];
     [[self.view layer] addSublayer:circleLayer];
 
-    
-    
-  
     label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.4, self.view.frame.size.height*0.2, 110, 110)];
     label.textColor = [UIColor whiteColor];
-
-   
     [self.view addSubview:label];
+   
+    
     _exercises = [self.workoutPlan getExercises];
-    NSLog(@"%@",_exercises);
     [self startTimer:nil];
 }
 
@@ -80,7 +59,7 @@ int min = 0;
     // Dispose of any resources that can be recreated.
 }
 
-
+#pragma mark - Intercace actions
 
 -(IBAction)startTimer:(id)sender{
     if (!self.timer){
@@ -97,10 +76,22 @@ int min = 0;
     }
 }
 
+- (IBAction)finishWorkoutButtonPressed:(id)sender {
+    
+    FinishedWorkoutViewController *finishWorkoutViewController = [[FinishedWorkoutViewController alloc] init];
+    finishWorkoutViewController.navigationItem.hidesBackButton = YES;
+    //finishWorkoutViewController.stepsCompleted = self.steps;
+    finishWorkoutViewController.timeTaken = [NSNumber numberWithInt:sec+(min*60)];
+    finishWorkoutViewController.workoutPlan = self.workoutPlan;
+    finishWorkoutViewController.delegate = self;
+    [self showViewController:finishWorkoutViewController sender:self];
+    
+    
+}
+
 -(void)timerFired:(NSTimer *)timer{
     sec++;
-    if (sec == 60)
-    {
+    if (sec == 60) {
         sec = 0;
         min++;
     }
@@ -112,27 +103,15 @@ int min = 0;
     
 }
 
--(NSFetchedResultsController *)fetchedResultsController {
-    if (_fetchedResultsController != nil){
-        return _fetchedResultsController;
-    }
-    
-    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = app.managedObjectContext;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Exercise" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"exercise_name" ascending:NO];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    [fetchRequest setFetchBatchSize:20];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY workout_plan_exercise = %@", self.workoutPlan.workout_plan_exercise];
-    
-    fetchRequest.predicate = predicate;
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"Root"];
-    _fetchedResultsController.delegate = self;
-    
-    return _fetchedResultsController;
-    
+#pragma mark - delegate methods??
+
+-(void)finishWorkout{
+    self.timer = nil;
+    self.workoutPlan = nil;
+}
+
+-(void)cancelFinish{
+    [self startTimer:nil];
 }
 
 #pragma mark - Table view data source
@@ -156,7 +135,6 @@ int min = 0;
 
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-    //Exercise *exercise = [_fetchedResultsController objectAtIndexPath:indexPath];
     Exercise *exercise = [_exercises objectAtIndex:indexPath.row];
     cell.textLabel.text = exercise.exercise_name;
     
@@ -168,6 +146,32 @@ int min = 0;
 
 -(void)tableView:(UITableView*)tableView didDeselectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+}
+
+#pragma mark - Fetched results controller
+
+
+-(NSFetchedResultsController *)fetchedResultsController {
+    if (_fetchedResultsController != nil){
+        return _fetchedResultsController;
+    }
+    
+    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = app.managedObjectContext;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Exercise" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"exercise_name" ascending:NO];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    [fetchRequest setFetchBatchSize:20];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY workout_plan_exercise = %@", self.workoutPlan.workout_plan_exercise];
+    
+    fetchRequest.predicate = predicate;
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"Root"];
+    _fetchedResultsController.delegate = self;
+    
+    return _fetchedResultsController;
+    
 }
 
 -(void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
@@ -261,26 +265,8 @@ int min = 0;
 
 
 //CREATE PROTOCOL!!
--(void)finishWorkout{
-    self.timer = nil;
-    self.workoutPlan = nil;
-}
-
--(void)cancelFinish{
-    [self startTimer:nil];
-}
 
 
-- (IBAction)finishWorkoutButtonPressed:(id)sender {
-    
-    FinishedWorkoutViewController *finishWorkoutViewController = [[FinishedWorkoutViewController alloc] init];
-    finishWorkoutViewController.navigationItem.hidesBackButton = YES;
-    //finishWorkoutViewController.stepsCompleted = self.steps;
-    finishWorkoutViewController.timeTaken = [NSNumber numberWithInt:sec+(min*60)];
-    finishWorkoutViewController.workoutPlan = self.workoutPlan;
-    finishWorkoutViewController.delegate = self;
-    [self showViewController:finishWorkoutViewController sender:self];
-    
-    
-}
+
+
 @end

@@ -38,8 +38,6 @@
 
     
     NSError *error;
-    //NSLog(@"%@", [self fetchedResultsController]);
-    //_workouts= [context executeFetchRequest:fetchRequest error:&error];
     if (![[self fetchedResultsController] performFetch:&error]){
         NSLog(@"unresolved error %@, %@", error, [error userInfo]);
     }
@@ -50,33 +48,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Interface Actions
+
 -(IBAction)addWorkoutPlan:(id)sender {
 
     WorkoutPlanViewController* newWorkout = [[WorkoutPlanViewController alloc] init];
     newWorkout.title = @"New Workout Plan";
     [self presentViewController:newWorkout animated:YES completion:nil];
-    
-}
-
-
--(NSFetchedResultsController *)fetchedResultsController {
-    if (_fetchedResultsController != nil){
-        return _fetchedResultsController;
-    }
-    
-    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = app.managedObjectContext;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"WorkoutPlan" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"plan_name" ascending:NO];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    [fetchRequest setFetchBatchSize:20];
-    
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"Root"];
-    _fetchedResultsController.delegate = self;
-    
-    return _fetchedResultsController;
     
 }
 
@@ -113,6 +91,30 @@
     workoutPlanViewController.viewedPlan = chosenWorkout;
     [self showViewController:workoutPlanViewController sender:self];
 }
+
+#pragma mark - Core Data
+
+-(NSFetchedResultsController *)fetchedResultsController {
+    if (_fetchedResultsController != nil){
+        return _fetchedResultsController;
+    }
+    
+    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = app.managedObjectContext;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"WorkoutPlan" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"plan_name" ascending:NO];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    [fetchRequest setFetchBatchSize:20];
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"Root"];
+    _fetchedResultsController.delegate = self;
+    
+    return _fetchedResultsController;
+    
+}
+
 -(void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
     [self.tableView beginUpdates];
 }

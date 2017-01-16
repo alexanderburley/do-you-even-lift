@@ -28,6 +28,8 @@
     return self;
 }
 
+//SELECT ROW, ASSIGN DICTIONARY VALUE OF SETS AND REPS FROM ALERT VIEW CONTROLLER
+
 - (void)viewDidLoad {
     
     self.title = @"Workout Plan";
@@ -38,7 +40,6 @@
     self.tableView.allowsMultipleSelection = YES;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
-    
     if ([self.action  isEqualToString:@"read"]){
         self.tableView.allowsMultipleSelection = NO;
         self.cancelButton.enabled = NO;
@@ -48,7 +49,6 @@
         self.planNameTextField.enabled = NO;
         self.planNameTextField.hidden = YES;
         self.nameLabel.hidden = YES;
-        
         _fetchedExercises = [self.viewedPlan getExercises];
     }
     
@@ -56,10 +56,6 @@
     if (![[self fetchedResultsController] performFetch:&error]){
         NSLog(@"unresolved error %@, %@", error, [error userInfo]);
     }
-    //[self.tableView reloadData];
-    
-    NSLog(@"%u",[_fetchedResultsController.fetchedObjects count]);
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,15 +63,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+- (IBAction)saveButtonPressed:(id)sender {
+    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = app.managedObjectContext;
+    
+    NSString *name = self.planNameTextField.text;
+    NSManagedObject *newPlan = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
+    [newPlan setValue:name forKey:@"plan_name"];
+    
+    NSArray *selectedExercises = [self.tableView indexPathsForSelectedRows];
+    for (id cell in selectedExercises){
+        NSManagedObject *newWorkoutPlanExercise = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlanExercise" inManagedObjectContext:context];
+        [newWorkoutPlanExercise setValue:[_fetchedResultsController objectAtIndexPath:cell] forKey:@"exercise"];
+        [newWorkoutPlanExercise setValue:newPlan forKey:@"workout_plan"];
+    }
+    
+    NSError *saveError = nil;
+    if(![context save:&saveError]){
+        NSLog(@"Unable to save plan %@, %@", saveError, [saveError localizedDescription]);
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
-*/
+
+- (IBAction)cancelButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - Table
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -139,35 +159,6 @@
     
 }
 
-
-- (IBAction)saveButtonPressed:(id)sender {
-    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = app.managedObjectContext;
-    
-    NSString *name = self.planNameTextField.text;
-    NSManagedObject *newPlan = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
-    [newPlan setValue:name forKey:@"plan_name"];
-    
-    NSArray *selectedExercises = [self.tableView indexPathsForSelectedRows];
-    for (id cell in selectedExercises){
-        NSManagedObject *newWorkoutPlanExercise = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlanExercise" inManagedObjectContext:context];
-        [newWorkoutPlanExercise setValue:[_fetchedResultsController objectAtIndexPath:cell] forKey:@"exercise"];
-        [newWorkoutPlanExercise setValue:newPlan forKey:@"workout_plan"];
-    }
-    
-    NSError *saveError = nil;
-    if(![context save:&saveError]){
-        NSLog(@"Unable to save plan %@, %@", saveError, [saveError localizedDescription]);
-    }
-    
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-
-}
-
-- (IBAction)cancelButtonPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 
 @end

@@ -17,6 +17,7 @@
 @end
 
 @implementation StartWorkoutViewController   {
+    
     NSFetchedResultsController *_fetchedResultsController;
     UIButton *startButton;
     UITableView *tableView;
@@ -30,17 +31,13 @@
     self.title = @"Start Workout";
     
     startButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [startButton addTarget:self action:NSSelectorFromString(@"startButtonPressed") forControlEvents:UIControlEventTouchUpInside];
+    [startButton addTarget:self action:NSSelectorFromString(@"startWorkoutButtonPressed") forControlEvents:UIControlEventTouchUpInside];
     [startButton setTitle:@"Start" forState:UIControlStateNormal];
     [startButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     startButton.backgroundColor = [UIColor orangeColor];
-    
-    
     startButton.clipsToBounds = YES;
     startButton.layer.cornerRadius = 55;
-    
     startButton.frame = CGRectMake(self.view.frame.size.width*0.30, self.view.frame.size.height*0.2, 110, 110);
-    
     startButton.enabled = NO;
     [self.view addSubview:startButton];
 
@@ -54,23 +51,15 @@
     [tableView setSeparatorColor:[UIColor orangeColor]];
     tableView.dataSource=self;
     tableView.delegate=self;
-    
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     tableView.allowsMultipleSelection = NO;
-    //[tableView reloadData];
     [self.view addSubview:tableView];
-    
-    
-    // Do any additional setup after loading the view.
    
     NSError *error;
-    //NSLog(@"%@", [self fetchedResultsController]);
-    //_workouts= [context executeFetchRequest:fetchRequest error:&error];
     if (![[self fetchedResultsController] performFetch:&error]){
         NSLog(@"unresolved error %@, %@", error, [error userInfo]);
     }
-
 
 }
 
@@ -79,7 +68,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 -(void)viewWillDisapper:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -92,37 +80,22 @@
     
     NSIndexPath *path = [tableView indexPathForSelectedRow];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:path];
+    
     if (cell.isSelected){
         [tableView deselectRowAtIndexPath:path animated:NO];
     }
-    
     if(onoff.on){
         startButton.enabled = YES;
-        //startButton.alpha = 0.5;
         tableView.allowsSelection = NO;
-    }else{
-        
+    }
+    else{
         startButton.enabled = NO;
-        //startButton.alpha = 1.0;
         tableView.allowsSelection = YES;
     }
 }
 
--(void)startButtonPressed{
-    //    self.isStart = !self.isStart;
-    //
-    //    if (self.isStart){
-    //        sec = 0;
-    //        min = 0;
-    //        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerTick) userInfo:nil repeats:TRUE];
-    //        [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    //        [startButton setTitle:@"STOP" forState:UIControlStateNormal];
-    //    }else{
-    //        [startButton setTitle:@"START" forState:UIControlStateNormal];
-    //        [timer invalidate];
-    //        label.text = [NSString stringWithFormat:@"00:00"];
-    //    }
-    //
+-(void)startWorkoutButtonPressed{
+
     WorkoutDetailViewController* newWorkoutViewController = [[WorkoutDetailViewController alloc] init];
     NSIndexPath *path = [tableView indexPathForSelectedRow];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:path];
@@ -177,17 +150,8 @@
     cell.textLabel.text = workoutPlan.plan_name;
 }
 
-#pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"WorkoutDetail"]){
-        WorkoutDetailViewController *controller = (WorkoutDetailViewController *)segue.destinationViewController;
-        
-    }
-}
-
-
-#pragma mark - Core Data Interaction
+#pragma mark - Fetched Results Controller
 
 -(NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController != nil){
@@ -258,17 +222,5 @@
     [tableView endUpdates];
 }
 
-
-
-
-/*
-#pragma mark - Navigation
-x
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
