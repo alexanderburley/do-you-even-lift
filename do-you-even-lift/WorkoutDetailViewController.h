@@ -24,13 +24,6 @@
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
-
-
--(void)timerFired:(NSTimer *)timer;
--(void)cancelFinish;
--(void)finishWorkout;
-
--(IBAction)startTimer:(id)sender;
 -(IBAction)finishWorkoutButtonPressed:(id)sender;
 
 

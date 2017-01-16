@@ -31,6 +31,7 @@
     
     sec = 0;
     min = 0;
+    self.timerLabel.text = [NSString stringWithFormat:@"%02d:%02d", min, sec];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     self.tableView.allowsMultipleSelection = true;
@@ -43,15 +44,17 @@
     label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.4, self.view.frame.size.height*0.2, 110, 110)];
     label.textColor = [UIColor whiteColor];
     [self.view addSubview:label];
-   
-    
     _exercises = [self.workoutPlan getExercises];
-    [self startTimer:nil];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self pauseTimer:nil];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self startTimer:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,18 +65,13 @@
 #pragma mark - Intercace actions
 
 -(IBAction)startTimer:(id)sender{
-    if (!self.timer){
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo: nil repeats:YES];
-    }
-    else {
-        [self.timer fire];
-    }
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo: nil repeats:YES];
+    [self.timer fire];
 }
 
 -(IBAction)pauseTimer:(id)sender{
-    if(self.timer){
-        [self.timer invalidate];
-    }
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 - (IBAction)finishWorkoutButtonPressed:(id)sender {
@@ -103,16 +101,7 @@
     
 }
 
-#pragma mark - delegate methods??
 
--(void)finishWorkout{
-    self.timer = nil;
-    self.workoutPlan = nil;
-}
-
--(void)cancelFinish{
-    [self startTimer:nil];
-}
 
 #pragma mark - Table view data source
 

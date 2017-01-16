@@ -59,7 +59,12 @@
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     CompletedWorkout *completedWorkout = [_fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = completedWorkout.workout_plan.plan_name;
+    NSString *date_completed = [NSDateFormatter localizedStringFromDate:completedWorkout.date_completed
+                                                          dateStyle:NSDateFormatterMediumStyle
+                                                          timeStyle:NSDateFormatterNoStyle];
+    NSString *name = completedWorkout.workout_plan.plan_name;
+    NSString *time_taken = [completedWorkout.time_taken stringValue];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@",name,date_completed,time_taken];
 }
 
 #pragma mark - Fetched Results Controller

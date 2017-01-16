@@ -13,11 +13,13 @@
 
 @interface FinishedWorkoutViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *congratulationsLabel;
 @property (strong,nonatomic) NSNumber *timeTaken;
 @property (weak,nonatomic) WorkoutPlan *workoutPlan;
 @property (weak,nonatomic) WorkoutDetailViewController *delegate;
 
 - (IBAction)saveWorkoutButtonPressed:(id)sender;
-- (IBAction)cancelButtonPressed:(id)sender;
+- (IBAction)discardWorkoutButtonPressed:(id)sender;
+- (IBAction)returnWorkoutButtonPressed:(id)sender;
 
 @end

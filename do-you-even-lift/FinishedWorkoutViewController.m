@@ -19,6 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    int *min = [self.timeTaken intValue]/60;
+    int *sec = [self.timeTaken intValue]%60;
+    self.congratulationsLabel.numberOfLines = 0;
+    self.congratulationsLabel.text = [NSString stringWithFormat:@"Congratulations! You completed your workout in %i minutes and %i seconds.", min, sec];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,9 +49,13 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
                                                   
 }
-- (IBAction)cancelButtonPressed:(id)sender {
-    [self.delegate cancelFinish];
+- (IBAction)returnWorkoutButtonPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+- (IBAction)discardWorkoutButtonPressed:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
 @end
