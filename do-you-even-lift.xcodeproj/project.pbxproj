@@ -21,6 +21,9 @@
 		5C44E7D01E2C3082007B4A17 /* FinishedWorkoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C44E7CA1E2C3082007B4A17 /* FinishedWorkoutViewController.xib */; };
 		5C8970A81E27957900635F5F /* WorkoutPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8970A61E27957900635F5F /* WorkoutPlanViewController.m */; };
 		5C8970A91E27957900635F5F /* WorkoutPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C8970A71E27957900635F5F /* WorkoutPlanViewController.xib */; };
+		5CA62FEA1E2D3DC20003F2A0 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CA62FE91E2D3DC20003F2A0 /* MenuViewController.xib */; };
+		5CA62FEC1E2D3F0A0003F2A0 /* palette (1).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA62FEB1E2D3F0A0003F2A0 /* palette (1).pdf */; };
+		5CA62FEE1E2D3F270003F2A0 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 5CA62FED1E2D3F270003F2A0 /* AppIcon.appiconset */; };
 		5CBCD2AD1E2918DA008FDE08 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2AB1E2918DA008FDE08 /* ExerciseViewController.m */; };
 		5CBCD2AE1E2918DA008FDE08 /* ExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CBCD2AC1E2918DA008FDE08 /* ExerciseViewController.xib */; };
 		5CBCD2B61E292FB1008FDE08 /* Exercise+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2B31E292FB1008FDE08 /* Exercise+CoreDataProperties.m */; };
@@ -90,6 +93,9 @@
 		5C8970A51E27957900635F5F /* WorkoutPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutPlanViewController.h; sourceTree = "<group>"; };
 		5C8970A61E27957900635F5F /* WorkoutPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutPlanViewController.m; sourceTree = "<group>"; };
 		5C8970A71E27957900635F5F /* WorkoutPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutPlanViewController.xib; sourceTree = "<group>"; };
+		5CA62FE91E2D3DC20003F2A0 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		5CA62FEB1E2D3F0A0003F2A0 /* palette (1).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "palette (1).pdf"; sourceTree = "<group>"; };
+		5CA62FED1E2D3F270003F2A0 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		5CBCD2AA1E2918DA008FDE08 /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
 		5CBCD2AB1E2918DA008FDE08 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
 		5CBCD2AC1E2918DA008FDE08 /* ExerciseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseViewController.xib; sourceTree = "<group>"; };
@@ -207,6 +213,7 @@
 		5CBCD2A91E290EE0008FDE08 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5CA62FE91E2D3DC20003F2A0 /* MenuViewController.xib */,
 				5C44E7C71E2C3082007B4A17 /* CompletedWorkoutsViewController.xib */,
 				5C44E7CA1E2C3082007B4A17 /* FinishedWorkoutViewController.xib */,
 				5CBCD2AC1E2918DA008FDE08 /* ExerciseViewController.xib */,
@@ -322,6 +329,8 @@
 		5CFA20B91E21569100B296C6 = {
 			isa = PBXGroup;
 			children = (
+				5CA62FED1E2D3F270003F2A0 /* AppIcon.appiconset */,
+				5CA62FEB1E2D3F0A0003F2A0 /* palette (1).pdf */,
 				5CFA20FB1E2156A300B296C6 /* Frameworks */,
 				5CFA20C41E21569100B296C6 /* do-you-even-lift */,
 				5CFA20E11E21569200B296C6 /* do-you-even-liftTests */,
@@ -501,9 +510,12 @@
 				5C8970A91E27957900635F5F /* WorkoutPlanViewController.xib in Resources */,
 				5CFA20D81E21569200B296C6 /* LaunchScreen.storyboard in Resources */,
 				5C44E7D01E2C3082007B4A17 /* FinishedWorkoutViewController.xib in Resources */,
+				5CA62FEE1E2D3F270003F2A0 /* AppIcon.appiconset in Resources */,
 				5CFA20D51E21569200B296C6 /* Assets.xcassets in Resources */,
 				1AFBE2C11E2A797700383A5E /* Barbell.png in Resources */,
 				5CBCD2AE1E2918DA008FDE08 /* ExerciseViewController.xib in Resources */,
+				5CA62FEC1E2D3F0A0003F2A0 /* palette (1).pdf in Resources */,
+				5CA62FEA1E2D3DC20003F2A0 /* MenuViewController.xib in Resources */,
 				5C44E7CE1E2C3082007B4A17 /* CompletedWorkoutsViewController.xib in Resources */,
 				5CFA20D01E21569200B296C6 /* Main.storyboard in Resources */,
 			);
