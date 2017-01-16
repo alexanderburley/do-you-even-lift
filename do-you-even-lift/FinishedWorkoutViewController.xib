@@ -18,32 +18,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2pJ-QX-nck">
-                    <rect key="frame" x="0.0" y="215" width="600" height="385"/>
+                    <rect key="frame" x="8" y="215" width="584" height="385"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujy-5r-sWH">
-                            <rect key="frame" x="8" y="43" width="584" height="40"/>
+                            <rect key="frame" x="8" y="43" width="568" height="40"/>
                             <color key="backgroundColor" red="0.81392045449999995" green="0.81392045449999995" blue="0.81392045449999995" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="kCs-O5-hPV"/>
-                                <constraint firstAttribute="width" constant="584" id="nCx-2F-sMd"/>
+                                <constraint firstAttribute="width" constant="568" id="nCx-2F-sMd"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <state key="normal" title="Take a photo!"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Oq-jB-Fzg">
-                            <rect key="frame" x="8" y="187" width="584" height="40"/>
-                            <color key="backgroundColor" red="0.81392045454545447" green="0.81392045454545447" blue="0.81392045454545447" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="aib-FS-Qkp"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                            <state key="normal" title="Save Workout"/>
-                            <connections>
-                                <action selector="saveWorkoutButtonPressed:" destination="-1" eventType="touchUpInside" id="Uex-YD-fSE"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wU-d2-R8H">
-                            <rect key="frame" x="8" y="91" width="584" height="40"/>
+                            <rect key="frame" x="8" y="91" width="568" height="40"/>
                             <color key="backgroundColor" red="0.81392045449999995" green="0.81392045449999995" blue="0.81392045449999995" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="P7R-BT-mur"/>
@@ -52,7 +40,7 @@
                             <state key="normal" title="Save New Workout Plan"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdg-Vu-KRP">
-                            <rect key="frame" x="8" y="235" width="584" height="40"/>
+                            <rect key="frame" x="8" y="235" width="568" height="40"/>
                             <color key="backgroundColor" red="0.81392045449999995" green="0.81392045449999995" blue="0.81392045449999995" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="aua-1G-e7h"/>
@@ -64,7 +52,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34n-ct-ant">
-                            <rect key="frame" x="8" y="139" width="584" height="40"/>
+                            <rect key="frame" x="8" y="139" width="568" height="40"/>
                             <color key="backgroundColor" red="0.81392045449999995" green="0.81392045449999995" blue="0.81392045449999995" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="mgk-Yq-P69"/>
@@ -73,6 +61,18 @@
                             <state key="normal" title="Return to workout"/>
                             <connections>
                                 <action selector="returnWorkoutButtonPressed:" destination="-1" eventType="touchUpInside" id="9ll-Zp-PEQ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Oq-jB-Fzg">
+                            <rect key="frame" x="8" y="187" width="568" height="40"/>
+                            <color key="backgroundColor" red="0.81392045454545447" green="0.81392045454545447" blue="0.81392045454545447" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="aib-FS-Qkp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <state key="normal" title="Save Workout"/>
+                            <connections>
+                                <action selector="saveWorkoutButtonPressed:" destination="-1" eventType="touchUpInside" id="Uex-YD-fSE"/>
                             </connections>
                         </button>
                     </subviews>
@@ -110,9 +110,9 @@
                 <constraint firstItem="MmT-7V-6wd" firstAttribute="centerX" secondItem="2pJ-QX-nck" secondAttribute="centerX" id="5Ac-9S-KC9"/>
                 <constraint firstItem="MmT-7V-6wd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="VWo-Ei-icX"/>
                 <constraint firstItem="MmT-7V-6wd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="19" id="mjv-hp-8Lc"/>
-                <constraint firstAttribute="trailing" secondItem="2pJ-QX-nck" secondAttribute="trailing" id="qAE-Cb-bKv"/>
+                <constraint firstAttribute="trailing" secondItem="2pJ-QX-nck" secondAttribute="trailing" constant="8" id="qAE-Cb-bKv"/>
                 <constraint firstAttribute="bottom" secondItem="2pJ-QX-nck" secondAttribute="bottom" id="x9n-r2-Zyv"/>
-                <constraint firstItem="2pJ-QX-nck" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yOv-P1-JpH"/>
+                <constraint firstItem="2pJ-QX-nck" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="yOv-P1-JpH"/>
             </constraints>
         </view>
     </objects>
