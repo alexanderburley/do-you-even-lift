@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompletedWorkoutsViewController">
@@ -16,20 +17,56 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Flu-ih-srn">
-                    <rect key="frame" x="0.0" y="177" width="600" height="423"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Flu-ih-srn">
+                    <rect key="frame" x="8" y="151" width="584" height="449"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="449" id="o4G-Zb-uE6"/>
+                    </constraints>
+                    <color key="separatorColor" red="0.43921568630000002" green="0.4549019608" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="ePm-a4-feM"/>
                         <outlet property="delegate" destination="-1" id="8d9-Ho-r0R"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oM-nv-pCT">
-                    <rect key="frame" x="83" y="88" width="97" height="36"/>
-                    <state key="normal" title="Button"/>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Snt-4e-HPk">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="143"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXJ-k4-bK4">
+                            <rect key="frame" x="282" y="29" width="37" height="21"/>
+                            <color key="tintColor" red="0.98431372549019602" green="0.96078431372549022" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.4392156862745098" green="0.45490196078431372" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Blg-x0-L9s">
+                            <rect key="frame" x="228" y="58" width="145" height="29"/>
+                            <segments>
+                                <segment title="Table"/>
+                                <segment title="Graphical"/>
+                            </segments>
+                            <color key="tintColor" red="0.23529411764705882" green="0.68235294117647061" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+                        </segmentedControl>
+                    </subviews>
+                    <color key="backgroundColor" red="0.98431372549019602" green="0.96078431372549022" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Blg-x0-L9s" firstAttribute="bottom" secondItem="Snt-4e-HPk" secondAttribute="bottomMargin" constant="-49" id="3yE-Jt-zcg"/>
+                        <constraint firstItem="Blg-x0-L9s" firstAttribute="centerX" secondItem="Snt-4e-HPk" secondAttribute="centerX" id="5yf-fR-OCz"/>
+                        <constraint firstItem="EXJ-k4-bK4" firstAttribute="centerX" secondItem="Blg-x0-L9s" secondAttribute="centerX" id="9hT-N5-zrh"/>
+                        <constraint firstItem="Blg-x0-L9s" firstAttribute="top" secondItem="EXJ-k4-bK4" secondAttribute="bottom" constant="8" symbolic="YES" id="vn7-ag-EO4"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Flu-ih-srn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="22f-2O-8kP"/>
+                <constraint firstItem="Snt-4e-HPk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="34w-Vc-68j"/>
+                <constraint firstAttribute="bottom" secondItem="Flu-ih-srn" secondAttribute="bottom" id="KhD-uM-ES3"/>
+                <constraint firstItem="Flu-ih-srn" firstAttribute="top" secondItem="Snt-4e-HPk" secondAttribute="bottom" constant="8" symbolic="YES" id="LV4-Vy-Dtq"/>
+                <constraint firstAttribute="trailing" secondItem="Snt-4e-HPk" secondAttribute="trailing" id="g49-Wl-qgG"/>
+                <constraint firstItem="Snt-4e-HPk" firstAttribute="centerX" secondItem="Flu-ih-srn" secondAttribute="centerX" id="pvR-oN-QBV"/>
+                <constraint firstItem="Snt-4e-HPk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wS9-pX-KTU"/>
+            </constraints>
         </view>
     </objects>
 </document>

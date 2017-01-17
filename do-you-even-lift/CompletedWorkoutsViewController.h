@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "UIColor+AppColors.h"
 
 @interface CompletedWorkoutsViewController : UIViewController <NSFetchedResultsControllerDelegate>
 

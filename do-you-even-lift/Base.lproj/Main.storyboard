@@ -55,7 +55,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Workout Plans" id="BgZ-r1-IGt">
-                        <barButtonItem key="rightBarButtonItem" title="New Plan" id="B4u-CR-7JX">
+                        <barButtonItem key="rightBarButtonItem" title="New" id="B4u-CR-7JX">
                             <connections>
                                 <action selector="addWorkoutPlan:" destination="K7F-wW-QlV" id="QZg-tb-jL8"/>
                             </connections>
@@ -131,7 +131,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Exercises" id="qkM-ba-Fre">
-                        <barButtonItem key="rightBarButtonItem" title="New Exercise" id="dEw-1N-jHH">
+                        <barButtonItem key="rightBarButtonItem" title="New" id="dEw-1N-jHH">
                             <connections>
                                 <action selector="addExercise:" destination="M9u-bc-Hlm" id="K9I-vq-XKn"/>
                             </connections>

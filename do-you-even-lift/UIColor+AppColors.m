@@ -20,7 +20,7 @@
 }
 
 + (UIColor*)appGreenColor{
-    return UIColorFromRGB(0x5aeda6);
+    return UIColorFromRGB(0x4cc98d);
 }
 
 + (UIColor*)appGreyColor{

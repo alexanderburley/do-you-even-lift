@@ -25,6 +25,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"Completed Workouts";
+    UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonSystemItemAdd target:self action:@selector(newCompletedWorkout:)];
+    self.navigationItem.rightBarButtonItem = newButton;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
     NSError *error;
@@ -36,6 +38,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)newCompletedWorkout:(id)sender{
+    
 }
 
 #pragma mark - Table view data source
@@ -64,6 +70,7 @@
                                                           timeStyle:NSDateFormatterNoStyle];
     NSString *name = completedWorkout.workout_plan.plan_name;
     NSString *time_taken = [completedWorkout.time_taken stringValue];
+    cell.textLabel.textColor = [UIColor appBlueColor];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@",name,date_completed,time_taken];
 }
 

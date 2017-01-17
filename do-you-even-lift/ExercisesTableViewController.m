@@ -32,7 +32,8 @@
     
     self.title = @"Exercises";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-    [self.tableView setSeparatorColor:[UIColor orangeColor]];
+    [self.tableView setBackgroundColor:[UIColor appWhiteColor]];
+    [self.tableView setSeparatorColor:[UIColor appGreyColor]];
     self.tableView.delegate = self;
     
     
@@ -79,6 +80,8 @@
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     Exercise *exercise = [_fetchedResultsController objectAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor appWhiteColor];
+    cell.textLabel.textColor = [UIColor appRedColor];
     cell.textLabel.text = exercise.exercise_name;
     
 }

@@ -35,7 +35,7 @@
     self.title = @"Workout Plans";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     self.tableView.delegate = self;
-
+    self.tableView.backgroundColor = [UIColor appWhiteColor];
     
     NSError *error;
     if (![[self fetchedResultsController] performFetch:&error]){
@@ -80,7 +80,9 @@
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     WorkoutPlan *workoutPlan = [_fetchedResultsController objectAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor appWhiteColor];
     cell.textLabel.text = workoutPlan.plan_name;
+    cell.textLabel.textColor = [UIColor appGreenColor];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
