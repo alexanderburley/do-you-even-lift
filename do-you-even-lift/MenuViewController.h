@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIColor+AppColors.h"
 
 @interface MenuViewController : UIViewController  {
     

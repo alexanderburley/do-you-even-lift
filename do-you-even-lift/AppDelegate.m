@@ -18,6 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    for (NSString* family in [UIFont familyNames]){
+        NSLog(@"%@",family);
+        for (NSString* name in [UIFont fontNamesForFamilyName:family]){
+            NSLog(@"   %@",name);
+        }
+    }
     return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }
 

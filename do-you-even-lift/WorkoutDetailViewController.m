@@ -13,6 +13,7 @@
 #import "Exercise.h"
 #import "CompletedWorkout.h"
 #import "WorkoutPlan.h"
+#import "UIColor+AppColors.h"
 
 
 @interface WorkoutDetailViewController ()
@@ -38,7 +39,7 @@
     
     CAShapeLayer *circleLayer = [CAShapeLayer layer];
     [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.view.frame.size.width*0.30, self.view.frame.size.height*0.2, 110, 110)] CGPath]];
-    [circleLayer setFillColor:[[UIColor orangeColor] CGColor]];
+    [circleLayer setFillColor:[[UIColor appGreyColor] CGColor]];
     [[self.view layer] addSublayer:circleLayer];
 
     label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.4, self.view.frame.size.height*0.2, 110, 110)];

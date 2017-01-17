@@ -36,40 +36,49 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //Facebook login button
     
-    
-    //Set up custom users button for testing purposes
-    //MEMORY ALLOCATION?
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.1, self.view.frame.size.width*0.6, self.view.frame.size.height*0.05)];
+    titleLabel.text = @"DO YOU EVEN LIFT?";
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.font = [UIFont fontWithName:@"OpenSans-Extrabold" size:25];
+    [self.view addSubview:titleLabel];
     
     startWorkoutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    startWorkoutButton.layer.cornerRadius = 10;
     [startWorkoutButton addTarget:self action:NSSelectorFromString(@"startWorkoutButtonPressed") forControlEvents:UIControlEventTouchUpInside];
-    [startWorkoutButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    startWorkoutButton.backgroundColor = [UIColor appGreenColor];
+    [startWorkoutButton setTitleColor:[UIColor appWhiteColor] forState:UIControlStateNormal];
     [startWorkoutButton setTitle:@"Start Workout" forState:UIControlStateNormal];
     startWorkoutButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.2, self.view.frame.size.width*0.6, self.view.frame.size.height*0.10);
     //[self.view addSubview:startWorkoutButton];
     
     workoutsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    workoutsButton.layer.cornerRadius = 10;
     [workoutsButton addTarget:self action:NSSelectorFromString(@"workoutsButtonPressed") forControlEvents:UIControlEventTouchUpInside];
-    [workoutsButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [workoutsButton setTitleColor:[UIColor appWhiteColor] forState:UIControlStateNormal];
+    workoutsButton.backgroundColor = [UIColor appBlueColor];
     [workoutsButton setTitle:@"Completed Workouts" forState:UIControlStateNormal];
     workoutsButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.3, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
     
     exercisesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    exercisesButton.layer.cornerRadius = 10;
     [exercisesButton addTarget:self action:NSSelectorFromString(@"exercisesButtonPressed") forControlEvents:UIControlEventTouchUpInside];
-    [exercisesButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [exercisesButton setTitleColor:[UIColor appWhiteColor] forState:UIControlStateNormal];
+    exercisesButton.backgroundColor = [UIColor appRedColor];
     [exercisesButton setTitle:@"Exercises" forState:UIControlStateNormal];
     exercisesButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.4, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
     
     workoutPlansButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    workoutPlansButton.layer.cornerRadius = 10;
     [workoutPlansButton addTarget:self action:NSSelectorFromString(@"workoutPlansButtonPressed") forControlEvents:UIControlEventTouchUpInside];
-    [workoutPlansButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [workoutPlansButton setTitleColor:[UIColor appWhiteColor] forState:UIControlStateNormal];
+    workoutPlansButton.backgroundColor = [UIColor appGreyColor];
     [workoutPlansButton setTitle:@"Workout Plans" forState:UIControlStateNormal];
     workoutPlansButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.5, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
     //[self.view addSubview:workoutPlansButton];
     
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.6, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
+    loginButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.7, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
     loginButton.readPermissions = @[@"public_profile"];
     [loginButton setDelegate:self];
     [self.view addSubview:loginButton];
