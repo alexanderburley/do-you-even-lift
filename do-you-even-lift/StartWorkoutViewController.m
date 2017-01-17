@@ -21,6 +21,7 @@
     NSFetchedResultsController *_fetchedResultsController;
     UIButton *startButton;
     UITableView *tableView;
+    UISwitch *newPlanSwitch;
 }
 
 
@@ -30,21 +31,27 @@
     
     self.title = @"Start Workout";
     
+    self.view.backgroundColor = [UIColor appWhiteColor];
     startButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [startButton addTarget:self action:NSSelectorFromString(@"startWorkoutButtonPressed") forControlEvents:UIControlEventTouchUpInside];
-    [startButton setTitle:@"Start" forState:UIControlStateNormal];
+    [startButton setTitle:@"Select" forState:UIControlStateNormal];
     [startButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    startButton.backgroundColor = [UIColor orangeColor];
+    startButton.backgroundColor = [UIColor appGreenColor];
     startButton.clipsToBounds = YES;
-    startButton.layer.cornerRadius = 55;
-    startButton.frame = CGRectMake(self.view.frame.size.width*0.30, self.view.frame.size.height*0.2, 110, 110);
+    startButton.layer.cornerRadius = self.view.frame.size.width*0.2;
+    startButton.frame = CGRectMake(self.view.frame.size.width*0.3, self.view.frame.size.height*0.2, self.view.frame.size.width*0.4, self.view.frame.size.width*0.4);
     startButton.enabled = NO;
     [self.view addSubview:startButton];
 
     
-    UISwitch *onoff = [[UISwitch alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0.8, self.view.frame.size.height*0.12,self.view.frame.size.width*0.1,self.view.frame.size.height*0.05)];
-    [onoff addTarget:self action:@selector(switchPressed:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:onoff];
+    newPlanSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0.7, self.view.frame.size.height*0.1,self.view.frame.size.width*0.15,self.view.frame.size.height*0.05)];
+    [newPlanSwitch addTarget:self action:@selector(switchPressed:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:newPlanSwitch];
+    
+    UILabel *newPlanLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.7, self.view.frame.size.height*0.15, self.view.frame.size.width*0.3, self.view.frame.size.height*0.05)];
+    newPlanLabel.text = @"New Plan";
+    [self.view addSubview:newPlanLabel];
+
     
     tableView=[[UITableView alloc]init];
     tableView.frame = CGRectMake(self.view.frame.size.width*0, self.view.frame.size.height*0.5,self.view.frame.size.width,self.view.frame.size.height*0.5);
@@ -54,6 +61,11 @@
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     tableView.allowsMultipleSelection = NO;
+    tableView.backgroundColor = [UIColor appGreyColor];
+    tableView.layer.borderWidth = 1;
+    tableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    tableView.separatorColor = [UIColor appPurpleColor];
+    
     [self.view addSubview:tableView];
    
     NSError *error;
@@ -75,8 +87,7 @@
 }
 
 -(IBAction)switchPressed:(id)sender{
-    UISwitch *onoff = (UISwitch * )sender;
-    [onoff setOnTintColor:[UIColor orangeColor]];
+    [newPlanSwitch setOnTintColor:[UIColor orangeColor]];
     [startButton setTitle:@"Start New Plan" forState:UIControlStateNormal];
     
     NSIndexPath *path = [tableView indexPathForSelectedRow];
@@ -85,12 +96,13 @@
     if (cell.isSelected){
         [tableView deselectRowAtIndexPath:path animated:NO];
     }
-    if(onoff.on){
+    if(newPlanSwitch.on){
         startButton.enabled = YES;
         tableView.allowsSelection = NO;
     }
     else{
         startButton.enabled = NO;
+        [startButton setTitle:@"Select" forState:UIControlStateNormal];
         tableView.allowsSelection = YES;
     }
 }
@@ -148,6 +160,8 @@
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     WorkoutPlan *workoutPlan = [_fetchedResultsController objectAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor appGreyColor];
+    cell.textLabel.textColor = [UIColor appPurpleColor];
     cell.textLabel.text = workoutPlan.plan_name;
 }
 
