@@ -50,7 +50,7 @@
     startWorkoutButton.backgroundColor = [UIColor appGreenColor];
     [startWorkoutButton setTitleColor:[UIColor appWhiteColor] forState:UIControlStateNormal];
     [startWorkoutButton setTitle:@"Start Workout" forState:UIControlStateNormal];
-    startWorkoutButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.2, self.view.frame.size.width*0.6, self.view.frame.size.height*0.10);
+    startWorkoutButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.22, self.view.frame.size.width*0.6, self.view.frame.size.height*0.10);
     //[self.view addSubview:startWorkoutButton];
     
     workoutsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -59,7 +59,7 @@
     [workoutsButton setTitleColor:[UIColor appWhiteColor] forState:UIControlStateNormal];
     workoutsButton.backgroundColor = [UIColor appBlueColor];
     [workoutsButton setTitle:@"Completed Workouts" forState:UIControlStateNormal];
-    workoutsButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.3, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
+    workoutsButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.34, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
     
     exercisesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     exercisesButton.layer.cornerRadius = 10;
@@ -67,7 +67,7 @@
     [exercisesButton setTitleColor:[UIColor appWhiteColor] forState:UIControlStateNormal];
     exercisesButton.backgroundColor = [UIColor appRedColor];
     [exercisesButton setTitle:@"Exercises" forState:UIControlStateNormal];
-    exercisesButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.4, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
+    exercisesButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.46, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
     
     workoutPlansButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     workoutPlansButton.layer.cornerRadius = 10;
@@ -75,19 +75,22 @@
     [workoutPlansButton setTitleColor:[UIColor appWhiteColor] forState:UIControlStateNormal];
     workoutPlansButton.backgroundColor = [UIColor appPurpleColor];
     [workoutPlansButton setTitle:@"Workout Plans" forState:UIControlStateNormal];
-    workoutPlansButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.5, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
+    workoutPlansButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.58, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
     //[self.view addSubview:workoutPlansButton];
     
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.7, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
     loginButton.readPermissions = @[@"public_profile"];
     [loginButton setDelegate:self];
+    loginButton.layer.cornerRadius = 10;
     [self.view addSubview:loginButton];
     
-    self.view.backgroundColor = [UIColor orangeColor];
-//    UIImageView *barbell =[[UIImageView alloc] initWithFrame:CGRectMake(150,150,120,120)];
-//    barbell.image=[UIImage imageNamed:@"Barbell.png"];
-//    [self.view addSubview:barbell];
+    UILabel *copyright = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.15, self.view.frame.size.height*0.9, self.view.frame.size.width*0.7, self.view.frame.size.height*0.1)];
+    copyright.numberOfLines = 0;
+    copyright.text = @"Do You Even Lift was designed and engineered by Alex Burley and Daniel Ayeni for the Software Development for Mobile Devices module at the University of Sheffield";
+    copyright.textColor = [UIColor lightGrayColor];
+    copyright.adjustsFontSizeToFitWidth = YES;
+    [self.view addSubview:copyright];
     
    
     //If a user already has access we can process that and add the necessary view

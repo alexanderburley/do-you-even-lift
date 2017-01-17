@@ -17,103 +17,121 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2pJ-QX-nck">
-                    <rect key="frame" x="8" y="215" width="584" height="385"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujy-5r-sWH">
-                            <rect key="frame" x="8" y="43" width="568" height="40"/>
-                            <color key="backgroundColor" red="0.81392045449999995" green="0.81392045449999995" blue="0.81392045449999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="kCs-O5-hPV"/>
-                                <constraint firstAttribute="width" constant="568" id="nCx-2F-sMd"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                            <state key="normal" title="Take a photo!"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wU-d2-R8H">
-                            <rect key="frame" x="8" y="91" width="568" height="40"/>
-                            <color key="backgroundColor" red="0.81392045449999995" green="0.81392045449999995" blue="0.81392045449999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="P7R-BT-mur"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                            <state key="normal" title="Save New Workout Plan"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdg-Vu-KRP">
-                            <rect key="frame" x="8" y="235" width="568" height="40"/>
-                            <color key="backgroundColor" red="0.81392045449999995" green="0.81392045449999995" blue="0.81392045449999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="aua-1G-e7h"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                            <state key="normal" title="Finish without saving"/>
-                            <connections>
-                                <action selector="discardWorkoutButtonPressed:" destination="-1" eventType="touchUpInside" id="qF7-k4-JNi"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34n-ct-ant">
-                            <rect key="frame" x="8" y="139" width="568" height="40"/>
-                            <color key="backgroundColor" red="0.81392045449999995" green="0.81392045449999995" blue="0.81392045449999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="mgk-Yq-P69"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                            <state key="normal" title="Return to workout"/>
-                            <connections>
-                                <action selector="returnWorkoutButtonPressed:" destination="-1" eventType="touchUpInside" id="9ll-Zp-PEQ"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Oq-jB-Fzg">
-                            <rect key="frame" x="8" y="187" width="568" height="40"/>
-                            <color key="backgroundColor" red="0.81392045454545447" green="0.81392045454545447" blue="0.81392045454545447" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="aib-FS-Qkp"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                            <state key="normal" title="Save Workout"/>
-                            <connections>
-                                <action selector="saveWorkoutButtonPressed:" destination="-1" eventType="touchUpInside" id="Uex-YD-fSE"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="1" green="0.66807981775749703" blue="0.24491615430252756" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="2Oq-jB-Fzg" firstAttribute="leading" secondItem="Fdg-Vu-KRP" secondAttribute="leading" id="70N-Gg-EAk"/>
-                        <constraint firstItem="34n-ct-ant" firstAttribute="trailing" secondItem="4wU-d2-R8H" secondAttribute="trailing" id="85r-y6-nzr"/>
-                        <constraint firstItem="4wU-d2-R8H" firstAttribute="top" secondItem="Ujy-5r-sWH" secondAttribute="bottom" constant="8" id="Aq6-lI-5VA"/>
-                        <constraint firstItem="Fdg-Vu-KRP" firstAttribute="top" secondItem="2Oq-jB-Fzg" secondAttribute="bottom" constant="8" id="CBT-4h-0us"/>
-                        <constraint firstItem="4wU-d2-R8H" firstAttribute="trailing" secondItem="Ujy-5r-sWH" secondAttribute="trailing" id="E9u-Ai-KUm"/>
-                        <constraint firstItem="2Oq-jB-Fzg" firstAttribute="trailing" secondItem="Fdg-Vu-KRP" secondAttribute="trailing" id="ENK-gW-82E"/>
-                        <constraint firstItem="34n-ct-ant" firstAttribute="leading" secondItem="4wU-d2-R8H" secondAttribute="leading" id="GGk-Nm-Iic"/>
-                        <constraint firstItem="4wU-d2-R8H" firstAttribute="leading" secondItem="2Oq-jB-Fzg" secondAttribute="leading" id="M0K-tm-Ejj"/>
-                        <constraint firstItem="Ujy-5r-sWH" firstAttribute="leading" secondItem="4wU-d2-R8H" secondAttribute="leading" id="MK8-wC-Ms5"/>
-                        <constraint firstItem="Ujy-5r-sWH" firstAttribute="top" secondItem="2pJ-QX-nck" secondAttribute="top" constant="43" id="Qco-WA-kAI"/>
-                        <constraint firstItem="Ujy-5r-sWH" firstAttribute="leading" secondItem="2pJ-QX-nck" secondAttribute="leadingMargin" id="RCm-tI-wel"/>
-                        <constraint firstItem="34n-ct-ant" firstAttribute="top" secondItem="4wU-d2-R8H" secondAttribute="bottom" constant="8" symbolic="YES" id="bzi-Qe-Zkf"/>
-                        <constraint firstItem="2Oq-jB-Fzg" firstAttribute="top" secondItem="4wU-d2-R8H" secondAttribute="bottom" constant="56" id="eBv-9p-S1A"/>
-                        <constraint firstItem="4wU-d2-R8H" firstAttribute="trailing" secondItem="2Oq-jB-Fzg" secondAttribute="trailing" id="s5C-Cc-dSv"/>
-                    </constraints>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations -----, you workout took you XX minutes and YY seconds." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmT-7V-6wd">
                     <rect key="frame" x="8" y="19" width="584" height="188"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="188" id="oMV-EZ-x2u"/>
+                        <constraint firstAttribute="height" constant="188" id="n8l-S4-r6h"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2pJ-QX-nck">
+                    <rect key="frame" x="0.0" y="215" width="600" height="385"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34n-ct-ant">
+                            <rect key="frame" x="171" y="132" width="258" height="40"/>
+                            <color key="backgroundColor" red="0.29803921568627451" green="0.78823529411764703" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="LpX-zf-YSH"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <state key="normal" title="Return to workout">
+                                <color key="titleColor" red="0.98039215800000001" green="0.94901961089999998" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="returnWorkoutButtonPressed:" destination="-1" eventType="touchUpInside" id="9ll-Zp-PEQ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Oq-jB-Fzg">
+                            <rect key="frame" x="171" y="180" width="258" height="40"/>
+                            <color key="backgroundColor" red="0.29803921568627451" green="0.78823529411764703" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="LBk-bg-f5p"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <state key="normal" title="Save Workout">
+                                <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="saveWorkoutButtonPressed:" destination="-1" eventType="touchUpInside" id="Uex-YD-fSE"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wU-d2-R8H">
+                            <rect key="frame" x="171" y="84" width="258" height="40"/>
+                            <color key="backgroundColor" red="0.29803921568627451" green="0.78823529411764703" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="258" id="Jez-em-s5M"/>
+                                <constraint firstAttribute="height" constant="40" id="aVU-Rx-rg1"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <state key="normal" title="Save New Workout Plan">
+                                <color key="titleColor" red="0.98039215803146362" green="0.94901961088180542" blue="0.94117647409439087" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZK-Rq-1SP">
+                            <rect key="frame" x="171" y="36" width="258" height="40"/>
+                            <color key="backgroundColor" red="0.29803921570000003" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="UZK-Ws-3bx"/>
+                                <constraint firstAttribute="width" constant="258" id="jix-B9-cTk"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <state key="normal" title="Take a Photo">
+                                <color key="titleColor" red="0.98039215800000001" green="0.94901961089999998" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdg-Vu-KRP">
+                            <rect key="frame" x="171" y="228" width="258" height="40"/>
+                            <color key="backgroundColor" red="0.29803921568627451" green="0.78823529411764703" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="lfk-bm-2Un"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <state key="normal" title="Finish without saving">
+                                <color key="titleColor" red="0.98039215800000001" green="0.94901961089999998" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="discardWorkoutButtonPressed:" destination="-1" eventType="touchUpInside" id="qF7-k4-JNi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="34n-ct-ant" firstAttribute="trailing" secondItem="2Oq-jB-Fzg" secondAttribute="trailing" id="3JJ-Nh-Utn"/>
+                        <constraint firstItem="2Oq-jB-Fzg" firstAttribute="top" secondItem="34n-ct-ant" secondAttribute="bottom" constant="8" symbolic="YES" id="5ae-Ai-GJ4"/>
+                        <constraint firstItem="34n-ct-ant" firstAttribute="top" secondItem="4wU-d2-R8H" secondAttribute="bottom" constant="8" symbolic="YES" id="7Ie-rD-zjh"/>
+                        <constraint firstItem="6ZK-Rq-1SP" firstAttribute="centerX" secondItem="2pJ-QX-nck" secondAttribute="centerX" id="GCL-2I-rt9"/>
+                        <constraint firstItem="34n-ct-ant" firstAttribute="leading" secondItem="2Oq-jB-Fzg" secondAttribute="leading" id="P4g-RW-K20"/>
+                        <constraint firstItem="6ZK-Rq-1SP" firstAttribute="top" secondItem="2pJ-QX-nck" secondAttribute="top" constant="36" id="Pn2-4h-MIh"/>
+                        <constraint firstItem="4wU-d2-R8H" firstAttribute="top" secondItem="6ZK-Rq-1SP" secondAttribute="bottom" constant="8" symbolic="YES" id="Svy-tC-gMC"/>
+                        <constraint firstItem="Fdg-Vu-KRP" firstAttribute="top" secondItem="2Oq-jB-Fzg" secondAttribute="bottom" constant="8" symbolic="YES" id="fqa-ZN-BMX"/>
+                        <constraint firstItem="2Oq-jB-Fzg" firstAttribute="trailing" secondItem="Fdg-Vu-KRP" secondAttribute="trailing" id="ktl-Bg-ht0"/>
+                        <constraint firstItem="4wU-d2-R8H" firstAttribute="leading" secondItem="34n-ct-ant" secondAttribute="leading" id="m9g-82-si7"/>
+                        <constraint firstItem="2Oq-jB-Fzg" firstAttribute="leading" secondItem="Fdg-Vu-KRP" secondAttribute="leading" id="mXI-Lo-b6P"/>
+                        <constraint firstItem="6ZK-Rq-1SP" firstAttribute="leading" secondItem="4wU-d2-R8H" secondAttribute="leading" id="rvJ-hb-VhM"/>
+                        <constraint firstItem="4wU-d2-R8H" firstAttribute="trailing" secondItem="34n-ct-ant" secondAttribute="trailing" id="uzC-Nk-b4A"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-App-76x76.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Z9-Fu-gX1">
+                    <rect key="frame" x="262" y="491" width="76" height="76"/>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.98039215803146362" green="0.94901961088180542" blue="0.94117647409439087" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="2pJ-QX-nck" firstAttribute="top" secondItem="MmT-7V-6wd" secondAttribute="bottom" constant="8" symbolic="YES" id="3il-xx-Jth"/>
-                <constraint firstItem="MmT-7V-6wd" firstAttribute="centerX" secondItem="2pJ-QX-nck" secondAttribute="centerX" id="5Ac-9S-KC9"/>
-                <constraint firstItem="MmT-7V-6wd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="VWo-Ei-icX"/>
-                <constraint firstItem="MmT-7V-6wd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="19" id="mjv-hp-8Lc"/>
-                <constraint firstAttribute="trailing" secondItem="2pJ-QX-nck" secondAttribute="trailing" constant="8" id="qAE-Cb-bKv"/>
-                <constraint firstAttribute="bottom" secondItem="2pJ-QX-nck" secondAttribute="bottom" id="x9n-r2-Zyv"/>
-                <constraint firstItem="2pJ-QX-nck" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="yOv-P1-JpH"/>
+                <constraint firstAttribute="bottom" secondItem="4Z9-Fu-gX1" secondAttribute="bottom" constant="33" id="0LC-KZ-mLV"/>
+                <constraint firstAttribute="bottom" secondItem="2pJ-QX-nck" secondAttribute="bottom" id="Hwt-0d-oxk"/>
+                <constraint firstItem="2pJ-QX-nck" firstAttribute="top" secondItem="MmT-7V-6wd" secondAttribute="bottom" constant="8" symbolic="YES" id="Onh-vi-DFe"/>
+                <constraint firstItem="4Z9-Fu-gX1" firstAttribute="centerX" secondItem="2pJ-QX-nck" secondAttribute="centerX" id="QuQ-sF-gDU"/>
+                <constraint firstAttribute="trailing" secondItem="2pJ-QX-nck" secondAttribute="trailing" id="cDM-3e-eQq"/>
+                <constraint firstItem="MmT-7V-6wd" firstAttribute="centerX" secondItem="2pJ-QX-nck" secondAttribute="centerX" id="sUX-eo-grK"/>
+                <constraint firstItem="MmT-7V-6wd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="vMJ-Pt-MiE"/>
+                <constraint firstItem="MmT-7V-6wd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="19" id="vZo-63-y3y"/>
+                <constraint firstItem="2pJ-QX-nck" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vn6-1c-hFi"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="Icon-App-76x76.png" width="76" height="76"/>
+    </resources>
 </document>

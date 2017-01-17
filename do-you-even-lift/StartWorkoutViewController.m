@@ -10,7 +10,7 @@
 #import "WorkoutDetailViewController.h"
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
- #import <QuartzCore/QuartzCore.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface StartWorkoutViewController () <NSFetchedResultsControllerDelegate>
 
@@ -30,7 +30,7 @@
     [super viewDidLoad];
     
     self.title = @"Start Workout";
-    
+    self.navigationController.navigationBar.tintColor = [UIColor appGreenColor];
     self.view.backgroundColor = [UIColor appWhiteColor];
     startButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [startButton addTarget:self action:NSSelectorFromString(@"startWorkoutButtonPressed") forControlEvents:UIControlEventTouchUpInside];

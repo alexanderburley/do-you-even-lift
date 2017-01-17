@@ -22,7 +22,7 @@
     int *min = [self.timeTaken intValue]/60;
     int *sec = [self.timeTaken intValue]%60;
     self.congratulationsLabel.numberOfLines = 0;
-    self.congratulationsLabel.text = [NSString stringWithFormat:@"Congratulations! You completed your workout in %i minutes and %i seconds.", min, sec];
+    self.congratulationsLabel.text = [NSString stringWithFormat:@"Congratulations! You completed your workout in %i minutes and %i seconds. During this workout you completed over XXX steps and completed XX exercises", min, sec];
     
 }
 
