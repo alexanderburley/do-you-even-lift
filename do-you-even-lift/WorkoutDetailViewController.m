@@ -22,7 +22,6 @@
 @implementation WorkoutDetailViewController {
     NSArray *_exercises;
     NSFetchedResultsController *_fetchedResultsController;
-    UILabel *label;
     int sec;
     int min;
 }
@@ -32,19 +31,21 @@
     
     sec = 0;
     min = 0;
+    self.view.backgroundColor = [UIColor appWhiteColor];
     self.timerLabel.text = [NSString stringWithFormat:@"%02d:%02d", min, sec];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     self.tableView.allowsMultipleSelection = true;
+    self.tableView.backgroundColor = [UIColor appGreyColor];
+    self.tableView.layer.borderWidth = 1.0;
+    self.tableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.view.frame.size.width*0.30, self.view.frame.size.height*0.2, 110, 110)] CGPath]];
-    [circleLayer setFillColor:[[UIColor appGreyColor] CGColor]];
-    [[self.view layer] addSublayer:circleLayer];
+    self.finishButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.finishButton.layer.cornerRadius = 10;
+    self.finishButton.backgroundColor = [UIColor appGreenColor];
+    self.finishButton.titleLabel.textColor = [UIColor appWhiteColor];
 
-    label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.4, self.view.frame.size.height*0.2, 110, 110)];
-    label.textColor = [UIColor whiteColor];
-    [self.view addSubview:label];
+    self.workoutPlanNameLabel.text = self.workoutPlan.plan_name;
     _exercises = [self.workoutPlan getExercises];
     
 }
@@ -75,7 +76,7 @@
     self.timer = nil;
 }
 
-- (IBAction)finishWorkoutButtonPressed:(id)sender {
+- (IBAction)finishButtonPressed:(id)sender {
     
     FinishedWorkoutViewController *finishWorkoutViewController = [[FinishedWorkoutViewController alloc] init];
     finishWorkoutViewController.navigationItem.hidesBackButton = YES;
@@ -98,7 +99,7 @@
     NSString* timeNow = [NSString stringWithFormat:@"%02d:%02d", min, sec];
     //Display on your label
     NSLog(@"%@",timeNow);
-    label.text= timeNow;
+    self.timerLabel.text= timeNow;
     
 }
 
@@ -126,6 +127,8 @@
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     Exercise *exercise = [_exercises objectAtIndex:indexPath.row];
+    cell.backgroundColor = [UIColor appGreyColor];
+    cell.textLabel.textColor = [UIColor appRedColor];
     cell.textLabel.text = exercise.exercise_name;
     
 }
@@ -255,8 +258,6 @@
 
 
 //CREATE PROTOCOL!!
-
-
 
 
 @end

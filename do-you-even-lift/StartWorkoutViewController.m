@@ -97,7 +97,7 @@
         [tableView deselectRowAtIndexPath:path animated:NO];
     }
     if(newPlanSwitch.on){
-        startButton.enabled = YES;
+        startButton.enabled = NO;
         tableView.allowsSelection = NO;
     }
     else{

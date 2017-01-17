@@ -18,13 +18,17 @@
 @property (strong,nonatomic) WorkoutPlan *workoutPlan;
 @property (strong,nonatomic) NSTimer *timer;
 //@property (strong,nonatomic) NSInteger *steps;
+@property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *workoutPlanNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *finishButton;
+- (IBAction)finishButtonPressed:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
--(IBAction)finishWorkoutButtonPressed:(id)sender;
+-(IBAction)finishButtonPressed:(id)sender;
 
 
 

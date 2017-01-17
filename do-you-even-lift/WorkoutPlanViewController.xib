@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -151,6 +152,15 @@
                     <exclude reference="LLE-9T-jAZ"/>
                     <exclude reference="hYv-lW-ivE"/>
                     <exclude reference="nVz-dH-133"/>
+                    <exclude reference="R9c-m2-zB8"/>
+                    <exclude reference="aeK-ND-GAR"/>
+                    <exclude reference="bRY-74-Ces"/>
+                    <exclude reference="gKF-Ch-abF"/>
+                    <exclude reference="oUi-Hn-hcL"/>
+                    <exclude reference="wz3-Vf-s1b"/>
+                    <exclude reference="I1r-5R-VUt"/>
+                    <exclude reference="XUz-1r-G2J"/>
+                    <exclude reference="sAy-vB-C5T"/>
                     <exclude reference="7vO-bp-hH3"/>
                     <exclude reference="ab1-vw-1im"/>
                     <exclude reference="b6A-ez-oSY"/>
@@ -158,15 +168,6 @@
                     <exclude reference="NJj-VN-4QR"/>
                     <exclude reference="bBf-Va-8Ha"/>
                     <exclude reference="dkE-ti-STq"/>
-                    <exclude reference="I1r-5R-VUt"/>
-                    <exclude reference="XUz-1r-G2J"/>
-                    <exclude reference="sAy-vB-C5T"/>
-                    <exclude reference="gKF-Ch-abF"/>
-                    <exclude reference="oUi-Hn-hcL"/>
-                    <exclude reference="wz3-Vf-s1b"/>
-                    <exclude reference="R9c-m2-zB8"/>
-                    <exclude reference="aeK-ND-GAR"/>
-                    <exclude reference="bRY-74-Ces"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -183,6 +184,15 @@
                     <include reference="LLE-9T-jAZ"/>
                     <include reference="hYv-lW-ivE"/>
                     <include reference="nVz-dH-133"/>
+                    <include reference="R9c-m2-zB8"/>
+                    <include reference="aeK-ND-GAR"/>
+                    <include reference="bRY-74-Ces"/>
+                    <include reference="gKF-Ch-abF"/>
+                    <include reference="oUi-Hn-hcL"/>
+                    <include reference="wz3-Vf-s1b"/>
+                    <include reference="I1r-5R-VUt"/>
+                    <include reference="XUz-1r-G2J"/>
+                    <include reference="sAy-vB-C5T"/>
                     <include reference="7vO-bp-hH3"/>
                     <include reference="ab1-vw-1im"/>
                     <include reference="b6A-ez-oSY"/>
@@ -190,15 +200,6 @@
                     <include reference="NJj-VN-4QR"/>
                     <include reference="bBf-Va-8Ha"/>
                     <include reference="dkE-ti-STq"/>
-                    <include reference="I1r-5R-VUt"/>
-                    <include reference="XUz-1r-G2J"/>
-                    <include reference="sAy-vB-C5T"/>
-                    <include reference="gKF-Ch-abF"/>
-                    <include reference="oUi-Hn-hcL"/>
-                    <include reference="wz3-Vf-s1b"/>
-                    <include reference="R9c-m2-zB8"/>
-                    <include reference="aeK-ND-GAR"/>
-                    <include reference="bRY-74-Ces"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="619" y="119"/>
