@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WorkoutPlan.h"
+#import "UIColor+AppColors.h"
 #import <CoreData/CoreData.h>
 
 @interface WorkoutPlanViewController : UIViewController <NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -20,6 +21,8 @@
 @property (weak, nonatomic) WorkoutPlan *viewedPlan;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UILabel *exerciseNameLabel;
+@property (weak, nonatomic) IBOutlet UIView *tableBackground;
 
 - (IBAction)saveButtonPressed:(id)sender;
 - (IBAction)cancelButtonPressed:(id)sender;

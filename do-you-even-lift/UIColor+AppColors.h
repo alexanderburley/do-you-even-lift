@@ -15,6 +15,7 @@
 + (UIColor*)appGreenColor;
 + (UIColor*)appGreyColor;
 + (UIColor*)appWhiteColor;
++ (UIColor*)appPurpleColor;
 
 
 

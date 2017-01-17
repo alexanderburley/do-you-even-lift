@@ -33,6 +33,7 @@
     self.title = @"Exercises";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     [self.tableView setBackgroundColor:[UIColor appWhiteColor]];
+    self.navigationController.navigationBar.tintColor = [UIColor appRedColor];
     [self.tableView setSeparatorColor:[UIColor appGreyColor]];
     self.tableView.delegate = self;
     

@@ -38,6 +38,10 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.allowsMultipleSelection = YES;
+    self.tableView.backgroundColor = [UIColor appGreyColor];
+    self.tableBackground.backgroundColor = [UIColor appGreyColor];
+    self.tableView.layer.borderWidth = 1.0;
+    self.tableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
     if ([self.action  isEqualToString:@"read"]){
@@ -49,6 +53,8 @@
         self.planNameTextField.enabled = NO;
         self.planNameTextField.hidden = YES;
         self.nameLabel.hidden = YES;
+        self.exerciseNameLabel.hidden = NO;
+        self.exerciseNameLabel.text = self.viewedPlan.plan_name;
         _fetchedExercises = [self.viewedPlan getExercises];
     }
     
@@ -127,6 +133,8 @@
         exercise = [_fetchedResultsController objectAtIndexPath:indexPath];
     }
     
+    cell.backgroundColor = [UIColor appGreyColor];
+    cell.textLabel.textColor = [UIColor appRedColor];
     cell.textLabel.text = exercise.exercise_name;
 }
 

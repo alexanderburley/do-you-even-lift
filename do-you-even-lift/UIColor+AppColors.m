@@ -24,11 +24,15 @@
 }
 
 + (UIColor*)appGreyColor{
-    return UIColorFromRGB(0x838784);
+    return UIColorFromRGB(0xf4f4f4);
 }
 
 + (UIColor*)appWhiteColor{
     return UIColorFromRGB(0xfbf5f3);
+}
+
++ (UIColor*)appPurpleColor{
+    return UIColorFromRGB(0xb3a1cc);
 }
 
 @end

@@ -73,7 +73,7 @@
     workoutPlansButton.layer.cornerRadius = 10;
     [workoutPlansButton addTarget:self action:NSSelectorFromString(@"workoutPlansButtonPressed") forControlEvents:UIControlEventTouchUpInside];
     [workoutPlansButton setTitleColor:[UIColor appWhiteColor] forState:UIControlStateNormal];
-    workoutPlansButton.backgroundColor = [UIColor appGreyColor];
+    workoutPlansButton.backgroundColor = [UIColor appPurpleColor];
     [workoutPlansButton setTitle:@"Workout Plans" forState:UIControlStateNormal];
     workoutPlansButton.frame = CGRectMake(self.view.frame.size.width*0.2, self.view.frame.size.height*0.5, self.view.frame.size.width*0.6, self.view.frame.size.height*0.1);
     //[self.view addSubview:workoutPlansButton];
@@ -151,7 +151,7 @@
     [self.view addSubview:workoutPlansButton];
     [self.view addSubview:workoutsButton];
     [self.view addSubview:exercisesButton];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor appWhiteColor];
     //Access the user identification number and set the instance variable
     NSLog(@"User ID: %@", [FBSDKAccessToken currentAccessToken].userID);
     _userID = [FBSDKAccessToken currentAccessToken].userID;

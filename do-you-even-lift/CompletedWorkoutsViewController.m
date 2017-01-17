@@ -27,6 +27,7 @@
     self.title = @"Completed Workouts";
     UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonSystemItemAdd target:self action:@selector(newCompletedWorkout:)];
     self.navigationItem.rightBarButtonItem = newButton;
+    self.navigationController.navigationBar.tintColor = [UIColor appBlueColor];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
     NSError *error;
