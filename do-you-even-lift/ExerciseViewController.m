@@ -41,8 +41,6 @@
     
     NSManagedObject *newExercise = [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
     [newExercise setValue:self.exerciseNameTextField.text forKey:@"exercise_name"];
-    //[newExercise setValue:@([self.exerciseRepsTextField.text intValue]) forKey:@"reps"];
-    //[newExercise setValue:@([self.exerciseSetsTextField.text intValue]) forKey:@"sets"];
     [newExercise setValue:_selectedRow forKey:@"muscle_group"];
     
     NSError *saveError = nil;

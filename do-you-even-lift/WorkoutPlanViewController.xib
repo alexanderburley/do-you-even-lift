@@ -49,25 +49,6 @@
                     <color key="textColor" red="0.63921568627450975" green="0.5490196078431373" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wK6-Fy-Qj9">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="97" id="c2B-wH-efw"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                    <color key="textColor" red="0.63921568630000003" green="0.54901960780000003" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="c2B-wH-efw"/>
-                        </mask>
-                    </variation>
-                    <variation key="widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="c2B-wH-efw"/>
-                        </mask>
-                    </variation>
-                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zcz-B3-ljf">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,6 +92,27 @@
                         <action selector="cancelButtonPressed:" destination="-1" eventType="touchUpInside" id="5LX-Ij-7mr"/>
                     </connections>
                 </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wK6-Fy-Qj9">
+                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="97" id="c2B-wH-efw">
+                            <variation key="widthClass=compact" constant="142"/>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                    <color key="textColor" red="0.63921568630000003" green="0.54901960780000003" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="c2B-wH-efw"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="c2B-wH-efw"/>
+                        </mask>
+                    </variation>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.98039215803146362" green="0.94901961088180542" blue="0.94117647409439087" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -139,9 +141,9 @@
                     <exclude reference="Hqj-oS-T23"/>
                     <exclude reference="SME-jo-g70"/>
                     <exclude reference="z1P-5b-f8z"/>
-                    <exclude reference="wK6-Fy-Qj9"/>
                     <exclude reference="zcz-B3-ljf"/>
                     <exclude reference="H7r-fm-oLu"/>
+                    <exclude reference="wK6-Fy-Qj9"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="BJs-ap-j6N"/>
@@ -170,9 +172,9 @@
                     <include reference="Hqj-oS-T23"/>
                     <include reference="SME-jo-g70"/>
                     <include reference="z1P-5b-f8z"/>
-                    <include reference="wK6-Fy-Qj9"/>
                     <include reference="zcz-B3-ljf"/>
                     <include reference="H7r-fm-oLu"/>
+                    <include reference="wK6-Fy-Qj9"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="BJs-ap-j6N"/>

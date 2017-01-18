@@ -55,7 +55,9 @@
         self.exerciseNameLabel.hidden = NO;
         self.exerciseNameLabel.text = self.viewedPlan.plan_name;
         _fetchedExercises = [self.viewedPlan getExercises];
+        
     }
+    
     
     NSError *error;
     if (![[self fetchedResultsController] performFetch:&error]){
@@ -102,7 +104,13 @@
 #pragma mark - Table
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    if ([self.action  isEqualToString:@"read"]){
+        return 1;
+    }
+    else {
+        
+        return [[_fetchedResultsController sections] count];
+    }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -110,7 +118,8 @@
         return [_fetchedExercises count];
     }
     else {
-        return [_fetchedResultsController.fetchedObjects count];
+        id sectionInfo = [[_fetchedResultsController sections] objectAtIndex:section];
+        return [sectionInfo numberOfObjects];
     }
     
 }
@@ -145,6 +154,16 @@
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
 }
 
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if ([self.action isEqualToString:@"read"]){
+        return @"All Exercises";
+    }
+    else {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [_fetchedResultsController sections][section];
+        return [sectionInfo name];
+    }
+}
+
 
 
 -(NSFetchedResultsController *)fetchedResultsController {
@@ -157,11 +176,12 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Exercise" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"exercise_name" ascending:NO];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"muscle_group" ascending:YES];
+    NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"exercise_name" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptor,sortDescriptor1]];
     [fetchRequest setFetchBatchSize:20];
     
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"Root"];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:@"muscle_group" cacheName:@"Root"];
     _fetchedResultsController.delegate = self;
     
     return _fetchedResultsController;

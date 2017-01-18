@@ -83,7 +83,7 @@
     Exercise *exercise = [_fetchedResultsController objectAtIndexPath:indexPath];
     cell.backgroundColor = [UIColor appWhiteColor];
     cell.textLabel.textColor = [UIColor appRedColor];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",exercise.exercise_name, exercise.muscle_group];
+    cell.textLabel.text = exercise.exercise_name;
     
 }
 
