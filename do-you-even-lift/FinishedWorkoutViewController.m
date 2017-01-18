@@ -14,21 +14,43 @@
 
 @end
 
-@implementation FinishedWorkoutViewController
+@implementation FinishedWorkoutViewController {
+    
+    UIImagePickerController *imagePickerController;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    int *min = [self.timeTaken intValue]/60;
-    int *sec = [self.timeTaken intValue]%60;
+    int min = [self.timeTaken intValue]/60;
+    int sec = [self.timeTaken intValue]%60;
     self.congratulationsLabel.numberOfLines = 0;
     self.congratulationsLabel.text = [NSString stringWithFormat:@"Congratulations! You completed your workout in %i minutes and %i seconds. During this workout you completed over XXX steps and completed XX exercises", min, sec];
+    self.saveNewWorkoutPlanButton.alpha = 0.5;
+    self.saveNewWorkoutPlanButton.enabled = NO;
+    imagePickerController = [[UIImagePickerController alloc] init];
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        self.takePhotoButton.enabled = NO;
+        self.takePhotoButton.alpha = 0.5;
+    }
+    else {
+        self.takePhotoButton.enabled = YES;
+        self.takePhotoButton.alpha = 1.0;
+    }
+
+    
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)takePhotoButtonPressed:(id)sender{
+    [imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
+    [imagePickerController setDelegate:self];
+    [self presentViewController:imagePickerController animated:YES completion:nil];
 }
 
 
@@ -56,6 +78,26 @@
 
 - (IBAction)discardWorkoutButtonPressed:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
+    
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    [[self presentedViewController] dismissViewControllerAnimated:YES completion:nil];
+    UIImage *photo = [info objectForKey:UIImagePickerControllerOriginalImage];
+    FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
+    content.photos = @[[FBSDKSharePhoto photoWithImage:photo userGenerated:YES]];
+    [FBSDKShareAPI shareWithContent:content delegate:self];
+}
+
+-(void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results{
+    
+}
+
+-(void)sharer:(id<FBSDKSharing>)sharer didFailWithError:(NSError *)error{
+    
+}
+
+-(void)sharerDidCancel:(id<FBSDKSharing>)sharer {
     
 }
 @end

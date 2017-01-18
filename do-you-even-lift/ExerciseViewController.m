@@ -22,6 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _muscle_groups = [NSArray arrayWithObjects:@"Arms", @"Legs", @"Back",@"Chest",@"Shoulders",@"Upper Body", @"Lower Body", @"Cardio", nil];
+    self.muscleGroupPicker.layer.borderWidth = 1.0;
+    self.muscleGroupPicker.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.cancelButton.layer.cornerRadius = 5;
+    self.saveButton.layer.cornerRadius = 5;
+    
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -95,6 +95,29 @@
     [self showViewController:workoutPlanViewController sender:self];
 }
 
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [_fetchedResultsController.managedObjectContext deleteObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        //[self.tableView reloadData];
+        NSError *saveError = nil;
+        if(![_fetchedResultsController.managedObjectContext save:&saveError]){
+            NSLog(@"Unable delete workout plan %@, %@", saveError, [saveError localizedDescription]);
+        }
+        
+    }
+}
+
 #pragma mark - Core Data
 
 -(NSFetchedResultsController *)fetchedResultsController {
@@ -153,6 +176,12 @@
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
     
     switch(type) {
+        
+        case NSFetchedResultsChangeMove:
+            break;
+        
+        case NSFetchedResultsChangeUpdate:
+            break;
             
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];

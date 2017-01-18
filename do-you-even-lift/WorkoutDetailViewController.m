@@ -11,8 +11,6 @@
 #import "FinishedWorkoutViewController.h"
 #import "AppDelegate.h"
 #import "Exercise.h"
-#import "CompletedWorkout.h"
-#import "WorkoutPlan.h"
 #import "UIColor+AppColors.h"
 
 
@@ -202,6 +200,12 @@
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
     
     switch(type) {
+            
+        case NSFetchedResultsChangeMove:
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            break;
             
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];

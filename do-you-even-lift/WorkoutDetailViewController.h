@@ -13,6 +13,7 @@
 #import "CompletedWorkout.h"
 
 
+
 @interface WorkoutDetailViewController : UIViewController <NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @property (strong,nonatomic) WorkoutPlan *workoutPlan;
@@ -21,8 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *workoutPlanNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
-- (IBAction)finishButtonPressed:(id)sender;
-
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

@@ -9,6 +9,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FinishedWorkoutViewController">
             <connections>
                 <outlet property="congratulationsLabel" destination="MmT-7V-6wd" id="8gS-eD-mef"/>
+                <outlet property="saveNewWorkoutPlanButton" destination="4wU-d2-R8H" id="g5n-AB-5Sh"/>
+                <outlet property="takePhotoButton" destination="6ZK-Rq-1SP" id="khP-Gx-0GZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,15 +19,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations -----, you workout took you XX minutes and YY seconds." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmT-7V-6wd">
-                    <rect key="frame" x="8" y="19" width="584" height="188"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="188" id="n8l-S4-r6h"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2pJ-QX-nck">
                     <rect key="frame" x="0.0" y="215" width="600" height="385"/>
                     <subviews>
@@ -80,6 +73,9 @@
                             <state key="normal" title="Take a Photo">
                                 <color key="titleColor" red="0.98039215800000001" green="0.94901961089999998" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="takePhotoButtonPressed:" destination="-1" eventType="touchUpInside" id="89Y-04-iQc"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdg-Vu-KRP">
                             <rect key="frame" x="171" y="228" width="258" height="40"/>
@@ -113,25 +109,30 @@
                         <constraint firstItem="4wU-d2-R8H" firstAttribute="trailing" secondItem="34n-ct-ant" secondAttribute="trailing" id="uzC-Nk-b4A"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-App-76x76.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Z9-Fu-gX1">
-                    <rect key="frame" x="262" y="491" width="76" height="76"/>
-                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations -----, you workout took you XX minutes and YY seconds." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmT-7V-6wd">
+                    <rect key="frame" x="8" y="19" width="584" height="188"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="188" id="n8l-S4-r6h"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.98039215803146362" green="0.94901961088180542" blue="0.94117647409439087" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="4Z9-Fu-gX1" secondAttribute="bottom" constant="33" id="0LC-KZ-mLV"/>
                 <constraint firstAttribute="bottom" secondItem="2pJ-QX-nck" secondAttribute="bottom" id="Hwt-0d-oxk"/>
-                <constraint firstItem="2pJ-QX-nck" firstAttribute="top" secondItem="MmT-7V-6wd" secondAttribute="bottom" constant="8" symbolic="YES" id="Onh-vi-DFe"/>
-                <constraint firstItem="4Z9-Fu-gX1" firstAttribute="centerX" secondItem="2pJ-QX-nck" secondAttribute="centerX" id="QuQ-sF-gDU"/>
+                <constraint firstItem="2pJ-QX-nck" firstAttribute="top" secondItem="MmT-7V-6wd" secondAttribute="bottom" constant="8" symbolic="YES" id="Onh-vi-DFe">
+                    <variation key="widthClass=compact" constant="14"/>
+                </constraint>
                 <constraint firstAttribute="trailing" secondItem="2pJ-QX-nck" secondAttribute="trailing" id="cDM-3e-eQq"/>
                 <constraint firstItem="MmT-7V-6wd" firstAttribute="centerX" secondItem="2pJ-QX-nck" secondAttribute="centerX" id="sUX-eo-grK"/>
                 <constraint firstItem="MmT-7V-6wd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="vMJ-Pt-MiE"/>
-                <constraint firstItem="MmT-7V-6wd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="19" id="vZo-63-y3y"/>
+                <constraint firstItem="MmT-7V-6wd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="19" id="vZo-63-y3y">
+                    <variation key="widthClass=compact" constant="13"/>
+                </constraint>
                 <constraint firstItem="2pJ-QX-nck" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vn6-1c-hFi"/>
             </constraints>
         </view>
     </objects>
-    <resources>
-        <image name="Icon-App-76x76.png" width="76" height="76"/>
-    </resources>
 </document>

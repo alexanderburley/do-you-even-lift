@@ -36,8 +36,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Menu";
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.05, self.view.frame.size.height*0.1, self.view.frame.size.width*0.9, self.view.frame.size.height*0.05)];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.05, self.view.frame.size.height*0.13, self.view.frame.size.width*0.9, self.view.frame.size.height*0.05)];
     titleLabel.text = @"DO YOU EVEN LIFT?";
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.font = [UIFont fontWithName:@"OpenSans-Extrabold" size:25];

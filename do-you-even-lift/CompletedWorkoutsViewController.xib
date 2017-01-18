@@ -21,52 +21,71 @@
                     <rect key="frame" x="8" y="151" width="584" height="449"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="449" id="o4G-Zb-uE6"/>
+                        <constraint firstAttribute="height" constant="449" id="o4G-Zb-uE6">
+                            <variation key="widthClass=compact" constant="372"/>
+                        </constraint>
                     </constraints>
                     <color key="separatorColor" red="0.43921568630000002" green="0.4549019608" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.95686274766921997" green="0.95686274766921997" blue="0.95686274766921997" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="ePm-a4-feM"/>
                         <outlet property="delegate" destination="-1" id="8d9-Ho-r0R"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Snt-4e-HPk">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="143"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXJ-k4-bK4">
-                            <rect key="frame" x="282" y="29" width="37" height="21"/>
-                            <color key="tintColor" red="0.98431372549019602" green="0.96078431372549022" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.4392156862745098" green="0.45490196078431372" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Blg-x0-L9s">
-                            <rect key="frame" x="228" y="58" width="145" height="29"/>
-                            <segments>
-                                <segment title="Table"/>
-                                <segment title="Graphical"/>
-                            </segments>
-                            <color key="tintColor" red="0.23529411764705882" green="0.68235294117647061" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
-                        </segmentedControl>
-                    </subviews>
-                    <color key="backgroundColor" red="0.98431372549019602" green="0.96078431372549022" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="Blg-x0-L9s" firstAttribute="bottom" secondItem="Snt-4e-HPk" secondAttribute="bottomMargin" constant="-49" id="3yE-Jt-zcg"/>
-                        <constraint firstItem="Blg-x0-L9s" firstAttribute="centerX" secondItem="Snt-4e-HPk" secondAttribute="centerX" id="5yf-fR-OCz"/>
-                        <constraint firstItem="EXJ-k4-bK4" firstAttribute="centerX" secondItem="Blg-x0-L9s" secondAttribute="centerX" id="9hT-N5-zrh"/>
-                        <constraint firstItem="Blg-x0-L9s" firstAttribute="top" secondItem="EXJ-k4-bK4" secondAttribute="bottom" constant="8" symbolic="YES" id="vn7-ag-EO4"/>
-                    </constraints>
-                </view>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Blg-x0-L9s">
+                    <rect key="frame" x="228" y="58" width="145" height="29"/>
+                    <segments>
+                        <segment title="Table"/>
+                        <segment title="Graphical"/>
+                    </segments>
+                    <color key="tintColor" red="0.23529411764705882" green="0.68235294117647061" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+                </segmentedControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXJ-k4-bK4">
+                    <rect key="frame" x="282" y="29" width="37" height="21"/>
+                    <color key="tintColor" red="0.98431372549019602" green="0.96078431372549022" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.4392156862745098" green="0.45490196078431372" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.98039215803146362" green="0.94901961088180542" blue="0.94117647409439087" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Flu-ih-srn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="22f-2O-8kP"/>
-                <constraint firstItem="Snt-4e-HPk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="34w-Vc-68j"/>
-                <constraint firstAttribute="bottom" secondItem="Flu-ih-srn" secondAttribute="bottom" id="KhD-uM-ES3"/>
-                <constraint firstItem="Flu-ih-srn" firstAttribute="top" secondItem="Snt-4e-HPk" secondAttribute="bottom" constant="8" symbolic="YES" id="LV4-Vy-Dtq"/>
-                <constraint firstAttribute="trailing" secondItem="Snt-4e-HPk" secondAttribute="trailing" id="g49-Wl-qgG"/>
-                <constraint firstItem="Snt-4e-HPk" firstAttribute="centerX" secondItem="Flu-ih-srn" secondAttribute="centerX" id="pvR-oN-QBV"/>
-                <constraint firstItem="Snt-4e-HPk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wS9-pX-KTU"/>
+                <constraint firstAttribute="bottom" secondItem="Flu-ih-srn" secondAttribute="bottom" id="KhD-uM-ES3">
+                    <variation key="widthClass=compact" constant="8"/>
+                </constraint>
+                <constraint firstItem="EXJ-k4-bK4" firstAttribute="centerX" secondItem="Blg-x0-L9s" secondAttribute="centerX" id="L8g-hG-uWz"/>
+                <constraint firstItem="Blg-x0-L9s" firstAttribute="top" secondItem="EXJ-k4-bK4" secondAttribute="bottom" constant="8" symbolic="YES" id="R6O-z5-hnW"/>
+                <constraint firstItem="Blg-x0-L9s" firstAttribute="centerX" secondItem="Flu-ih-srn" secondAttribute="centerX" id="fRv-8R-Yvy"/>
+                <constraint firstItem="Flu-ih-srn" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="rH2-u1-gSG"/>
+                <constraint firstItem="Flu-ih-srn" firstAttribute="top" secondItem="Blg-x0-L9s" secondAttribute="bottom" constant="8" symbolic="YES" id="u2I-jq-IXX"/>
             </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="Blg-x0-L9s"/>
+                    <exclude reference="EXJ-k4-bK4"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="rH2-u1-gSG"/>
+                    <exclude reference="u2I-jq-IXX"/>
+                    <exclude reference="R6O-z5-hnW"/>
+                    <exclude reference="fRv-8R-Yvy"/>
+                    <exclude reference="L8g-hG-uWz"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="Blg-x0-L9s"/>
+                    <include reference="EXJ-k4-bK4"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="rH2-u1-gSG"/>
+                    <include reference="u2I-jq-IXX"/>
+                    <include reference="R6O-z5-hnW"/>
+                    <include reference="fRv-8R-Yvy"/>
+                    <include reference="L8g-hG-uWz"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

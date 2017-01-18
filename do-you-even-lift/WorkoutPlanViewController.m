@@ -8,7 +8,6 @@
 
 #import "WorkoutPlanViewController.h"
 #import "AppDelegate.h"
-#import "WorkoutPlan.h"
 #import "Exercise.h"
 #import <CoreData/CoreData.h>
 
@@ -145,6 +144,8 @@
 -(void)tableView:(UITableView*)tableView didDeselectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
 }
+
+
 
 -(NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController != nil){

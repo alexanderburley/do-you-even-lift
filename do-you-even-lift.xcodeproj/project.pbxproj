@@ -23,6 +23,7 @@
 		5C8970A91E27957900635F5F /* WorkoutPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C8970A71E27957900635F5F /* WorkoutPlanViewController.xib */; };
 		5CA62FEC1E2D3F0A0003F2A0 /* palette (1).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA62FEB1E2D3F0A0003F2A0 /* palette (1).pdf */; };
 		5CA62FEE1E2D3F270003F2A0 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 5CA62FED1E2D3F270003F2A0 /* AppIcon.appiconset */; };
+		5CAB5CEF1E2FBF9F005C3A50 /* playstore-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAB5CEE1E2FBF9F005C3A50 /* playstore-icon.png */; };
 		5CBCD2AD1E2918DA008FDE08 /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2AB1E2918DA008FDE08 /* ExerciseViewController.m */; };
 		5CBCD2AE1E2918DA008FDE08 /* ExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CBCD2AC1E2918DA008FDE08 /* ExerciseViewController.xib */; };
 		5CBCD2B61E292FB1008FDE08 /* Exercise+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCD2B31E292FB1008FDE08 /* Exercise+CoreDataProperties.m */; };
@@ -105,6 +106,7 @@
 		5C8970A71E27957900635F5F /* WorkoutPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutPlanViewController.xib; sourceTree = "<group>"; };
 		5CA62FEB1E2D3F0A0003F2A0 /* palette (1).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "palette (1).pdf"; sourceTree = "<group>"; };
 		5CA62FED1E2D3F270003F2A0 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
+		5CAB5CEE1E2FBF9F005C3A50 /* playstore-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playstore-icon.png"; sourceTree = "<group>"; };
 		5CBCD2AA1E2918DA008FDE08 /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
 		5CBCD2AB1E2918DA008FDE08 /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
 		5CBCD2AC1E2918DA008FDE08 /* ExerciseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseViewController.xib; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				5CFA20C91E21569100B296C6 /* AppDelegate.m */,
 				5CFA20D11E21569200B296C6 /* do_you_even_lift.xcdatamodeld */,
 				5CFA20D41E21569200B296C6 /* Assets.xcassets */,
+				5CAB5CEE1E2FBF9F005C3A50 /* playstore-icon.png */,
 				5CFA20D91E21569200B296C6 /* Info.plist */,
 				5CF8CB5F1E2E51080026DE27 /* Categories */,
 				5CBCD2A81E290EC9008FDE08 /* Controllers */,
@@ -558,6 +561,7 @@
 				5C8970A91E27957900635F5F /* WorkoutPlanViewController.xib in Resources */,
 				5CF8CB6D1E2E56010026DE27 /* OpenSans-Bold.ttf in Resources */,
 				5CFA20D81E21569200B296C6 /* LaunchScreen.storyboard in Resources */,
+				5CAB5CEF1E2FBF9F005C3A50 /* playstore-icon.png in Resources */,
 				5CF8CB751E2E56010026DE27 /* OpenSans-Semibold.ttf in Resources */,
 				5CF8CB721E2E56010026DE27 /* OpenSans-Light.ttf in Resources */,
 				5C44E7D01E2C3082007B4A17 /* FinishedWorkoutViewController.xib in Resources */,
@@ -765,6 +769,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				INFOPLIST_FILE = "do-you-even-lift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sheffield.do-you-even-lift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -778,6 +783,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "~/Documents/FacebookSDK";
 				INFOPLIST_FILE = "do-you-even-lift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sheffield.do-you-even-lift";
 				PRODUCT_NAME = "$(TARGET_NAME)";

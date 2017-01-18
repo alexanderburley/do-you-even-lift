@@ -221,6 +221,12 @@
     
     switch(type) {
             
+        case NSFetchedResultsChangeMove:
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            break;
+            
         case NSFetchedResultsChangeInsert:
             [tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;

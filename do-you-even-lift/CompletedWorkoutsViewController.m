@@ -25,10 +25,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"Completed Workouts";
-    UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonSystemItemAdd target:self action:@selector(newCompletedWorkout:)];
+    //UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButton target:self action:@selector(newCompletedWorkout:)];
+    UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(newCompletedWorkout:)];
     self.navigationItem.rightBarButtonItem = newButton;
     self.navigationController.navigationBar.tintColor = [UIColor appBlueColor];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    self.tableView.separatorColor = [UIColor appBlueColor];
+    self.tableView.layer.borderWidth = 1.0;
+    self.tableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.tableView.backgroundColor = [UIColor appGreyColor];
     
     NSError *error;
     if (![[self fetchedResultsController] performFetch:&error]){
@@ -71,8 +76,30 @@
                                                           timeStyle:NSDateFormatterNoStyle];
     NSString *name = completedWorkout.workout_plan.plan_name;
     NSString *time_taken = [completedWorkout.time_taken stringValue];
+    cell.backgroundColor = [UIColor appGreyColor];
     cell.textLabel.textColor = [UIColor appBlueColor];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@",name,date_completed,time_taken];
+}
+
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [_fetchedResultsController.managedObjectContext deleteObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        //[self.tableView reloadData];
+        NSError *saveError = nil;
+        if(![_fetchedResultsController.managedObjectContext save:&saveError]){
+            NSLog(@"Unable delete completed workout %@, %@", saveError, [saveError localizedDescription]);
+        }
+        
+    }
 }
 
 #pragma mark - Fetched Results Controller
@@ -133,6 +160,12 @@
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
     
     switch(type) {
+            
+        case NSFetchedResultsChangeMove:
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            break;
             
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
