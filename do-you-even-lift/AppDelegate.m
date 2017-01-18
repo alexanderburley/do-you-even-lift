@@ -18,6 +18,81 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    NSUserDefaults *userDefaults;
+    int launchCount;
+    
+    userDefaults = [NSUserDefaults standardUserDefaults];
+    launchCount = [userDefaults integerForKey:@"launchCount"] + 1;
+    [userDefaults setInteger:launchCount forKey:@"launchCount"];
+    [userDefaults synchronize];
+    
+    if (launchCount == 1){
+        
+        
+        AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = app.managedObjectContext;
+        
+        NSManagedObject *biCurls= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
+        [biCurls setValue:@"Bicep Curls" forKey:@"exercise_name"];
+        [biCurls setValue:@"Arms" forKey:@"muscle_group"];
+        NSManagedObject *hCurls= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
+        [hCurls setValue:@"Hammer Curls" forKey:@"exercise_name"];
+        [hCurls setValue:@"Arms" forKey:@"muscle_group"];
+        NSManagedObject *textension= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
+        [textension setValue:@"Tricep Extension" forKey:@"exercise_name"];
+        [textension setValue:@"Arms" forKey:@"muscle_group"];
+        
+        NSArray *armExercises = [[NSArray alloc] initWithObjects:biCurls,hCurls,textension, nil];
+        
+        NSManagedObject *squats= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
+        [squats setValue:@"Squats" forKey:@"exercise_name"];
+        [squats setValue:@"Legs" forKey:@"muscle_group"];
+        NSManagedObject *lunges= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
+        [lunges setValue:@"Lunges" forKey:@"exercise_name"];
+        [lunges setValue:@"Legs" forKey:@"muscle_group"];
+        NSManagedObject *lcurls= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
+        [lcurls setValue:@"Leg Curls" forKey:@"exercise_name"];
+        [lcurls setValue:@"Legs" forKey:@"muscle_group"];
+        
+        NSArray *legExercises = [[NSArray alloc] initWithObjects:squats,lunges,lcurls, nil];
+        
+        NSManagedObject *arms = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
+        [arms setValue:@"Arm Day" forKey:@"plan_name"];
+        NSManagedObject *legs = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
+        [legs setValue:@"Intense Legs" forKey:@"plan_name"];
+        
+        
+        for (id exercise in armExercises){
+            NSManagedObject *newWorkoutPlanExercise = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlanExercise" inManagedObjectContext:context];
+            [newWorkoutPlanExercise setValue:exercise forKey:@"exercise"];
+            [newWorkoutPlanExercise setValue:arms forKey:@"workout_plan"];
+        }
+        for (id exercise in legExercises){
+            NSManagedObject *newWorkoutPlanExercise = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlanExercise" inManagedObjectContext:context];
+            [newWorkoutPlanExercise setValue:exercise forKey:@"exercise"];
+            [newWorkoutPlanExercise setValue:legs forKey:@"workout_plan"];
+        }
+
+        NSError *saveError = nil;
+        if(![context save:&saveError]){
+            NSLog(@"Unable to initalise data %@, %@", saveError, [saveError localizedDescription]);
+        }
+        else {
+            NSLog(@"app initialised");
+        }
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
