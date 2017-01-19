@@ -130,22 +130,25 @@
 }
 
 -(void)startWorkoutButtonPressed {
-    
+    self.navigationController.navigationBar.tintColor = [UIColor appGreenColor];
     [self performSegueWithIdentifier:@"startWorkout" sender:self];
     
 }
 
 -(void)workoutsButtonPressed{
+    self.navigationController.navigationBar.tintColor = [UIColor appBlueColor];
     CompletedWorkoutsViewController *completedWorkoutsViewController = [[CompletedWorkoutsViewController alloc] init];
     [self showViewController:completedWorkoutsViewController sender:self];
     
 }
 
 -(void)workoutPlansButtonPressed{
+    self.navigationController.navigationBar.tintColor = [UIColor appPurpleColor];
     [self performSegueWithIdentifier:@"workoutPlans" sender:self];
 }
 
 -(void)exercisesButtonPressed{
+    self.navigationController.navigationBar.tintColor = [UIColor appRedColor];
     [self performSegueWithIdentifier:@"exercises" sender:self];
 }
 

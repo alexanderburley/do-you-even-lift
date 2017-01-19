@@ -90,6 +90,7 @@
 		5C1559851E26D4D3005790C4 /* ExercisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisesTableViewController.m; sourceTree = "<group>"; };
 		5C25B76D1E30D16C001364F7 /* NSDate+CreateDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CreateDate.h"; sourceTree = "<group>"; };
 		5C25B76E1E30D16C001364F7 /* NSDate+CreateDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CreateDate.m"; sourceTree = "<group>"; };
+		5C25B7701E312248001364F7 /* AddExercisesMidWorkout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddExercisesMidWorkout.h; path = ../AddExercisesMidWorkout.h; sourceTree = "<group>"; };
 		5C3FADCD1E269A7E0088D5C4 /* WorkoutPlansTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutPlansTableViewController.h; sourceTree = "<group>"; };
 		5C3FADCE1E269A7E0088D5C4 /* WorkoutPlansTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutPlansTableViewController.m; sourceTree = "<group>"; };
 		5C3FADD01E269A9E0088D5C4 /* StartWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartWorkoutViewController.h; sourceTree = "<group>"; };
@@ -199,6 +200,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C25B7711E31225A001364F7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5C25B7701E312248001364F7 /* AddExercisesMidWorkout.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		5C44E7D11E2C32B3007B4A17 /* CompletedWorkout */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +405,7 @@
 		5CFA20C41E21569100B296C6 /* do-you-even-lift */ = {
 			isa = PBXGroup;
 			children = (
+				5C25B7711E31225A001364F7 /* Protocols */,
 				5CFA20C81E21569100B296C6 /* AppDelegate.h */,
 				5CFA20C91E21569100B296C6 /* AppDelegate.m */,
 				5CFA20D11E21569200B296C6 /* do_you_even_lift.xcdatamodeld */,

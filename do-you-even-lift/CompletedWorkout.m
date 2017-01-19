@@ -41,7 +41,7 @@
     
     if (!tmp)
     {
-        /*
+ 
          Sections are organized by month and year. Create the section identifier as a string representing the number (year * 1000) + month; this way they will be correctly ordered chronologically regardless of the actual name of the month.
  
         NSCalendar *calendar = [NSCalendar currentCalendar];

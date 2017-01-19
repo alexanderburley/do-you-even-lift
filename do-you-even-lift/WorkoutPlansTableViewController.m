@@ -34,7 +34,7 @@
     
     self.title = @"Workout Plans";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-    self.navigationController.navigationBar.tintColor = [UIColor appPurpleColor];
+    
     self.tableView.delegate = self;
     self.tableView.backgroundColor = [UIColor appWhiteColor];
     

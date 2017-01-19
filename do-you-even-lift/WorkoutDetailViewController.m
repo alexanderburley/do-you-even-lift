@@ -9,12 +9,13 @@
 #import "WorkoutDetailViewController.h"
 #import "StartWorkoutViewController.h"
 #import "FinishedWorkoutViewController.h"
+#import "ExercisesTableViewController.h"
 #import "AppDelegate.h"
 #import "Exercise.h"
 #import "UIColor+AppColors.h"
 
 
-@interface WorkoutDetailViewController ()
+@interface WorkoutDetailViewController () <AddExercisesMidWorkout>
 @end
 
 @implementation WorkoutDetailViewController {
@@ -42,14 +43,42 @@
     self.finishButton.layer.cornerRadius = 10;
     self.finishButton.backgroundColor = [UIColor appGreenColor];
     self.finishButton.titleLabel.textColor = [UIColor appWhiteColor];
+    
+    if (self.workoutPlan){
+        self.workoutPlanNameLabel.text = self.workoutPlan.plan_name;
+        _exercises = [self.workoutPlan getExercises];
+    }
+    else {
+        AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = app.managedObjectContext;
+        self.workoutPlanNameLabel.text = @"New Workout";
+        WorkoutPlan *newPlan = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
+        self.workoutPlan = newPlan;
+        self.workoutPlan.plan_name = @"New Plan";
+        UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"Add Exercises" style:UIBarButtonItemStylePlain target:self action:@selector(addExercises:)];
+        self.navigationItem.rightBarButtonItem = newButton;
+        
+        NSError *saveError = nil;
+        if(![context save:&saveError]){
+            NSLog(@"Unable to save plan %@, %@", saveError, [saveError localizedDescription]);
+        }
+    }
 
-    self.workoutPlanNameLabel.text = self.workoutPlan.plan_name;
-    _exercises = [self.workoutPlan getExercises];
+
     
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    /*
+    if ([self isMovingFromParentViewController]){
+        if (self.newWorkout){
+            AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+            NSManagedObjectContext *context = app.managedObjectContext;
+            //[context deleteObject:self.workoutPlan];
+        }
+    }
+     */
     [self pauseTimer:nil];
 }
 
@@ -62,7 +91,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)didAddExercisesMidWorkout:(NSArray *)exercises{
+    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = app.managedObjectContext;
+    for (Exercise *exercise in exercises){
+        NSManagedObject *newWorkoutPlanExercise = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlanExercise" inManagedObjectContext:context];
+        [newWorkoutPlanExercise setValue:exercise forKey:@"exercise"];
+        [newWorkoutPlanExercise setValue:self.workoutPlan forKey:@"workout_plan"];
+    }
+    NSError *saveError = nil;
+    if(![context save:&saveError]){
+        NSLog(@"Unable to save exercises %@, %@", saveError, [saveError localizedDescription]);
+    }
+    
+     _exercises = [self.workoutPlan getExercises];
+    [self.tableView reloadData];
+
+}
+
 #pragma mark - Intercace actions
+
+-(IBAction)addExercises:(id)sender {
+    ExercisesTableViewController* exercisesTableViewController = [[ExercisesTableViewController alloc] init];
+    exercisesTableViewController.tableView.allowsMultipleSelection = YES;
+    exercisesTableViewController.navigationItem.backBarButtonItem.title = @"Add";
+    exercisesTableViewController.midWorkoutDelegate = self;
+    [self showViewController:exercisesTableViewController sender:self];
+}
 
 -(IBAction)startTimer:(id)sender{
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo: nil repeats:YES];
@@ -82,7 +137,15 @@
     finishWorkoutViewController.timeTaken = [NSNumber numberWithInt:sec+(min*60)];
     finishWorkoutViewController.workoutPlan = self.workoutPlan;
     finishWorkoutViewController.delegate = self;
+    NSError *saveError = nil;
+    
+    AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = app.managedObjectContext;
+    if(![context save:&saveError]){
+        NSLog(@"Unable to save plan %@, %@", saveError, [saveError localizedDescription]);
+    }
     [self showViewController:finishWorkoutViewController sender:self];
+    
     
     
 }

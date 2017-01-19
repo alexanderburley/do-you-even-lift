@@ -28,7 +28,7 @@
     //UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButton target:self action:@selector(newCompletedWorkout:)];
     UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(newCompletedWorkout:)];
     self.navigationItem.rightBarButtonItem = newButton;
-    self.navigationController.navigationBar.tintColor = [UIColor appBlueColor];
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     self.tableView.separatorColor = [UIColor appBlueColor];
     self.tableView.layer.borderWidth = 1.0;

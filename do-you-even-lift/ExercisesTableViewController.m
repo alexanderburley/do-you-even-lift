@@ -19,10 +19,15 @@
 @implementation ExercisesTableViewController {
     
     NSFetchedResultsController *_fetchedResultsController;
+    BOOL cameFromRootViewController;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if ([self.navigationController.viewControllers count] == 2){
+        cameFromRootViewController = YES;
+    }
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -33,9 +38,12 @@
     self.title = @"Exercises";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     [self.tableView setBackgroundColor:[UIColor appWhiteColor]];
-    self.navigationController.navigationBar.tintColor = [UIColor appRedColor];
+    
     [self.tableView setSeparatorColor:[UIColor appGreyColor]];
     self.tableView.delegate = self;
+    
+    UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addExercise:)];
+    self.navigationItem.rightBarButtonItem = newButton;
     
     
     NSError *error;
@@ -45,6 +53,18 @@
     }
 }
 
+
+
+-(void)viewWillDisappear:(BOOL)animated {
+    if ([self isMovingFromParentViewController]){
+        NSArray *selectedIndex = [[self.tableView indexPathsForSelectedRows] mutableCopy];
+        NSMutableArray* selectedExercises = [[NSMutableArray alloc] init];
+        for (NSIndexPath *index in selectedIndex){
+            [selectedExercises addObject:[_fetchedResultsController objectAtIndexPath:index]];
+        }
+        [self.midWorkoutDelegate didAddExercisesMidWorkout:selectedExercises];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -194,6 +214,20 @@
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     id <NSFetchedResultsSectionInfo> sectionInfo = [_fetchedResultsController sections][section];
     return [sectionInfo name];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (!cameFromRootViewController) {
+        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    
+}
+
+-(void)tableView:(UITableView*)tableView didDeselectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    if (!cameFromRootViewController) {
+        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+    }
+    
 }
 
 

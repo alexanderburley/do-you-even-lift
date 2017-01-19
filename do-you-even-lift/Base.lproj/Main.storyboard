@@ -130,13 +130,7 @@
                             <outlet property="delegate" destination="M9u-bc-Hlm" id="p4Y-DB-CQa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Exercises" id="qkM-ba-Fre">
-                        <barButtonItem key="rightBarButtonItem" title="New" id="dEw-1N-jHH">
-                            <connections>
-                                <action selector="addExercise:" destination="M9u-bc-Hlm" id="K9I-vq-XKn"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Exercises" id="qkM-ba-Fre"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvG-n6-IiC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

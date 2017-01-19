@@ -30,7 +30,7 @@
     [super viewDidLoad];
     
     self.title = @"Start Workout";
-    self.navigationController.navigationBar.tintColor = [UIColor appGreenColor];
+    
     self.view.backgroundColor = [UIColor appWhiteColor];
     startButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [startButton addTarget:self action:NSSelectorFromString(@"startWorkoutButtonPressed") forControlEvents:UIControlEventTouchUpInside];
@@ -97,7 +97,7 @@
         [tableView deselectRowAtIndexPath:path animated:NO];
     }
     if(newPlanSwitch.on){
-        startButton.enabled = NO;
+        startButton.enabled = YES;
         tableView.allowsSelection = NO;
     }
     else{
@@ -115,7 +115,10 @@
     WorkoutPlan *workoutPlan = [_fetchedResultsController objectAtIndexPath:path];
     if (cell.isSelected){
         newWorkoutViewController.workoutPlan = workoutPlan;
-        NSLog(@"%@", [workoutPlan.workout_plan_exercise valueForKey:@"exercise"]);
+        //newWorkoutViewController.newWorkout = NO;
+    }
+    else {
+        //newWorkoutViewController.newWorkout = YES;
     }
     
     [self showViewController:newWorkoutViewController sender:self];

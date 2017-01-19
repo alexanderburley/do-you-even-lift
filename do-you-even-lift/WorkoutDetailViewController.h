@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import <QuartzCore/QuartzCore.h>
+#import "AddExercisesMidWorkout.h"
 #import "WorkoutPlan.h"
 #import "CompletedWorkout.h"
 
 
 
-@interface WorkoutDetailViewController : UIViewController <NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface WorkoutDetailViewController : UIViewController <NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate, AddExercisesMidWorkout>
 
 @property (strong,nonatomic) WorkoutPlan *workoutPlan;
 @property (strong,nonatomic) NSTimer *timer;
@@ -24,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+//@property (weak, nonatomic) BOOL newWorkout;
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 

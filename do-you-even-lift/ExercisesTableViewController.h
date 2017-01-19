@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "UIColor+AppColors.h"
+#import "WorkoutDetailViewController.h"
 
 @interface ExercisesTableViewController : UITableViewController
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (weak, nonatomic) WorkoutDetailViewController *midWorkoutDelegate;
 
 - (IBAction)addExercise:(id)sender;
 
