@@ -18,7 +18,6 @@
 
 @property (strong,nonatomic) WorkoutPlan *workoutPlan;
 @property (strong,nonatomic) NSTimer *timer;
-//@property (strong,nonatomic) NSInteger *steps;
 @property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *workoutPlanNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;

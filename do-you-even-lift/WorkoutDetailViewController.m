@@ -12,9 +12,10 @@
 #import "AppDelegate.h"
 #import "Exercise.h"
 #import "UIColor+AppColors.h"
-
+#import <CoreMotion/CoreMotion.h>
 
 @interface WorkoutDetailViewController ()
+@property (strong) CMPedometer *pedometer;
 @end
 
 @implementation WorkoutDetailViewController {
@@ -31,6 +32,8 @@
     min = 0;
     self.view.backgroundColor = [UIColor appWhiteColor];
     self.timerLabel.text = [NSString stringWithFormat:@"%02d:%02d", min, sec];
+    self.stepsLabel.text = [NSString stringWithFormat:@"0"];
+    
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     self.tableView.allowsMultipleSelection = true;
@@ -45,6 +48,10 @@
 
     self.workoutPlanNameLabel.text = self.workoutPlan.plan_name;
     _exercises = [self.workoutPlan getExercises];
+    
+    [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData *_Nullable pedometerData, NSError * _Nullable error ) {
+        [self updateLabels:pedometerData];
+    }];
     
 }
 
@@ -64,6 +71,13 @@
 
 #pragma mark - Intercace actions
 
+-(CMPedometer *)pedometer{
+    if(!_pedometer){
+        _pedometer = [[CMPedometer alloc]init];
+    }
+    return _pedometer;
+}
+
 -(IBAction)startTimer:(id)sender{
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo: nil repeats:YES];
     [self.timer fire];
@@ -80,11 +94,24 @@
     finishWorkoutViewController.navigationItem.hidesBackButton = YES;
     //finishWorkoutViewController.stepsCompleted = self.steps;
     finishWorkoutViewController.timeTaken = [NSNumber numberWithInt:sec+(min*60)];
+//    finishWorkoutViewController.steps = [self.PedometerData.numberOfSteps];
     finishWorkoutViewController.workoutPlan = self.workoutPlan;
     finishWorkoutViewController.delegate = self;
     [self showViewController:finishWorkoutViewController sender:self];
     
     
+}
+
+
+-(void)updateLabels:(CMPedometerData *)pedometerData{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+    formatter.maximumFractionDigits = 2;
+    
+    if ([CMPedometer isStepCountingAvailable]){
+        self.stepsLabel.text = [NSString stringWithFormat:@" %@", [formatter stringFromNumber:pedometerData.numberOfSteps]];
+    }else {
+        self.stepsLabel.text = @"Steps Counter not available";
+    }
 }
 
 -(void)timerFired:(NSTimer *)timer{
