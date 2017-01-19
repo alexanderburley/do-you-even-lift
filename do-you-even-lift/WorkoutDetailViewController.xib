@@ -21,28 +21,19 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2yT-I9-Lfn">
-                    <rect key="frame" x="0.0" y="205" width="320" height="258"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <color key="separatorColor" red="0.90588235859999999" green="0.29803922770000002" blue="0.2588235438" alpha="1" colorSpace="calibratedRGB"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="BCj-Vy-unU"/>
-                        <outlet property="delegate" destination="-1" id="Zjq-YC-mrm"/>
-                    </connections>
-                </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dB-PF-AgK">
                     <rect key="frame" x="8" y="147" width="72" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="72" id="rgn-ji-kvf"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.52941179279999995" green="0.77647060160000003" blue="0.019607843829999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.29803921570000003" green="0.78823529410000004" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuT-Me-frD">
                     <rect key="frame" x="8" y="176" width="72" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.52941179279999995" green="0.77647060160000003" blue="0.019607843829999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.29803922772407532" green="0.78823530673980713" blue="0.55686277151107788" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="260" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbJ-UE-lRD">
@@ -57,12 +48,12 @@
                         <constraint firstAttribute="height" constant="111" id="cgr-pK-9zS"/>
                     </constraints>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                    <color key="textColor" red="0.52941179279999995" green="0.77647060160000003" blue="0.019607843829999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.29803922772407532" green="0.78823530673980713" blue="0.55686277151107788" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXM-ii-9kW">
                     <rect key="frame" x="102" y="491" width="115" height="30"/>
-                    <color key="backgroundColor" red="0.52941179279999995" green="0.77647060160000003" blue="0.019607843829999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.29803922770000002" green="0.78823530669999997" blue="0.55686277149999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="drD-f9-bkh"/>
                     </constraints>
@@ -80,6 +71,15 @@
                     <color key="textColor" red="0.5607843137254902" green="0.58039215686274515" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2yT-I9-Lfn">
+                    <rect key="frame" x="0.0" y="205" width="320" height="258"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" red="0.29803922772407532" green="0.78823530673980713" blue="0.55686277151107788" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="BCj-Vy-unU"/>
+                        <outlet property="delegate" destination="-1" id="Zjq-YC-mrm"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

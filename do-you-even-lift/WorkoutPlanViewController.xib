@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -40,7 +41,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercises" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SME-jo-g70">
                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.90588235859999999" green="0.29803922770000002" blue="0.2588235438" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.63921570780000003" green="0.54901963470000004" blue="0.76078432799999995" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1P-5b-f8z">
@@ -55,7 +56,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="250" id="c4c-kE-lPS"/>
                     </constraints>
-                    <color key="separatorColor" red="0.90588235855102539" green="0.29803922772407532" blue="0.25882354378700256" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="separatorColor" red="0.63921570780000003" green="0.54901963470000004" blue="0.76078432799999995" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexColor" red="0.63921568630000003" green="0.54901960780000003" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexBackgroundColor" red="0.5607843137254902" green="0.58039215686274515" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                     <variation key="default">
@@ -151,19 +152,19 @@
                     <exclude reference="ZcV-fy-rb2"/>
                     <exclude reference="eUZ-9D-6bx"/>
                     <exclude reference="sX8-uU-IGb"/>
-                    <exclude reference="kkQ-3W-xKT"/>
-                    <exclude reference="y6V-89-aaj"/>
-                    <exclude reference="y71-4h-Wk4"/>
-                    <exclude reference="Bdg-p9-xNg"/>
-                    <exclude reference="aJM-dz-GaX"/>
-                    <exclude reference="b2P-m3-Wjo"/>
-                    <exclude reference="BMM-xf-Sl6"/>
-                    <exclude reference="2ef-bf-boB"/>
-                    <exclude reference="SMl-vI-zrk"/>
-                    <exclude reference="wWl-e4-k4l"/>
                     <exclude reference="0z5-V0-ShR"/>
                     <exclude reference="wLe-Hy-r1T"/>
                     <exclude reference="wUA-a2-Qfe"/>
+                    <exclude reference="2ef-bf-boB"/>
+                    <exclude reference="SMl-vI-zrk"/>
+                    <exclude reference="wWl-e4-k4l"/>
+                    <exclude reference="kkQ-3W-xKT"/>
+                    <exclude reference="y6V-89-aaj"/>
+                    <exclude reference="y71-4h-Wk4"/>
+                    <exclude reference="BMM-xf-Sl6"/>
+                    <exclude reference="Bdg-p9-xNg"/>
+                    <exclude reference="aJM-dz-GaX"/>
+                    <exclude reference="b2P-m3-Wjo"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -182,19 +183,19 @@
                     <include reference="ZcV-fy-rb2"/>
                     <include reference="eUZ-9D-6bx"/>
                     <include reference="sX8-uU-IGb"/>
-                    <include reference="kkQ-3W-xKT"/>
-                    <include reference="y6V-89-aaj"/>
-                    <include reference="y71-4h-Wk4"/>
-                    <include reference="Bdg-p9-xNg"/>
-                    <include reference="aJM-dz-GaX"/>
-                    <include reference="b2P-m3-Wjo"/>
-                    <include reference="BMM-xf-Sl6"/>
-                    <include reference="2ef-bf-boB"/>
-                    <include reference="SMl-vI-zrk"/>
-                    <include reference="wWl-e4-k4l"/>
                     <include reference="0z5-V0-ShR"/>
                     <include reference="wLe-Hy-r1T"/>
                     <include reference="wUA-a2-Qfe"/>
+                    <include reference="2ef-bf-boB"/>
+                    <include reference="SMl-vI-zrk"/>
+                    <include reference="wWl-e4-k4l"/>
+                    <include reference="kkQ-3W-xKT"/>
+                    <include reference="y6V-89-aaj"/>
+                    <include reference="y71-4h-Wk4"/>
+                    <include reference="BMM-xf-Sl6"/>
+                    <include reference="Bdg-p9-xNg"/>
+                    <include reference="aJM-dz-GaX"/>
+                    <include reference="b2P-m3-Wjo"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="619" y="119"/>

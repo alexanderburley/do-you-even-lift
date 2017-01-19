@@ -55,7 +55,7 @@
     
     tableView=[[UITableView alloc]init];
     tableView.frame = CGRectMake(self.view.frame.size.width*0, self.view.frame.size.height*0.5,self.view.frame.size.width,self.view.frame.size.height*0.5);
-    [tableView setSeparatorColor:[UIColor orangeColor]];
+    [tableView setSeparatorColor:[UIColor appGreenColor]];
     tableView.dataSource=self;
     tableView.delegate=self;
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -64,7 +64,7 @@
     tableView.backgroundColor = [UIColor appGreyColor];
     tableView.layer.borderWidth = 1;
     tableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    tableView.separatorColor = [UIColor appPurpleColor];
+    tableView.separatorColor = [UIColor appGreenColor];
     
     [self.view addSubview:tableView];
    
