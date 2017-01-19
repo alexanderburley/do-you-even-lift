@@ -42,6 +42,8 @@
     self.tableView.layer.borderWidth = 1.0;
     self.tableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    self.cancelButton.layer.cornerRadius = 5;
+    self.saveButton.layer.cornerRadius = 5;
     
     if ([self.action  isEqualToString:@"read"]){
         self.tableView.allowsMultipleSelection = NO;
