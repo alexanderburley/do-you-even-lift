@@ -74,6 +74,16 @@
             [newWorkoutPlanExercise setValue:exercise forKey:@"exercise"];
             [newWorkoutPlanExercise setValue:legs forKey:@"workout_plan"];
         }
+        
+        NSManagedObject *janWorkout = [NSEntityDescription insertNewObjectForEntityForName:@"CompletedWorkout" inManagedObjectContext:context];
+        [janWorkout setValue:[NSDate dateWithYear:2016 month:3 day:20] forKey:@"date_completed"];
+        [janWorkout setValue:[NSNumber numberWithInteger:676] forKey:@"time_taken"];
+        [janWorkout setValue:arms forKey:@"workout_plan"];
+        
+        NSManagedObject *mayWorkout = [NSEntityDescription insertNewObjectForEntityForName:@"CompletedWorkout" inManagedObjectContext:context];
+        [mayWorkout setValue:[NSDate dateWithYear:2017 month:5 day:15] forKey:@"date_completed"];
+        [mayWorkout setValue:[NSNumber numberWithInteger:462] forKey:@"time_taken"];
+        [mayWorkout setValue:legs forKey:@"workout_plan"];
 
         NSError *saveError = nil;
         if(![context save:&saveError]){

@@ -34,6 +34,7 @@
     self.tableView.layer.borderWidth = 1.0;
     self.tableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.tableView.backgroundColor = [UIColor appGreyColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     NSError *error;
     if (![[self fetchedResultsController] performFetch:&error]){

@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CompletedWorkout (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSDate *date_completed;
+@property (nullable, nonatomic, retain) NSString *section_identifier;
 @property (nullable, nonatomic, retain) NSNumber *steps;
 @property (nullable, nonatomic, retain) NSNumber *time_taken;
 @property (nullable, nonatomic, retain) WorkoutPlan *workout_plan;

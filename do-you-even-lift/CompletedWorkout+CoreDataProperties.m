@@ -17,5 +17,6 @@
 @dynamic steps;
 @dynamic time_taken;
 @dynamic workout_plan;
+@dynamic section_identifier;
 
 @end

@@ -11,6 +11,7 @@
 		1A5821D91E27E30F001D9EBA /* WorkoutDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A5821D71E27E30F001D9EBA /* WorkoutDetailViewController.xib */; };
 		1AFBE2C11E2A797700383A5E /* Barbell.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFBE2C01E2A797700383A5E /* Barbell.png */; };
 		5C1559861E26D4D3005790C4 /* ExercisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1559851E26D4D3005790C4 /* ExercisesTableViewController.m */; };
+		5C25B76F1E30D16C001364F7 /* NSDate+CreateDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C25B76E1E30D16C001364F7 /* NSDate+CreateDate.m */; };
 		5C3FADCF1E269A7E0088D5C4 /* WorkoutPlansTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3FADCE1E269A7E0088D5C4 /* WorkoutPlansTableViewController.m */; };
 		5C3FADD21E269A9E0088D5C4 /* StartWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3FADD11E269A9E0088D5C4 /* StartWorkoutViewController.m */; };
 		5C44E7CB1E2C3082007B4A17 /* CompletedWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C44E7C21E2C3082007B4A17 /* CompletedWorkout.m */; };
@@ -87,6 +88,8 @@
 		1AFBE2C01E2A797700383A5E /* Barbell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Barbell.png; sourceTree = "<group>"; };
 		5C1559841E26D4D3005790C4 /* ExercisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisesTableViewController.h; sourceTree = "<group>"; };
 		5C1559851E26D4D3005790C4 /* ExercisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisesTableViewController.m; sourceTree = "<group>"; };
+		5C25B76D1E30D16C001364F7 /* NSDate+CreateDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CreateDate.h"; sourceTree = "<group>"; };
+		5C25B76E1E30D16C001364F7 /* NSDate+CreateDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CreateDate.m"; sourceTree = "<group>"; };
 		5C3FADCD1E269A7E0088D5C4 /* WorkoutPlansTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutPlansTableViewController.h; sourceTree = "<group>"; };
 		5C3FADCE1E269A7E0088D5C4 /* WorkoutPlansTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutPlansTableViewController.m; sourceTree = "<group>"; };
 		5C3FADD01E269A9E0088D5C4 /* StartWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartWorkoutViewController.h; sourceTree = "<group>"; };
@@ -352,6 +355,8 @@
 			children = (
 				5CF8CB5E1E2E50FD0026DE27 /* UIColor+AppColors.h */,
 				5CF8CB5C1E2E50F20026DE27 /* UIColor+AppColors.m */,
+				5C25B76D1E30D16C001364F7 /* NSDate+CreateDate.h */,
+				5C25B76E1E30D16C001364F7 /* NSDate+CreateDate.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 				5CBCD2BD1E292FCB008FDE08 /* WorkoutPlan.m in Sources */,
 				5CE42B8D1E23FBA200708591 /* UsersTableViewController.m in Sources */,
 				5C44E7CF1E2C3082007B4A17 /* FinishedWorkoutViewController.m in Sources */,
+				5C25B76F1E30D16C001364F7 /* NSDate+CreateDate.m in Sources */,
 				5C3FADCF1E269A7E0088D5C4 /* WorkoutPlansTableViewController.m in Sources */,
 				5C1559861E26D4D3005790C4 /* ExercisesTableViewController.m in Sources */,
 				5CBCD2D71E2940ED008FDE08 /* WorkoutPlanExercise.m in Sources */,

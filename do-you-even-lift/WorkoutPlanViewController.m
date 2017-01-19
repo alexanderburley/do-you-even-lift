@@ -55,7 +55,6 @@
         self.exerciseNameLabel.hidden = NO;
         self.exerciseNameLabel.text = self.viewedPlan.plan_name;
         _fetchedExercises = [self.viewedPlan getExercises];
-        
     }
     
     

@@ -17,21 +17,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Flu-ih-srn">
-                    <rect key="frame" x="8" y="151" width="584" height="449"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="449" id="o4G-Zb-uE6">
-                            <variation key="widthClass=compact" constant="372"/>
-                        </constraint>
-                    </constraints>
-                    <color key="separatorColor" red="0.43921568630000002" green="0.4549019608" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="sectionIndexBackgroundColor" red="0.95686274766921997" green="0.95686274766921997" blue="0.95686274766921997" alpha="1" colorSpace="calibratedRGB"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="ePm-a4-feM"/>
-                        <outlet property="delegate" destination="-1" id="8d9-Ho-r0R"/>
-                    </connections>
-                </tableView>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Blg-x0-L9s">
                     <rect key="frame" x="228" y="58" width="145" height="29"/>
                     <segments>
@@ -47,6 +32,21 @@
                     <color key="textColor" red="0.4392156862745098" green="0.45490196078431372" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Flu-ih-srn">
+                    <rect key="frame" x="8" y="151" width="584" height="449"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="449" id="o4G-Zb-uE6">
+                            <variation key="widthClass=compact" constant="372"/>
+                        </constraint>
+                    </constraints>
+                    <color key="separatorColor" red="0.43921568630000002" green="0.4549019608" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.95686274766921997" green="0.95686274766921997" blue="0.95686274766921997" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="ePm-a4-feM"/>
+                        <outlet property="delegate" destination="-1" id="8d9-Ho-r0R"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="0.98039215803146362" green="0.94901961088180542" blue="0.94117647409439087" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -66,11 +66,11 @@
                     <exclude reference="EXJ-k4-bK4"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="rH2-u1-gSG"/>
-                    <exclude reference="u2I-jq-IXX"/>
                     <exclude reference="R6O-z5-hnW"/>
                     <exclude reference="fRv-8R-Yvy"/>
                     <exclude reference="L8g-hG-uWz"/>
+                    <exclude reference="rH2-u1-gSG"/>
+                    <exclude reference="u2I-jq-IXX"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -79,11 +79,11 @@
                     <include reference="EXJ-k4-bK4"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="rH2-u1-gSG"/>
-                    <include reference="u2I-jq-IXX"/>
                     <include reference="R6O-z5-hnW"/>
                     <include reference="fRv-8R-Yvy"/>
                     <include reference="L8g-hG-uWz"/>
+                    <include reference="rH2-u1-gSG"/>
+                    <include reference="u2I-jq-IXX"/>
                 </mask>
             </variation>
         </view>
