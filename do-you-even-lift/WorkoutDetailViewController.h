@@ -12,6 +12,7 @@
 #import "AddExercisesMidWorkout.h"
 #import "WorkoutPlan.h"
 #import "CompletedWorkout.h"
+#import <CoreMotion/CoreMotion.h>
 
 
 
@@ -19,12 +20,12 @@
 
 @property (strong,nonatomic) WorkoutPlan *workoutPlan;
 @property (strong,nonatomic) NSTimer *timer;
-//@property (strong,nonatomic) NSInteger *steps;
 @property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *workoutPlanNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak,nonatomic) CMPedometer *pedometer;
 //@property (weak, nonatomic) BOOL newWorkout;
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;

@@ -13,12 +13,8 @@
 #import "AppDelegate.h"
 #import "CompletedWorkoutsViewController.h"
 
+#define ARC4_RAND_MAC 0x1000000000
 
-
-
-
-
-//Test Commit
 
 @interface MenuViewController () <FBSDKLoginButtonDelegate>
 
@@ -35,6 +31,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
     
     self.title = @"Menu";
     

@@ -32,6 +32,8 @@
     min = 0;
     self.view.backgroundColor = [UIColor appWhiteColor];
     self.timerLabel.text = [NSString stringWithFormat:@"%02d:%02d", min, sec];
+    self.stepsLabel.text = [NSString stringWithFormat:@"0"];
+    
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     self.tableView.allowsMultipleSelection = true;
@@ -65,6 +67,10 @@
     }
 
 
+    
+    [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData *_Nullable pedometerData, NSError * _Nullable error ) {
+        [self updateLabels:pedometerData];
+    }];
     
 }
 
@@ -135,6 +141,7 @@
     finishWorkoutViewController.navigationItem.hidesBackButton = YES;
     //finishWorkoutViewController.stepsCompleted = self.steps;
     finishWorkoutViewController.timeTaken = [NSNumber numberWithInt:sec+(min*60)];
+//    finishWorkoutViewController.steps = [self.PedometerData.numberOfSteps];
     finishWorkoutViewController.workoutPlan = self.workoutPlan;
     finishWorkoutViewController.delegate = self;
     NSError *saveError = nil;
@@ -148,6 +155,18 @@
     
     
     
+}
+
+
+-(void)updateLabels:(CMPedometerData *)pedometerData{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+    formatter.maximumFractionDigits = 2;
+    
+    if ([CMPedometer isStepCountingAvailable]){
+        self.stepsLabel.text = [NSString stringWithFormat:@" %@", [formatter stringFromNumber:pedometerData.numberOfSteps]];
+    }else {
+        self.stepsLabel.text = @"Steps Counter not available";
+    }
 }
 
 -(void)timerFired:(NSTimer *)timer{

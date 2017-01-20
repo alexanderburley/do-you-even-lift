@@ -55,6 +55,26 @@
 
 
 - (IBAction)saveWorkoutButtonPressed:(id)sender {
+    
+    NSArray *quotes;
+    quotes = [NSArray arrayWithObjects: @"Yeah, I had a girlfriend once, but she couldn’t spot me, so what was the point?", @"Of course its heavy, thats why they call it weight", @"Squat! Because somewhere there’s a girl warming up with your max.", nil];
+    
+    NSUInteger random = arc4random() % [quotes count];
+    NSString *random_quotes = [quotes objectAtIndex: random];
+    
+    
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    
+    
+    
+    
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:60];
+    localNotification.alertBody = random_quotes;
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = app.managedObjectContext;
     
