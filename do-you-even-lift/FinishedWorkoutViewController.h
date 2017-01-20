@@ -26,5 +26,7 @@
 - (IBAction)returnWorkoutButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveNewWorkoutPlanButton;
+@property (weak, nonatomic) WorkoutDetailViewController *currentWorkoutController;
+@property (weak, nonatomic) IBOutlet UIButton *discardWorkoutButton;
 
 @end

@@ -83,6 +83,7 @@
 
 
 -(void)viewWillDisapper:(BOOL)animated{
+    
     [super viewWillDisappear:animated];
 }
 
@@ -115,10 +116,10 @@
     WorkoutPlan *workoutPlan = [_fetchedResultsController objectAtIndexPath:path];
     if (cell.isSelected){
         newWorkoutViewController.workoutPlan = workoutPlan;
-        //newWorkoutViewController.newWorkout = NO;
+        newWorkoutViewController.newWorkout = NO;
     }
     else {
-        //newWorkoutViewController.newWorkout = YES;
+        newWorkoutViewController.newWorkout = YES;
     }
     
     [self showViewController:newWorkoutViewController sender:self];
@@ -131,7 +132,7 @@
 
 #pragma mark - Table Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [[_fetchedResultsController sections] count];;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -185,7 +186,7 @@
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     [fetchRequest setFetchBatchSize:20];
     
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"Root"];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
     _fetchedResultsController.delegate = self;
     
     return _fetchedResultsController;

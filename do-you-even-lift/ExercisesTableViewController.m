@@ -42,7 +42,7 @@
     [self.tableView setSeparatorColor:[UIColor appGreyColor]];
     self.tableView.delegate = self;
     
-    UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addExercise:)];
+    UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(addExercise:)];
     self.navigationItem.rightBarButtonItem = newButton;
     
     

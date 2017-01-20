@@ -26,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak,nonatomic) CMPedometer *pedometer;
-//@property (weak, nonatomic) BOOL newWorkout;
+@property (nonatomic) BOOL newWorkout;
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 

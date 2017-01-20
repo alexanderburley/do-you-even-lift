@@ -9,7 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FinishedWorkoutViewController">
             <connections>
                 <outlet property="congratulationsLabel" destination="MmT-7V-6wd" id="8gS-eD-mef"/>
-                <outlet property="saveNewWorkoutPlanButton" destination="4wU-d2-R8H" id="g5n-AB-5Sh"/>
+                <outlet property="discardWorkoutButton" destination="Fdg-Vu-KRP" id="IxC-P1-PPl"/>
                 <outlet property="takePhotoButton" destination="6ZK-Rq-1SP" id="khP-Gx-0GZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -29,9 +29,12 @@
                                 <constraint firstAttribute="height" constant="40" id="LpX-zf-YSH"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                            <state key="normal" title="Return to workout">
+                            <state key="normal" title="Return to Workout">
                                 <color key="titleColor" red="0.98039215800000001" green="0.94901961089999998" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <variation key="widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="71" y="56" width="258" height="40"/>
+                            </variation>
                             <connections>
                                 <action selector="returnWorkoutButtonPressed:" destination="-1" eventType="touchUpInside" id="9ll-Zp-PEQ"/>
                             </connections>
@@ -46,21 +49,12 @@
                             <state key="normal" title="Save Workout">
                                 <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <variation key="widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="71" y="104" width="258" height="40"/>
+                            </variation>
                             <connections>
                                 <action selector="saveWorkoutButtonPressed:" destination="-1" eventType="touchUpInside" id="Uex-YD-fSE"/>
                             </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wU-d2-R8H">
-                            <rect key="frame" x="171" y="84" width="258" height="40"/>
-                            <color key="backgroundColor" red="0.29803921568627451" green="0.78823529411764703" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="258" id="Jez-em-s5M"/>
-                                <constraint firstAttribute="height" constant="40" id="aVU-Rx-rg1"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                            <state key="normal" title="Save New Workout Plan">
-                                <color key="titleColor" red="0.98039215803146362" green="0.94901961088180542" blue="0.94117647409439087" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZK-Rq-1SP">
                             <rect key="frame" x="171" y="36" width="258" height="40"/>
@@ -73,6 +67,9 @@
                             <state key="normal" title="Take a Photo">
                                 <color key="titleColor" red="0.98039215800000001" green="0.94901961089999998" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <variation key="widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="71" y="8" width="258" height="40"/>
+                            </variation>
                             <connections>
                                 <action selector="takePhotoButtonPressed:" destination="-1" eventType="touchUpInside" id="89Y-04-iQc"/>
                             </connections>
@@ -87,6 +84,9 @@
                             <state key="normal" title="Finish without saving">
                                 <color key="titleColor" red="0.98039215800000001" green="0.94901961089999998" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <variation key="widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="71" y="152" width="258" height="40"/>
+                            </variation>
                             <connections>
                                 <action selector="discardWorkoutButtonPressed:" destination="-1" eventType="touchUpInside" id="qF7-k4-JNi"/>
                             </connections>
@@ -96,18 +96,32 @@
                     <constraints>
                         <constraint firstItem="34n-ct-ant" firstAttribute="trailing" secondItem="2Oq-jB-Fzg" secondAttribute="trailing" id="3JJ-Nh-Utn"/>
                         <constraint firstItem="2Oq-jB-Fzg" firstAttribute="top" secondItem="34n-ct-ant" secondAttribute="bottom" constant="8" symbolic="YES" id="5ae-Ai-GJ4"/>
-                        <constraint firstItem="34n-ct-ant" firstAttribute="top" secondItem="4wU-d2-R8H" secondAttribute="bottom" constant="8" symbolic="YES" id="7Ie-rD-zjh"/>
+                        <constraint firstItem="34n-ct-ant" firstAttribute="trailing" secondItem="6ZK-Rq-1SP" secondAttribute="trailing" id="Dfb-Og-0l8"/>
+                        <constraint firstItem="34n-ct-ant" firstAttribute="leading" secondItem="6ZK-Rq-1SP" secondAttribute="leading" id="DhU-fK-xyI"/>
                         <constraint firstItem="6ZK-Rq-1SP" firstAttribute="centerX" secondItem="2pJ-QX-nck" secondAttribute="centerX" id="GCL-2I-rt9"/>
+                        <constraint firstItem="34n-ct-ant" firstAttribute="top" secondItem="6ZK-Rq-1SP" secondAttribute="bottom" constant="8" symbolic="YES" id="Nhl-Kl-31z"/>
                         <constraint firstItem="34n-ct-ant" firstAttribute="leading" secondItem="2Oq-jB-Fzg" secondAttribute="leading" id="P4g-RW-K20"/>
-                        <constraint firstItem="6ZK-Rq-1SP" firstAttribute="top" secondItem="2pJ-QX-nck" secondAttribute="top" constant="36" id="Pn2-4h-MIh"/>
-                        <constraint firstItem="4wU-d2-R8H" firstAttribute="top" secondItem="6ZK-Rq-1SP" secondAttribute="bottom" constant="8" symbolic="YES" id="Svy-tC-gMC"/>
+                        <constraint firstItem="6ZK-Rq-1SP" firstAttribute="top" secondItem="2pJ-QX-nck" secondAttribute="top" constant="36" id="Pn2-4h-MIh">
+                            <variation key="widthClass=compact" constant="84"/>
+                        </constraint>
                         <constraint firstItem="Fdg-Vu-KRP" firstAttribute="top" secondItem="2Oq-jB-Fzg" secondAttribute="bottom" constant="8" symbolic="YES" id="fqa-ZN-BMX"/>
                         <constraint firstItem="2Oq-jB-Fzg" firstAttribute="trailing" secondItem="Fdg-Vu-KRP" secondAttribute="trailing" id="ktl-Bg-ht0"/>
-                        <constraint firstItem="4wU-d2-R8H" firstAttribute="leading" secondItem="34n-ct-ant" secondAttribute="leading" id="m9g-82-si7"/>
                         <constraint firstItem="2Oq-jB-Fzg" firstAttribute="leading" secondItem="Fdg-Vu-KRP" secondAttribute="leading" id="mXI-Lo-b6P"/>
-                        <constraint firstItem="6ZK-Rq-1SP" firstAttribute="leading" secondItem="4wU-d2-R8H" secondAttribute="leading" id="rvJ-hb-VhM"/>
-                        <constraint firstItem="4wU-d2-R8H" firstAttribute="trailing" secondItem="34n-ct-ant" secondAttribute="trailing" id="uzC-Nk-b4A"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Dfb-Og-0l8"/>
+                            <exclude reference="DhU-fK-xyI"/>
+                            <exclude reference="Nhl-Kl-31z"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="Dfb-Og-0l8"/>
+                            <include reference="DhU-fK-xyI"/>
+                            <include reference="Nhl-Kl-31z"/>
+                        </mask>
+                    </variation>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations -----, you workout took you XX minutes and YY seconds." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmT-7V-6wd">
                     <rect key="frame" x="8" y="19" width="584" height="188"/>

@@ -26,8 +26,7 @@
     int sec = [self.timeTaken intValue]%60;
     self.congratulationsLabel.numberOfLines = 0;
     self.congratulationsLabel.text = [NSString stringWithFormat:@"Congratulations! You completed your workout in %i minutes and %i seconds. During this workout you completed over XXX steps and completed XX exercises", min, sec];
-    self.saveNewWorkoutPlanButton.alpha = 0.5;
-    self.saveNewWorkoutPlanButton.enabled = NO;
+
     imagePickerController = [[UIImagePickerController alloc] init];
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         self.takePhotoButton.enabled = NO;
@@ -37,7 +36,7 @@
         self.takePhotoButton.enabled = YES;
         self.takePhotoButton.alpha = 1.0;
     }
-
+    
     
     
 }
@@ -63,10 +62,9 @@
     NSString *random_quotes = [quotes objectAtIndex: random];
     
     
+    
+    
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    
-    
-    
     
     localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:60];
     localNotification.alertBody = random_quotes;
@@ -74,7 +72,7 @@
     localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-
+    
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = app.managedObjectContext;
     
@@ -82,15 +80,20 @@
     [newCompletedWorkout setValue:[NSDate date] forKey:@"date_completed"];
     [newCompletedWorkout setValue:self.timeTaken forKey:@"time_taken"];
     [newCompletedWorkout setValue:self.workoutPlan forKey:@"workout_plan"];
+    
+    
     //[newCompletedWorkout setValue:[self.steps] forKey:@"steps"];
     
     NSError *saveError = nil;
     if(![context save:&saveError]){
         NSLog(@"Unable to save plan %@, %@", saveError, [saveError localizedDescription]);
     }
+    self.currentWorkoutController.workoutPlan = nil;
     [self.navigationController popToRootViewControllerAnimated:YES];
-                                                  
+
+    
 }
+
 - (IBAction)returnWorkoutButtonPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
     

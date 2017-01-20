@@ -79,6 +79,9 @@
     NSString *time_taken = [completedWorkout.time_taken stringValue];
     cell.backgroundColor = [UIColor appGreyColor];
     cell.textLabel.textColor = [UIColor appBlueColor];
+    if (!name){
+        name  = @"n/a";
+    }
     cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@",name,date_completed,time_taken];
 }
 
@@ -119,7 +122,7 @@
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     [fetchRequest setFetchBatchSize:20];
     
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"Root"];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
     _fetchedResultsController.delegate = self;
     
     return _fetchedResultsController;

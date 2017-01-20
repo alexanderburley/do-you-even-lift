@@ -53,11 +53,12 @@
     else {
         AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         NSManagedObjectContext *context = app.managedObjectContext;
-        self.workoutPlanNameLabel.text = @"New Workout";
         WorkoutPlan *newPlan = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
         self.workoutPlan = newPlan;
-        self.workoutPlan.plan_name = @"New Plan";
-        UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"Add Exercises" style:UIBarButtonItemStylePlain target:self action:@selector(addExercises:)];
+        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+        self.workoutPlan.plan_name = [NSString stringWithFormat:@"WorkoutPlan%ld-%ld-%ld", (long)[components day], (long)[components month], (long)[components year]];
+        self.workoutPlanNameLabel.text = self.workoutPlan.plan_name;
+        UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addExercises:)];
         self.navigationItem.rightBarButtonItem = newButton;
         
         NSError *saveError = nil;
@@ -76,15 +77,15 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    /*
+    
     if ([self isMovingFromParentViewController]){
         if (self.newWorkout){
             AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
             NSManagedObjectContext *context = app.managedObjectContext;
-            //[context deleteObject:self.workoutPlan];
+            [context deleteObject:self.workoutPlan];
         }
     }
-     */
+     
     [self pauseTimer:nil];
 }
 
@@ -143,7 +144,7 @@
     finishWorkoutViewController.timeTaken = [NSNumber numberWithInt:sec+(min*60)];
 //    finishWorkoutViewController.steps = [self.PedometerData.numberOfSteps];
     finishWorkoutViewController.workoutPlan = self.workoutPlan;
-    finishWorkoutViewController.delegate = self;
+    finishWorkoutViewController.currentWorkoutController = self;
     NSError *saveError = nil;
     
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -240,7 +241,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY workout_plan_exercise = %@", self.workoutPlan.workout_plan_exercise];
     
     fetchRequest.predicate = predicate;
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"Root"];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
     _fetchedResultsController.delegate = self;
     
     return _fetchedResultsController;
