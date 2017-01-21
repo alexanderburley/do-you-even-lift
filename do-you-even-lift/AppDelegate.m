@@ -148,6 +148,15 @@
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(nonnull UILocalNotification *)notification{
+    UIApplicationState state = [application applicationState];
+    if (state == UIApplicationStateActive){
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Reminder" message:notification.alertBody
+                                                      delegate:self cancelButtonTitle:@"OK"
+                                             otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"reloadData" object:self];
     application.applicationIconBadgeNumber = 0;
 }
 
