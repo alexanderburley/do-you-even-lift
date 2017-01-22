@@ -68,9 +68,6 @@
             NSLog(@"Unable to save plan %@, %@", saveError, [saveError localizedDescription]);
         }
     }
-
-
-    
     [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData *_Nullable pedometerData, NSError * _Nullable error ) {
         [self updateLabels:pedometerData];
     }];
@@ -123,7 +120,7 @@
 -(IBAction)addExercises:(id)sender {
     ExercisesTableViewController* exercisesTableViewController = [[ExercisesTableViewController alloc] init];
     exercisesTableViewController.tableView.allowsMultipleSelection = YES;
-    exercisesTableViewController.navigationItem.backBarButtonItem.title = @"Add";
+    self.navigationController.navigationBar.topItem.title = @"Add";
     exercisesTableViewController.midWorkoutDelegate = self;
     [self showViewController:exercisesTableViewController sender:self];
 }
@@ -238,6 +235,13 @@
         }
     }
     return unselectedExercises;
+}
+
+- (CMPedometer *)pedometer {
+    if (!_pedometer){
+        _pedometer = [[CMPedometer alloc] init];
+    }
+    return _pedometer;
 }
 
 

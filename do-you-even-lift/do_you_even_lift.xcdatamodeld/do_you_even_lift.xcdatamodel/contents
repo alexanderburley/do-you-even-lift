@@ -42,7 +42,7 @@
         <relationship name="workout_plan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkoutPlan" inverseName="workout_plan_exercise" inverseEntity="WorkoutPlan" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CompletedWorkout" positionX="180" positionY="63" width="128" height="133"/>
+        <element name="CompletedWorkout" positionX="180" positionY="63" width="128" height="135"/>
         <element name="CompletedWorkoutExercise" positionX="-90" positionY="45" width="128" height="88"/>
         <element name="Exercise" positionX="-137" positionY="234" width="128" height="103"/>
         <element name="PersonalBest" positionX="-117" positionY="441" width="128" height="73"/>

@@ -55,14 +55,14 @@
     
 }
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [[_fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -87,10 +87,7 @@
     NSString *time_taken = [completedWorkout.time_taken stringValue];
     cell.backgroundColor = [UIColor appGreyColor];
     cell.textLabel.textColor = [UIColor appBlueColor];
-    if (!name){
-        name  = @"n/a";
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@",name,date_completed,time_taken];
+    cell.textLabel.text = name;
 }
 
 // Override to support conditional editing of the table view.
@@ -123,6 +120,12 @@
     [self showViewController:completedWorkoutViewController sender:self];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    id  sectionInfo = [self.fetchedResultsController.sections objectAtIndex:section];
+    return [sectionInfo name];
+}
+
 #pragma mark - Fetched Results Controller
 
 -(NSFetchedResultsController *)fetchedResultsController {
@@ -139,7 +142,7 @@
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     [fetchRequest setFetchBatchSize:20];
     
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:@"section_identifier" cacheName:nil];
     _fetchedResultsController.delegate = self;
     
     return _fetchedResultsController;

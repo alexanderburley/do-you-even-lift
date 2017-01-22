@@ -24,11 +24,22 @@
 
 @implementation CompletedWorkout
 
+-(NSString*)section_identifier{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit) fromDate:[self date_completed]];
+    return [NSDateFormatter localizedStringFromDate:self.date_completed
+                                          dateStyle:NSDateFormatterMediumStyle
+                                          timeStyle:NSDateFormatterNoStyle];
+
+}
+
 /*
 
 @dynamic primitiveDateCompleted, primitiveSectionIdentifier;
 
 // Insert code here to add functionality to your managed object subclass
+ 
+
 
 - (NSString*)section_identifier{
     

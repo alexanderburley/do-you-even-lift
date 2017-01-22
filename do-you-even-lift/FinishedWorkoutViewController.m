@@ -27,7 +27,7 @@
     self.congratulationsLabel.numberOfLines = 0;
     self.congratulationsLabel.text = [NSString stringWithFormat:@"Congratulations! You completed your workout in %i minutes and %i seconds. During this workout you completed over XXX steps and completed XX exercises", min, sec];
 
-    imagePickerController = [[UIImagePickerController alloc] init];
+    
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         self.takePhotoButton.enabled = NO;
         self.takePhotoButton.alpha = 0.5;
@@ -44,6 +44,7 @@
 }
 
 -(IBAction)takePhotoButtonPressed:(id)sender{
+    imagePickerController = [[UIImagePickerController alloc] init];
     [imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
     [imagePickerController setDelegate:self];
     [self presentViewController:imagePickerController animated:YES completion:nil];
@@ -74,9 +75,11 @@
     NSManagedObjectContext *context = app.managedObjectContext;
     
     CompletedWorkout *newCompletedWorkout = [NSEntityDescription insertNewObjectForEntityForName:@"CompletedWorkout" inManagedObjectContext:context];
-    [newCompletedWorkout setValue:[NSDate date] forKey:@"date_completed"];
-    [newCompletedWorkout setValue:self.timeTaken forKey:@"time_taken"];
-    [newCompletedWorkout setValue:self.workoutPlan forKey:@"workout_plan"];
+    newCompletedWorkout.date_completed = [NSDate date];
+    newCompletedWorkout.time_taken = self.timeTaken;
+    newCompletedWorkout.workout_plan = self.workoutPlan;
+    newCompletedWorkout.section_identifier = [newCompletedWorkout section_identifier];
+    
     
     
     for (int section = 0; section < [self.currentWorkoutController.tableView numberOfSections]; section++) {

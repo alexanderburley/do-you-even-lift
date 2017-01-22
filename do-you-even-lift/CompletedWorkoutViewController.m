@@ -32,10 +32,15 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     [self.tableView setBackgroundColor:[UIColor appGreyColor]];
     
-    if ([self.completedWorkout.workout_plan.pre_made boolValue]){
-        self.savePlanButton.enabled = NO;
-        self.savePlanButton.alpha = 0.5;
+    if (self.completedWorkout.workout_plan){
+        if ([self.completedWorkout.workout_plan.pre_made boolValue]){
+            self.savePlanButton.enabled = NO;
+            self.savePlanButton.alpha = 0.5;
+        }
     }
+    
+    
+    
     
     self.savePlanButton.layer.cornerRadius = 5;
     
@@ -73,11 +78,14 @@
         textField.borderStyle = UITextBorderStyleRoundedRect;
     }];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
-        self.completedWorkout.workout_plan.plan_name = alert.textFields[0].text;
-        self.completedWorkout.workout_plan.pre_made = [NSNumber numberWithBool:YES];
-        self.workoutName.text = self.completedWorkout.workout_plan.plan_name;
         AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         NSManagedObjectContext *context = app.managedObjectContext;
+        if (self.completedWorkout.workout_plan){
+            self.completedWorkout.workout_plan.plan_name = alert.textFields[0].text;
+            self.completedWorkout.workout_plan.pre_made = [NSNumber numberWithBool:YES];
+            self.workoutName.text = alert.textFields[0].text;
+        }
+        
         NSError *saveError = nil;
         if(![context save:&saveError]){
             NSLog(@"Unable to save plan %@, %@", saveError, [saveError localizedDescription]);

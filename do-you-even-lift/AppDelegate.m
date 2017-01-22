@@ -82,6 +82,7 @@
             newWorkoutPlanExercise.workout_plan = legs;
         }
         
+        /**
         CompletedWorkout *janWorkout = [NSEntityDescription insertNewObjectForEntityForName:@"CompletedWorkout" inManagedObjectContext:context];
         
         [janWorkout setValue:[NSDate dateWithYear:2016 month:1 day:20] forKey:@"date_completed"];
@@ -92,6 +93,7 @@
         [mayWorkout setValue:[NSDate dateWithYear:2015 month:5 day:15] forKey:@"date_completed"];
         [mayWorkout setValue:[NSNumber numberWithInteger:462] forKey:@"time_taken"];
         [mayWorkout setValue:legs forKey:@"workout_plan"];
+         */
 
         NSError *saveError = nil;
         if(![context save:&saveError]){

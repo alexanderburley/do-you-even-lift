@@ -44,6 +44,14 @@
     }
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    if (self.isMovingFromParentViewController) {
+        // Do your stuff here
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -106,14 +114,10 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [_fetchedResultsController.managedObjectContext deleteObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
+        WorkoutPlan *workoutPlan = [_fetchedResultsController objectAtIndexPath:indexPath];
+        workoutPlan.pre_made = [NSNumber numberWithBool:NO];
         //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        //[self.tableView reloadData];
-        NSError *saveError = nil;
-        if(![_fetchedResultsController.managedObjectContext save:&saveError]){
-            NSLog(@"Unable delete workout plan %@, %@", saveError, [saveError localizedDescription]);
-        }
+        [self.tableView reloadData];
         
     }
 }
