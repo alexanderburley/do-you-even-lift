@@ -26,5 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *stepsCompletedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateCompletedLabel;
+@property (weak, nonatomic) IBOutlet UIButton *savePlanButton;
+- (IBAction)savePlanButtonPressed:(id)sender;
 
 @end

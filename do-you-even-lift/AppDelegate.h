@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "NSDate+CreateDate.h"
+#import "CompletedWorkoutExercise.h"
+#import "CompletedWorkout.h"
+#import "Exercise.h"
+#import "WorkoutPlan.h"
+#import "WorkoutPlanExercise.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

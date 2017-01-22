@@ -31,6 +31,7 @@
     </entity>
     <entity name="WorkoutPlan" representedClassName="WorkoutPlan" syncable="YES">
         <attribute name="plan_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pre_made" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="completed_workout" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CompletedWorkout" inverseName="workout_plan" inverseEntity="CompletedWorkout" syncable="YES"/>
         <relationship name="workout_plan_exercise" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WorkoutPlanExercise" inverseName="workout_plan" inverseEntity="WorkoutPlanExercise" syncable="YES"/>
     </entity>
@@ -42,11 +43,11 @@
     </entity>
     <elements>
         <element name="CompletedWorkout" positionX="180" positionY="63" width="128" height="133"/>
+        <element name="CompletedWorkoutExercise" positionX="-90" positionY="45" width="128" height="88"/>
         <element name="Exercise" positionX="-137" positionY="234" width="128" height="103"/>
         <element name="PersonalBest" positionX="-117" positionY="441" width="128" height="73"/>
         <element name="User" positionX="-326" positionY="239" width="128" height="103"/>
-        <element name="WorkoutPlan" positionX="232" positionY="324" width="128" height="88"/>
+        <element name="WorkoutPlan" positionX="232" positionY="324" width="128" height="105"/>
         <element name="WorkoutPlanExercise" positionX="63" positionY="347" width="128" height="103"/>
-        <element name="CompletedWorkoutExercise" positionX="-90" positionY="45" width="128" height="88"/>
     </elements>
 </model>

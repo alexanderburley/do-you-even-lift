@@ -182,7 +182,9 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"WorkoutPlan" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"plan_name" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"plan_name" ascending:YES];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pre_made = %@", [NSNumber numberWithBool:YES]];
+    fetchRequest.predicate = predicate;
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     [fetchRequest setFetchBatchSize:20];
     

@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WorkoutPlan (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *plan_name;
+@property (nullable, nonatomic, retain) NSNumber *pre_made;
 @property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *completed_workout;
 @property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *workout_plan_exercise;
 

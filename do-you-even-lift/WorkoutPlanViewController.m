@@ -78,14 +78,16 @@
     NSManagedObjectContext *context = app.managedObjectContext;
     
     NSString *name = self.planNameTextField.text;
-    NSManagedObject *newPlan = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
-    [newPlan setValue:name forKey:@"plan_name"];
+    WorkoutPlan *newPlan = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
+    newPlan.pre_made = [NSNumber numberWithBool:YES];
+    newPlan.plan_name = name;
     
     NSArray *selectedExercises = [self.tableView indexPathsForSelectedRows];
     for (id cell in selectedExercises){
-        NSManagedObject *newWorkoutPlanExercise = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlanExercise" inManagedObjectContext:context];
+        WorkoutPlanExercise *newWorkoutPlanExercise = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlanExercise" inManagedObjectContext:context];
         [newWorkoutPlanExercise setValue:[_fetchedResultsController objectAtIndexPath:cell] forKey:@"exercise"];
         [newWorkoutPlanExercise setValue:newPlan forKey:@"workout_plan"];
+        
     }
     
     NSError *saveError = nil;
@@ -147,13 +149,6 @@
     cell.textLabel.text = exercise.exercise_name;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
-}
-
--(void)tableView:(UITableView*)tableView didDeselectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
-}
 
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if ([self.action isEqualToString:@"read"]){
@@ -187,6 +182,21 @@
     
     return _fetchedResultsController;
     
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [_fetchedResultsController.managedObjectContext deleteObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        //[self.tableView reloadData];
+        NSError *saveError = nil;
+        if(![_fetchedResultsController.managedObjectContext save:&saveError]){
+            NSLog(@"Unable delete workout plan %@, %@", saveError, [saveError localizedDescription]);
+        }
+        
+    }
 }
 
 

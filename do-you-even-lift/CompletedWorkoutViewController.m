@@ -32,6 +32,13 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     [self.tableView setBackgroundColor:[UIColor appGreyColor]];
     
+    if ([self.completedWorkout.workout_plan.pre_made boolValue]){
+        self.savePlanButton.enabled = NO;
+        self.savePlanButton.alpha = 0.5;
+    }
+    
+    self.savePlanButton.layer.cornerRadius = 5;
+    
     [self.tableView setSeparatorColor:[UIColor appBlueColor]];
     self.tableView.delegate = self;
     self.tableView.layer.borderWidth = 1.0;
@@ -55,6 +62,36 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)savePlanButtonPressed:(id)sender{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Save Plan" message:@"Please give your new workout plan a suitable name." preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Body Pump";
+        textField.textColor = [UIColor appBlueColor];
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+    }];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+        self.completedWorkout.workout_plan.plan_name = alert.textFields[0].text;
+        self.completedWorkout.workout_plan.pre_made = [NSNumber numberWithBool:YES];
+        self.workoutName.text = self.completedWorkout.workout_plan.plan_name;
+        AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = app.managedObjectContext;
+        NSError *saveError = nil;
+        if(![context save:&saveError]){
+            NSLog(@"Unable to save plan %@, %@", saveError, [saveError localizedDescription]);
+        }
+
+        // Ok action example
+    }];
+    UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+        // Other action
+    }];
+    
+    [alert addAction:okAction];
+    [alert addAction:otherAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 /*
@@ -211,6 +248,7 @@
     id <NSFetchedResultsSectionInfo> sectionInfo = [_fetchedResultsController sections][section];
     return [sectionInfo name];
 }
+
 
 
 @end

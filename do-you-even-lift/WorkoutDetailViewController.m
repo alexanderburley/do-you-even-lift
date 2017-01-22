@@ -56,7 +56,9 @@
         WorkoutPlan *newPlan = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
         self.workoutPlan = newPlan;
         NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
-        self.workoutPlan.plan_name = [NSString stringWithFormat:@"WorkoutPlan%ld-%ld-%ld", (long)[components day], (long)[components month], (long)[components year]];
+        //self.workoutPlan.plan_name = [NSString stringWithFormat:@"WorkoutPlan%ld-%ld-%ld", (long)[components day], (long)[components month], (long)[components year]];
+        self.workoutPlan.plan_name = @"New Plan";
+        self.workoutPlan.pre_made = [NSNumber numberWithBool:NO];
         self.workoutPlanNameLabel.text = self.workoutPlan.plan_name;
         UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addExercises:)];
         self.navigationItem.rightBarButtonItem = newButton;

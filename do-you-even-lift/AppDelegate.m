@@ -34,54 +34,62 @@
         AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         NSManagedObjectContext *context = app.managedObjectContext;
         
-        NSManagedObject *biCurls= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
-        [biCurls setValue:@"Bicep Curls" forKey:@"exercise_name"];
-        [biCurls setValue:@"Arms" forKey:@"muscle_group"];
-        NSManagedObject *hCurls= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
-        [hCurls setValue:@"Hammer Curls" forKey:@"exercise_name"];
-        [hCurls setValue:@"Arms" forKey:@"muscle_group"];
-        NSManagedObject *textension= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
-        [textension setValue:@"Tricep Extension" forKey:@"exercise_name"];
-        [textension setValue:@"Arms" forKey:@"muscle_group"];
+        Exercise *biCurls= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
+        biCurls.exercise_name = @"Bicep Curls";
+        biCurls.muscle_group = @"Arms";
         
+        Exercise *hCurls= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
+        hCurls.exercise_name = @"Hammer Curls";
+        hCurls.muscle_group = @"Arms";
+        
+        Exercise *textension= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
+        textension.exercise_name = @"Tricep Extension";
+        textension.muscle_group = @"Arms";
+
         NSArray *armExercises = [[NSArray alloc] initWithObjects:biCurls,hCurls,textension, nil];
         
-        NSManagedObject *squats= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
-        [squats setValue:@"Squats" forKey:@"exercise_name"];
-        [squats setValue:@"Legs" forKey:@"muscle_group"];
-        NSManagedObject *lunges= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
-        [lunges setValue:@"Lunges" forKey:@"exercise_name"];
-        [lunges setValue:@"Legs" forKey:@"muscle_group"];
-        NSManagedObject *lcurls= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
-        [lcurls setValue:@"Leg Curls" forKey:@"exercise_name"];
-        [lcurls setValue:@"Legs" forKey:@"muscle_group"];
+        Exercise *squats= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
+        squats.exercise_name = @"Squats";
+        squats.muscle_group = @"Legs";
+        
+        Exercise *lunges= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
+        lunges.exercise_name = @"Lunges";
+        lunges.muscle_group = @"Legs";
+        
+        Exercise *lcurls= [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:context];
+        lcurls.exercise_name=@"Leg Curls";
+        lcurls.muscle_group = @"Legs";
         
         NSArray *legExercises = [[NSArray alloc] initWithObjects:squats,lunges,lcurls, nil];
         
-        NSManagedObject *arms = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
-        [arms setValue:@"Arm Day" forKey:@"plan_name"];
-        NSManagedObject *legs = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
-        [legs setValue:@"Intense Legs" forKey:@"plan_name"];
+        WorkoutPlan *arms = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
+        arms.plan_name = @"Arm Day";
+        arms.pre_made = [NSNumber numberWithBool:YES];
+        
+        WorkoutPlan *legs = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlan" inManagedObjectContext:context];
+        legs.plan_name = @"Intense Legs";
+        legs.pre_made = [NSNumber numberWithBool:YES];
         
         
         for (id exercise in armExercises){
-            NSManagedObject *newWorkoutPlanExercise = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlanExercise" inManagedObjectContext:context];
-            [newWorkoutPlanExercise setValue:exercise forKey:@"exercise"];
-            [newWorkoutPlanExercise setValue:arms forKey:@"workout_plan"];
+            WorkoutPlanExercise *newWorkoutPlanExercise = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlanExercise" inManagedObjectContext:context];
+            newWorkoutPlanExercise.exercise = exercise;
+            newWorkoutPlanExercise.workout_plan = arms;
         }
         for (id exercise in legExercises){
-            NSManagedObject *newWorkoutPlanExercise = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlanExercise" inManagedObjectContext:context];
-            [newWorkoutPlanExercise setValue:exercise forKey:@"exercise"];
-            [newWorkoutPlanExercise setValue:legs forKey:@"workout_plan"];
+            WorkoutPlanExercise *newWorkoutPlanExercise = [NSEntityDescription insertNewObjectForEntityForName:@"WorkoutPlanExercise" inManagedObjectContext:context];
+            newWorkoutPlanExercise.exercise = exercise;
+            newWorkoutPlanExercise.workout_plan = legs;
         }
         
-        NSManagedObject *janWorkout = [NSEntityDescription insertNewObjectForEntityForName:@"CompletedWorkout" inManagedObjectContext:context];
-        [janWorkout setValue:[NSDate dateWithYear:2016 month:3 day:20] forKey:@"date_completed"];
+        CompletedWorkout *janWorkout = [NSEntityDescription insertNewObjectForEntityForName:@"CompletedWorkout" inManagedObjectContext:context];
+        
+        [janWorkout setValue:[NSDate dateWithYear:2016 month:1 day:20] forKey:@"date_completed"];
         [janWorkout setValue:[NSNumber numberWithInteger:676] forKey:@"time_taken"];
         [janWorkout setValue:arms forKey:@"workout_plan"];
         
         NSManagedObject *mayWorkout = [NSEntityDescription insertNewObjectForEntityForName:@"CompletedWorkout" inManagedObjectContext:context];
-        [mayWorkout setValue:[NSDate dateWithYear:2017 month:5 day:15] forKey:@"date_completed"];
+        [mayWorkout setValue:[NSDate dateWithYear:2015 month:5 day:15] forKey:@"date_completed"];
         [mayWorkout setValue:[NSNumber numberWithInteger:462] forKey:@"time_taken"];
         [mayWorkout setValue:legs forKey:@"workout_plan"];
 

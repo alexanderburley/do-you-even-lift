@@ -36,18 +36,6 @@
         self.takePhotoButton.enabled = YES;
         self.takePhotoButton.alpha = 1.0;
     }
-    
-    for (NSIndexPath *exerciseIndex in [self.currentWorkoutController.tableView indexPathsForSelectedRows]){
-        Exercise *exercise = [self.currentWorkoutController.exercises objectAtIndex:exerciseIndex.row];
-        NSLog(@"%@", exercise.exercise_name);
-    }
-    for (NSIndexPath *exerciseIndex in [self.currentWorkoutController getUnselectedExercises]){
-        Exercise *exercise = [self.currentWorkoutController.exercises objectAtIndex:exerciseIndex.row];
-        NSLog(@"%@", exercise.exercise_name);
-    }
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -14,6 +14,7 @@
 @implementation WorkoutPlan (CoreDataProperties)
 
 @dynamic plan_name;
+@dynamic pre_made;
 @dynamic completed_workout;
 @dynamic workout_plan_exercise;
 
