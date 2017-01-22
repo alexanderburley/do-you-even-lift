@@ -1,46 +1,52 @@
 //
-//  CompletedWorkoutsViewController.m
+//  CompletedWorkoutViewController.m
 //  do-you-even-lift
 //
-//  Created by Alex Burley on 15/01/2017.
+//  Created by Alex Burley on 22/01/2017.
 //  Copyright © 2017 Alex Burley. All rights reserved.
 //
 
-#import "CompletedWorkoutsViewController.h"
-#import "AppDelegate.h"
-#import "WorkoutPlan.h"
-#import "CompletedWorkout.h"
-#import <CoreData/CoreData.h>
+#import "CompletedWorkoutViewController.h"
 
-@interface CompletedWorkoutsViewController () <NSFetchedResultsControllerDelegate>
-
+@interface CompletedWorkoutViewController ()
 
 @end
 
-@implementation CompletedWorkoutsViewController{
+@implementation CompletedWorkoutViewController {
     NSFetchedResultsController *_fetchedResultsController;
-    UIBezierPath *graphPath;
-    CAShapeLayer *graphLayout;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"Completed Workouts";
-    //UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButton target:self action:@selector(newCompletedWorkout:)];
-    UIBarButtonItem *newButton = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(newCompletedWorkout:)];
-    self.navigationItem.rightBarButtonItem = newButton;
     
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+    
+    //self.title = @"Exercises";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-    self.tableView.separatorColor = [UIColor appBlueColor];
+    [self.tableView setBackgroundColor:[UIColor appGreyColor]];
+    
+    [self.tableView setSeparatorColor:[UIColor appBlueColor]];
+    self.tableView.delegate = self;
     self.tableView.layer.borderWidth = 1.0;
     self.tableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.tableView.backgroundColor = [UIColor appGreyColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
-
-    
+    //self.tableView.allowsSelection = NO;
+    self.workoutName.text = self.completedWorkout.workout_plan.plan_name;
+    self.stepsCompletedLabel.text = [NSString stringWithFormat:@"%@", self.completedWorkout.steps];
+    NSString *date_completed = [NSDateFormatter localizedStringFromDate:self.completedWorkout.date_completed
+                                                              dateStyle:NSDateFormatterMediumStyle
+                                                              timeStyle:NSDateFormatterNoStyle];
+    self.dateCompletedLabel.text = date_completed;
     
     NSError *error;
+    //NSLog(@"%@", [self fetchedResultsController]);
     if (![[self fetchedResultsController] performFetch:&error]){
         NSLog(@"unresolved error %@, %@", error, [error userInfo]);
     }
@@ -51,20 +57,27 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)newCompletedWorkout:(id)sender{
-    
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
+*/
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [[_fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     id sectionInfo = [[_fetchedResultsController sections] objectAtIndex:section];
     return [sectionInfo numberOfObjects];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -75,51 +88,18 @@
 
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-    CompletedWorkout *completedWorkout = [_fetchedResultsController objectAtIndexPath:indexPath];
-    NSString *date_completed = [NSDateFormatter localizedStringFromDate:completedWorkout.date_completed
-                                                          dateStyle:NSDateFormatterMediumStyle
-                                                          timeStyle:NSDateFormatterNoStyle];
-    NSString *name = completedWorkout.workout_plan.plan_name;
-    NSString *time_taken = [completedWorkout.time_taken stringValue];
+    CompletedWorkoutExercise *completedWorkoutExercise = [_fetchedResultsController objectAtIndexPath:indexPath];
     cell.backgroundColor = [UIColor appGreyColor];
-    cell.textLabel.textColor = [UIColor appBlueColor];
-    if (!name){
-        name  = @"n/a";
+    cell.textLabel.textColor = [UIColor appRedColor];
+    cell.textLabel.text = completedWorkoutExercise.exercise.exercise_name;
+    if ([completedWorkoutExercise.completed boolValue]){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@",name,date_completed,time_taken];
-}
-
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [_fetchedResultsController.managedObjectContext deleteObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
-        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        //[self.tableView reloadData];
-        NSError *saveError = nil;
-        if(![_fetchedResultsController.managedObjectContext save:&saveError]){
-            NSLog(@"Unable delete completed workout %@, %@", saveError, [saveError localizedDescription]);
-        }
-        
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    CompletedWorkoutViewController* completedWorkoutViewController = [[CompletedWorkoutViewController alloc] init];
-    CompletedWorkout *chosenCompletedWorkout = [_fetchedResultsController objectAtIndexPath:indexPath];
-    completedWorkoutViewController.action = @"read";
-    completedWorkoutViewController.completedWorkout = chosenCompletedWorkout;
-    [self showViewController:completedWorkoutViewController sender:self];
 }
-
-#pragma mark - Fetched Results Controller
 
 -(NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController != nil){
@@ -129,10 +109,13 @@
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = app.managedObjectContext;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CompletedWorkout" inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CompletedWorkoutExercise" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date_completed" ascending:NO];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"completed_workout = %@", self.completedWorkout];
+    fetchRequest.predicate = predicate;
+    //NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"muscle_group" ascending:YES];
+    NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"exercise.exercise_name" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptor1]];
     [fetchRequest setFetchBatchSize:20];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
@@ -177,8 +160,8 @@
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
     
     switch(type) {
-            
         case NSFetchedResultsChangeMove:
+            
             break;
             
         case NSFetchedResultsChangeUpdate:
@@ -201,9 +184,33 @@
 }
 
 
-
-
-
-- (IBAction)tableGraphControlPressed:(id)sender {
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
 }
+
+
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [_fetchedResultsController.managedObjectContext deleteObject:[_fetchedResultsController objectAtIndexPath:indexPath]];
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        //[self.tableView reloadData];
+        NSError *saveError = nil;
+        if(![_fetchedResultsController.managedObjectContext save:&saveError]){
+            NSLog(@"Unable delete exercise %@, %@", saveError, [saveError localizedDescription]);
+        }
+        
+    }
+}
+
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    id <NSFetchedResultsSectionInfo> sectionInfo = [_fetchedResultsController sections][section];
+    return [sectionInfo name];
+}
+
+
 @end

@@ -11,6 +11,9 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "WorkoutDetailViewController.h"
 #import "WorkoutPlan.h"
+#import "Exercise.h"
+#import "CompletedWorkout.h"
+#import "CompletedWorkoutExercise.h"
 
 
 @interface FinishedWorkoutViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, FBSDKSharingDelegate>

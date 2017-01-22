@@ -37,6 +37,15 @@
         self.takePhotoButton.alpha = 1.0;
     }
     
+    for (NSIndexPath *exerciseIndex in [self.currentWorkoutController.tableView indexPathsForSelectedRows]){
+        Exercise *exercise = [self.currentWorkoutController.exercises objectAtIndex:exerciseIndex.row];
+        NSLog(@"%@", exercise.exercise_name);
+    }
+    for (NSIndexPath *exerciseIndex in [self.currentWorkoutController getUnselectedExercises]){
+        Exercise *exercise = [self.currentWorkoutController.exercises objectAtIndex:exerciseIndex.row];
+        NSLog(@"%@", exercise.exercise_name);
+    }
+    
     
     
 }
@@ -56,7 +65,7 @@
 - (IBAction)saveWorkoutButtonPressed:(id)sender {
     
     NSArray *quotes;
-    quotes = [NSArray arrayWithObjects: @"Yeah, I had a girlfriend once, but she couldn’t spot me, so what was the point?", @"Of course its heavy, thats why they call it weight", @"Squat! Because somewhere there’s a girl warming up with your max.", nil];
+    quotes = [NSArray arrayWithObjects: @"Yeah, I had a girlfriend once, but she couldn’t spot me, so what was the point?", @"Of course its heavy, thats why they call it weight", nil];
     
     NSUInteger random = arc4random() % [quotes count];
     NSString *random_quotes = [quotes objectAtIndex: random];
@@ -76,11 +85,30 @@
     AppDelegate *app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = app.managedObjectContext;
     
-    NSManagedObject *newCompletedWorkout = [NSEntityDescription insertNewObjectForEntityForName:@"CompletedWorkout" inManagedObjectContext:context];
+    CompletedWorkout *newCompletedWorkout = [NSEntityDescription insertNewObjectForEntityForName:@"CompletedWorkout" inManagedObjectContext:context];
     [newCompletedWorkout setValue:[NSDate date] forKey:@"date_completed"];
     [newCompletedWorkout setValue:self.timeTaken forKey:@"time_taken"];
     [newCompletedWorkout setValue:self.workoutPlan forKey:@"workout_plan"];
     
+    
+    for (int section = 0; section < [self.currentWorkoutController.tableView numberOfSections]; section++) {
+        for (int row = 0; row < [self.currentWorkoutController.tableView numberOfRowsInSection:section]; row++) {
+            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+            UITableViewCell* cell = [self.currentWorkoutController.tableView cellForRowAtIndexPath:indexPath];
+            [self.currentWorkoutController.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+            CompletedWorkoutExercise *newCompletedWorkoutExercise=[NSEntityDescription insertNewObjectForEntityForName:@"CompletedWorkoutExercise" inManagedObjectContext:context];
+            newCompletedWorkoutExercise.exercise = self.currentWorkoutController.exercises[indexPath.row];
+            newCompletedWorkoutExercise.completed_workout = newCompletedWorkout;
+            if ([cell isSelected]){
+                newCompletedWorkoutExercise.completed = [NSNumber numberWithBool:YES];
+            }
+            else {
+                newCompletedWorkoutExercise.completed = [NSNumber numberWithBool:NO];
+            }
+        }
+    }
+    
+
     
     //[newCompletedWorkout setValue:[self.steps] forKey:@"steps"];
     

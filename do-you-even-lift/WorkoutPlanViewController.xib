@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1912" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -81,7 +81,7 @@
                         </mask>
                     </variation>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGj-Te-F7F">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGj-Te-F7F">
                     <rect key="frame" x="355" y="507" width="95" height="33"/>
                     <color key="backgroundColor" red="0.63921570780000003" green="0.54901963470000004" blue="0.76078432799999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -96,21 +96,21 @@
                     </state>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="KXr-Xf-Ro1"/>
                             <exclude reference="4n3-Pd-gqB"/>
+                            <exclude reference="KXr-Xf-Ro1"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
                         <mask key="constraints">
-                            <include reference="KXr-Xf-Ro1"/>
                             <include reference="4n3-Pd-gqB"/>
+                            <include reference="KXr-Xf-Ro1"/>
                         </mask>
                     </variation>
                     <connections>
                         <action selector="cancelButtonPressed:" destination="-1" eventType="touchUpInside" id="bkM-KQ-C1V"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUQ-xS-EdP">
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUQ-xS-EdP">
                     <rect key="frame" x="151" y="506" width="70" height="34"/>
                     <color key="backgroundColor" red="0.63921570780000003" green="0.54901963470000004" blue="0.76078432799999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -174,20 +174,20 @@
                     <exclude reference="BJs-ap-j6N"/>
                     <exclude reference="ZcV-fy-rb2"/>
                     <exclude reference="eUZ-9D-6bx"/>
-                    <exclude reference="kkQ-3W-xKT"/>
-                    <exclude reference="y6V-89-aaj"/>
-                    <exclude reference="y71-4h-Wk4"/>
-                    <exclude reference="Bdg-p9-xNg"/>
-                    <exclude reference="aJM-dz-GaX"/>
-                    <exclude reference="b2P-m3-Wjo"/>
-                    <exclude reference="BMM-xf-Sl6"/>
                     <exclude reference="2ef-bf-boB"/>
                     <exclude reference="SMl-vI-zrk"/>
                     <exclude reference="wWl-e4-k4l"/>
+                    <exclude reference="kkQ-3W-xKT"/>
+                    <exclude reference="y6V-89-aaj"/>
+                    <exclude reference="y71-4h-Wk4"/>
+                    <exclude reference="BMM-xf-Sl6"/>
+                    <exclude reference="Bdg-p9-xNg"/>
+                    <exclude reference="aJM-dz-GaX"/>
+                    <exclude reference="b2P-m3-Wjo"/>
+                    <exclude reference="vHZ-wx-DXP"/>
                     <exclude reference="h8B-gR-VcA"/>
                     <exclude reference="o2b-2h-aWr"/>
                     <exclude reference="yhr-Vx-9jI"/>
-                    <exclude reference="vHZ-wx-DXP"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -204,20 +204,20 @@
                     <include reference="BJs-ap-j6N"/>
                     <include reference="ZcV-fy-rb2"/>
                     <include reference="eUZ-9D-6bx"/>
-                    <include reference="kkQ-3W-xKT"/>
-                    <include reference="y6V-89-aaj"/>
-                    <include reference="y71-4h-Wk4"/>
-                    <include reference="Bdg-p9-xNg"/>
-                    <include reference="aJM-dz-GaX"/>
-                    <include reference="b2P-m3-Wjo"/>
-                    <include reference="BMM-xf-Sl6"/>
                     <include reference="2ef-bf-boB"/>
                     <include reference="SMl-vI-zrk"/>
                     <include reference="wWl-e4-k4l"/>
+                    <include reference="kkQ-3W-xKT"/>
+                    <include reference="y6V-89-aaj"/>
+                    <include reference="y71-4h-Wk4"/>
+                    <include reference="BMM-xf-Sl6"/>
+                    <include reference="Bdg-p9-xNg"/>
+                    <include reference="aJM-dz-GaX"/>
+                    <include reference="b2P-m3-Wjo"/>
+                    <include reference="vHZ-wx-DXP"/>
                     <include reference="h8B-gR-VcA"/>
                     <include reference="o2b-2h-aWr"/>
                     <include reference="yhr-Vx-9jI"/>
-                    <include reference="vHZ-wx-DXP"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="619" y="119"/>

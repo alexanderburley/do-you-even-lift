@@ -26,11 +26,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak,nonatomic) CMPedometer *pedometer;
+@property (nonatomic,retain) NSArray *exercises;
 @property (nonatomic) BOOL newWorkout;
 
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-
 -(IBAction)finishButtonPressed:(id)sender;
+-(NSArray*)getUnselectedExercises;
 
 
 
