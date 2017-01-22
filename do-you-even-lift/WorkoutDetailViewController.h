@@ -20,7 +20,8 @@
 
 @property (strong,nonatomic) WorkoutPlan *workoutPlan;
 @property (strong,nonatomic) NSTimer *timer;
-@property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
+@property (retain, nonatomic) IBOutlet UILabel *stepsLabel;
+@property (weak, nonatomic) NSNumber* steps;
 @property (weak, nonatomic) IBOutlet UILabel *workoutPlanNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;

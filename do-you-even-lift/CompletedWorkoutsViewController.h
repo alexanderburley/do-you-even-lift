@@ -19,5 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIView *tableGraphView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tableGraphControl;
 - (IBAction)tableGraphControlPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *workoutsMonthLabel;
+@property (weak, nonatomic) IBOutlet UILabel *workoutsYearLabel;
+@property (weak, nonatomic) IBOutlet UILabel *workoutsTotalLabel;
 
 @end

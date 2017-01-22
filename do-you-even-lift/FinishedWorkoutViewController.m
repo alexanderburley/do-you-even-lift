@@ -25,8 +25,8 @@
     int min = [self.timeTaken intValue]/60;
     int sec = [self.timeTaken intValue]%60;
     self.congratulationsLabel.numberOfLines = 0;
-    self.congratulationsLabel.text = [NSString stringWithFormat:@"Congratulations! You completed your workout in %i minutes and %i seconds. During this workout you completed over XXX steps and completed XX exercises", min, sec];
-
+    self.congratulationsLabel.text = [NSString stringWithFormat:@"Congratulations! You completed your workout in %i minutes and %i seconds. During this workout you completed over %@ steps and completed %lu exercises", min, sec, self.currentWorkoutController.steps, [[self.currentWorkoutController.tableView indexPathsForSelectedRows] count]];
+    self.alertLabel.hidden = YES;
     
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         self.takePhotoButton.enabled = NO;
@@ -77,6 +77,7 @@
     CompletedWorkout *newCompletedWorkout = [NSEntityDescription insertNewObjectForEntityForName:@"CompletedWorkout" inManagedObjectContext:context];
     newCompletedWorkout.date_completed = [NSDate date];
     newCompletedWorkout.time_taken = self.timeTaken;
+    newCompletedWorkout.steps = self.currentWorkoutController.steps;
     newCompletedWorkout.workout_plan = self.workoutPlan;
     newCompletedWorkout.section_identifier = [newCompletedWorkout section_identifier];
     
@@ -129,6 +130,8 @@
     FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
     content.photos = @[[FBSDKSharePhoto photoWithImage:photo userGenerated:YES]];
     [FBSDKShareAPI shareWithContent:content delegate:self];
+    self.alertLabel.hidden = NO;
+    self.alertLabel.text = @"Successfully uploaded to facebook";
 }
 
 -(void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results{

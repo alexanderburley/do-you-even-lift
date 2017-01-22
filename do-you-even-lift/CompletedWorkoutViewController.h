@@ -19,14 +19,17 @@
 @interface CompletedWorkoutViewController : UIViewController <NSFetchedResultsControllerDelegate,UITableViewDataSource,UITableViewDelegate>
 
 
-@property(weak, nonatomic) NSString *action;
-@property(weak, nonatomic) CompletedWorkout *completedWorkout;
+@property (weak, nonatomic) NSString *action;
+@property (weak, nonatomic) CompletedWorkout *completedWorkout;
+
 @property (weak, nonatomic) IBOutlet UILabel *workoutName;
 @property (weak, nonatomic) IBOutlet UITableView *exerciseCompleted;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *stepsCompletedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateCompletedLabel;
 @property (weak, nonatomic) IBOutlet UIButton *savePlanButton;
+@property (weak, nonatomic) IBOutlet UILabel *timeTakenLabel;
+
 - (IBAction)savePlanButtonPressed:(id)sender;
 
 @end

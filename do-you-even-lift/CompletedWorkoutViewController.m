@@ -18,20 +18,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    //Initialise view objects
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    
-    
-    //self.title = @"Exercises";
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     [self.tableView setBackgroundColor:[UIColor appGreyColor]];
+    self.tableView.delegate = self;
+    self.tableView.layer.borderWidth = 1.0;
+    self.tableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    [self.tableView setSeparatorColor:[UIColor appBlueColor]];
     
+    self.savePlanButton.layer.cornerRadius = 5;
     if (self.completedWorkout.workout_plan){
         if ([self.completedWorkout.workout_plan.pre_made boolValue]){
             self.savePlanButton.enabled = NO;
@@ -39,26 +38,15 @@
         }
     }
     
-    
-    
-    
-    self.savePlanButton.layer.cornerRadius = 5;
-    
-    [self.tableView setSeparatorColor:[UIColor appBlueColor]];
-    self.tableView.delegate = self;
-    self.tableView.layer.borderWidth = 1.0;
-    self.tableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    //self.tableView.allowsSelection = NO;
     self.workoutName.text = self.completedWorkout.workout_plan.plan_name;
     self.stepsCompletedLabel.text = [NSString stringWithFormat:@"%@", self.completedWorkout.steps];
-    NSString *date_completed = [NSDateFormatter localizedStringFromDate:self.completedWorkout.date_completed
-                                                              dateStyle:NSDateFormatterMediumStyle
-                                                              timeStyle:NSDateFormatterNoStyle];
-    self.dateCompletedLabel.text = date_completed;
-    
+    self.dateCompletedLabel.text = [NSDateFormatter localizedStringFromDate:self.completedWorkout.date_completed
+                                                                  dateStyle:NSDateFormatterMediumStyle
+                                                                  timeStyle:NSDateFormatterNoStyle];
+    int min = [self.completedWorkout.time_taken intValue]/60;
+    int sec = [self.completedWorkout.time_taken intValue]%60;
+    self.timeTakenLabel.text = [NSString stringWithFormat:@"%02d:%02d", min, sec ];
     NSError *error;
-    //NSLog(@"%@", [self fetchedResultsController]);
     if (![[self fetchedResultsController] performFetch:&error]){
         NSLog(@"unresolved error %@, %@", error, [error userInfo]);
     }

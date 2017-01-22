@@ -20,8 +20,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *congratulationsLabel;
 @property (strong,nonatomic) NSNumber *timeTaken;
+@property (weak, nonatomic) NSNumber *steps;
 @property (weak,nonatomic) WorkoutPlan *workoutPlan;
 @property (weak,nonatomic) WorkoutDetailViewController *delegate;
+@property (weak, nonatomic) IBOutlet UILabel *alertLabel;
 - (IBAction)takePhotoButtonPressed:(id)sender;
 
 - (IBAction)saveWorkoutButtonPressed:(id)sender;

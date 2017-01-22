@@ -29,6 +29,7 @@
     
     sec = 0;
     min = 0;
+    self.steps = [NSNumber numberWithInt:0];
     self.view.backgroundColor = [UIColor appWhiteColor];
     self.timerLabel.text = [NSString stringWithFormat:@"%02d:%02d", min, sec];
     self.stepsLabel.text = [NSString stringWithFormat:@"0"];
@@ -68,10 +69,21 @@
             NSLog(@"Unable to save plan %@, %@", saveError, [saveError localizedDescription]);
         }
     }
-    [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData *_Nullable pedometerData, NSError * _Nullable error ) {
-        [self updateLabels:pedometerData];
-    }];
     
+    
+}
+
+-(void)startPedometer{
+    if ([CMPedometer isStepCountingAvailable]){
+        [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData *_Nullable pedometerData, NSError * _Nullable error ) {
+            [self updateLabels:pedometerData];
+            self.steps = pedometerData.numberOfSteps;
+        }];
+    }
+    else {
+        [self updateLabels:nil];
+    }
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -90,6 +102,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [self startTimer:nil];
+    [self startPedometer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -141,7 +154,7 @@
     finishWorkoutViewController.navigationItem.hidesBackButton = YES;
     //finishWorkoutViewController.stepsCompleted = self.steps;
     finishWorkoutViewController.timeTaken = [NSNumber numberWithInt:sec+(min*60)];
-//    finishWorkoutViewController.steps = [self.PedometerData.numberOfSteps];
+    finishWorkoutViewController.steps = self.steps;
     finishWorkoutViewController.workoutPlan = self.workoutPlan;
     finishWorkoutViewController.currentWorkoutController = self;
     NSError *saveError = nil;
@@ -151,6 +164,8 @@
     if(![context save:&saveError]){
         NSLog(@"Unable to save plan %@, %@", saveError, [saveError localizedDescription]);
     }
+    
+    [self.pedometer stopPedometerUpdates];
     [self showViewController:finishWorkoutViewController sender:self];
     
     
@@ -168,6 +183,7 @@
         self.stepsLabel.text = @"Steps Counter not available";
     }
 }
+
 
 -(void)timerFired:(NSTimer *)timer{
     sec++;

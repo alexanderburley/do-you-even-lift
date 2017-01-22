@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FinishedWorkoutViewController">
             <connections>
+                <outlet property="alertLabel" destination="Duh-Xz-PN3" id="2KZ-2f-VhN"/>
                 <outlet property="congratulationsLabel" destination="MmT-7V-6wd" id="8gS-eD-mef"/>
                 <outlet property="discardWorkoutButton" destination="Fdg-Vu-KRP" id="IxC-P1-PPl"/>
                 <outlet property="takePhotoButton" destination="6ZK-Rq-1SP" id="khP-Gx-0GZ"/>
